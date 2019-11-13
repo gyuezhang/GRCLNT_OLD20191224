@@ -1,13 +1,19 @@
 ﻿using System;
 using Stylet;
+using GRCLNT;
 
 
 namespace GRCLNT.Wnd
 {
     public class WndLoginViewModel : Screen
     {
+        public WndLoginViewModel()
+        {
+            Cfg.Init();
+            InitWidgetFromCfg();
+        }
         public int iTransitionerIndex { get; set; } = 0;
-
+        public STR_Cfg_Login loginCfg { get; set; }
         public void ShowSetting()
         {
             iTransitionerIndex = 1;
@@ -26,6 +32,16 @@ namespace GRCLNT.Wnd
         public void ExitLogin()
         {
             this.RequestClose();
+        }
+
+        private void InitWidgetFromCfg()
+        {
+            loginCfg = Cfg.GetLogin();
+        }
+
+        public void StartLogin()
+        {
+            Cfg.SaveLogin(loginCfg);
         }
     }
 }
