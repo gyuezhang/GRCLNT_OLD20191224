@@ -111,10 +111,10 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <CheckBox Grid.Column="1" IsChecked="{Binding loginCfg.AutoLogin,UpdateSourceTrigger=PropertyChanged}" Foreground="White" HorizontalAlignment="Left" Width="80" IsThreeState="False" VerticalAlignment="Center" FontSize="14" WindowChrome.IsHitTestVisibleInChrome="True" Margin="3 8 0 0">
+                        <CheckBox Grid.Column="1" Command="{s:Action AutoLoginChange}" IsChecked="{Binding loginCfg.AutoLogin,UpdateSourceTrigger=PropertyChanged}" Foreground="White" HorizontalAlignment="Left" Width="80" IsThreeState="False" VerticalAlignment="Center" FontSize="14" WindowChrome.IsHitTestVisibleInChrome="True" Margin="3 8 0 0">
                             自动登录
                         </CheckBox>
-                        <CheckBox Grid.Column="0" IsChecked="{Binding loginCfg.RecordPwd,UpdateSourceTrigger=PropertyChanged}" Foreground="White" HorizontalAlignment="Left" Width="80" IsThreeState="False" VerticalAlignment="Center" FontSize="14" WindowChrome.IsHitTestVisibleInChrome="True" Margin="3 8 0 0">
+                        <CheckBox Grid.Column="0" Command="{s:Action RecordPwdChange}" IsChecked="{Binding loginCfg.RecordPwd,UpdateSourceTrigger=PropertyChanged}" Foreground="White" HorizontalAlignment="Left" Width="80" IsThreeState="False" VerticalAlignment="Center" FontSize="14" WindowChrome.IsHitTestVisibleInChrome="True" Margin="3 8 0 0">
                             记住密码
                         </CheckBox>
                     </Grid>

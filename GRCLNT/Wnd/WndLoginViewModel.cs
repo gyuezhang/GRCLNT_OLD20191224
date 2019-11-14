@@ -43,5 +43,25 @@ namespace GRCLNT.Wnd
         {
             Cfg.SaveLogin(loginCfg);
         }
+
+        public void RecordPwdChange()
+        {
+            if (!loginCfg.RecordPwd)
+            {
+                loginCfg.AutoLogin = false;
+            }
+            Cfg.SaveLogin(loginCfg);
+            InitWidgetFromCfg();
+        }
+
+        public void AutoLoginChange()
+        {
+            if (loginCfg.AutoLogin)
+            {
+                loginCfg.RecordPwd = true; 
+            }
+            Cfg.SaveLogin(loginCfg);
+            InitWidgetFromCfg();
+        }
     }
 }
