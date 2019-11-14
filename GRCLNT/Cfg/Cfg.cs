@@ -12,12 +12,56 @@ namespace GRCLNT
     /// <summary>
     /// 用户信息结构体
     /// </summary>
-    public class CfgLogin
+    public class CfgLogin : PropertyChangedBase
     {
-        public string UserName { get; set; }
-        public string UserPwd { get; set; }
-        public bool RecordPwd { get; set; }
-        public bool AutoLogin { get; set; }
+        private string _userName;
+        private string _userPwd;
+        private bool _recordPwd;
+        private bool _autoLogin;
+        private string _serverIp;
+        public string UserName
+        {
+            get { return this._userName; }
+            set
+            {
+                SetAndNotify(ref this._userName, value);
+            }
+        }
+        public string UserPwd
+        {
+            get { return this._userPwd; }
+            set
+            {
+                SetAndNotify(ref this._userPwd, value);
+            }
+        }
+        public bool RecordPwd
+        {
+            get { return this._recordPwd; }
+            set
+            {
+                SetAndNotify(ref this._recordPwd, value);
+                if (!value)
+                {
+                    _autoLogin = value;
+                    this.NotifyOfPropertyChange(nameof(this.AutoLogin));
+                }
+            }
+        }
+        public bool AutoLogin
+        {
+            get { return this._autoLogin; }
+            set
+            {
+                SetAndNotify(ref this._autoLogin, value);
+                if (value)
+                {
+                    _recordPwd = value;
+                    this.NotifyOfPropertyChange(nameof(this.RecordPwd));
+                }
+            }
+        }
+
         public string ServerIp { get; set; }
     }
 

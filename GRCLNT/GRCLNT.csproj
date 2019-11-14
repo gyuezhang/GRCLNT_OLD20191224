@@ -155,11 +155,22 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Cfg\Cfg.cs" />
+    <Compile Include="DataType\CommFuncs.cs" />
+    <Compile Include="DataType\DataType.cs" />
+    <Compile Include="Socket\API_Def.cs" />
+    <Compile Include="Socket\API_RecvRes.cs" />
+    <Compile Include="Socket\CLNTAPI.cs" />
+    <Compile Include="Socket\CLNTClient.cs" />
+    <Compile Include="Socket\CLNTRecvFilter.cs" />
     <Compile Include="Tool\PasswordHelper.cs" />
     <Compile Include="Wnd\WndLoginView.xaml.cs">
       <DependentUpon>WndLoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Wnd\WndLoginViewModel.cs" />
+    <Compile Include="Wnd\WndMainView.xaml.cs">
+      <DependentUpon>WndMainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Wnd\WndMainViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
@@ -195,6 +206,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Wnd\WndLoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Wnd\WndMainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

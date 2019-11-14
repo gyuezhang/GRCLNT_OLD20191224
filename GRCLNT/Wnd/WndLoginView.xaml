@@ -111,10 +111,10 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <CheckBox Grid.Column="1" Command="{s:Action AutoLoginChange}" IsChecked="{Binding loginCfg.AutoLogin,UpdateSourceTrigger=PropertyChanged}" Foreground="White" HorizontalAlignment="Left" Width="80" IsThreeState="False" VerticalAlignment="Center" FontSize="14" WindowChrome.IsHitTestVisibleInChrome="True" Margin="3 8 0 0">
+                        <CheckBox Grid.Column="1"  IsChecked="{Binding loginCfg.AutoLogin,UpdateSourceTrigger=PropertyChanged}" Foreground="White" HorizontalAlignment="Left" Width="80" IsThreeState="False" VerticalAlignment="Center" FontSize="14" WindowChrome.IsHitTestVisibleInChrome="True" Margin="3 8 0 0">
                             自动登录
                         </CheckBox>
-                        <CheckBox Grid.Column="0" Command="{s:Action RecordPwdChange}" IsChecked="{Binding loginCfg.RecordPwd,UpdateSourceTrigger=PropertyChanged}" Foreground="White" HorizontalAlignment="Left" Width="80" IsThreeState="False" VerticalAlignment="Center" FontSize="14" WindowChrome.IsHitTestVisibleInChrome="True" Margin="3 8 0 0">
+                        <CheckBox Grid.Column="0"  IsChecked="{Binding loginCfg.RecordPwd,UpdateSourceTrigger=PropertyChanged}" Foreground="White" HorizontalAlignment="Left" Width="80" IsThreeState="False" VerticalAlignment="Center" FontSize="14" WindowChrome.IsHitTestVisibleInChrome="True" Margin="3 8 0 0">
                             记住密码
                         </CheckBox>
                     </Grid>
@@ -147,7 +147,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Button WindowChrome.IsHitTestVisibleInChrome="True"  FontSize="18"  Style="{StaticResource MaterialDesignRaisedDarkButton}" HorizontalAlignment="Center"   Width="100" Grid.Column="1"  Command="{s:Action SaveSetting}">确 定</Button>
+                        <Button WindowChrome.IsHitTestVisibleInChrome="True"  FontSize="18"  Style="{StaticResource MaterialDesignRaisedDarkButton}" HorizontalAlignment="Center"   Width="100" Grid.Column="1"  Command="{s:Action SettingDone}">确 定</Button>
                         <Button WindowChrome.IsHitTestVisibleInChrome="True"  FontSize="18"   Style="{StaticResource MaterialDesignRaisedDarkButton}" HorizontalAlignment="Center"   Width="100" Grid.Column="0"  Command="{s:Action TestServer}">测 试</Button>
                     </Grid>
                 </StackPanel>
@@ -167,7 +167,7 @@
 
         <!--底部普通消息提示-->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="2" Width="300">
-            <materialDesign:Snackbar  MessageQueue="{materialDesign:MessageQueue}" ActionButtonStyle="{StaticResource ActionButtonStyleCust}"/>
+            <materialDesign:Snackbar  MessageQueue="{Binding NormalMessageQueue}" ActionButtonStyle="{StaticResource ActionButtonStyleCust}"/>
         </StackPanel>
 
     </Grid>
