@@ -11,7 +11,7 @@ namespace GRCLNT
     /// <summary>
     /// 用户信息结构体
     /// </summary>
-    public struct STR_Cfg_Login
+    public class CfgLogin
     {
         public string UserName { get; set; }
         public string UserPwd { get; set; }
@@ -61,9 +61,9 @@ namespace GRCLNT
         /// 获取配置文件中的登录信息
         /// </summary>
         /// <returns>登录信息结构体</returns>
-        public static STR_Cfg_Login GetLogin()
+        public static CfgLogin GetLogin()
         {
-            STR_Cfg_Login res = new STR_Cfg_Login();
+            CfgLogin res = new CfgLogin();
             string strExePath = System.Environment.CurrentDirectory;
             string strCfgPath = strExePath + "\\Cfg.xml";
             XmlReader myReader = XmlReader.Create(strCfgPath);
@@ -113,7 +113,7 @@ namespace GRCLNT
         /// 保存登录信息到配置文件中
         /// </summary>
         /// <param name="login">登录信息结构体</param>
-        public static void SaveLogin(STR_Cfg_Login login)
+        public static void SaveLogin(CfgLogin login)
         {
             string strExePath = System.Environment.CurrentDirectory;
             string strCfgPath = strExePath + "\\Cfg.xml";

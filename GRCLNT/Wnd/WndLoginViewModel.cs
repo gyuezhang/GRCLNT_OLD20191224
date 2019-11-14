@@ -13,7 +13,7 @@ namespace GRCLNT.Wnd
             InitWidgetFromCfg();
         }
         public int iTransitionerIndex { get; set; } = 0;
-        public STR_Cfg_Login loginCfg { get; set; }
+        public CfgLogin loginCfg { get; set; } = new CfgLogin();
         public void ShowSetting()
         {
             iTransitionerIndex = 1;
