@@ -11,13 +11,16 @@
         Title="宝坻区地下水资源信息管理系统" 
         Height="840" Width="1440" 
         MinHeight="720" MinWidth="1260"
+        MaxHeight="{Binding dbMaxHeight}" MaxWidth="{Binding dbMaxWidth}"
+        WindowState="{Binding CurWindowState, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+        StateChanged="{s:Action OnStateChanged}"
         WindowStartupLocation="CenterScreen" WindowStyle="None">
     <!--窗体边界-->
     <WindowChrome.WindowChrome>
         <WindowChrome ResizeBorderThickness="7" UseAeroCaptionButtons="True" CaptionHeight="68"/>
     </WindowChrome.WindowChrome>
 
-    <Grid>
+    <Grid Margin="{Binding bdMargin}">
         <!--背景色-->
         <Grid.Background>
             <RadialGradientBrush>
@@ -329,7 +332,7 @@
                         <Frame  NavigationUIVisibility="Hidden"/>
 
                     </ScrollViewer>
-                    <Image  Width="24" Height="24" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/GRCLNT;component/Resource/Image/resize-bottom-right.png"/>
+                    <Image Visibility="{Binding vImageDragVisible}" Width="24" Height="24" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/GRCLNT;component/Resource/Image/resize-bottom-right.png"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="2" Width="300">
                         <materialDesign:Snackbar  MessageQueue="{materialDesign:MessageQueue}" />
                     </StackPanel>
