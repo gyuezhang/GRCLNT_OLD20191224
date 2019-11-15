@@ -157,6 +157,42 @@
     <Compile Include="Cfg\Cfg.cs" />
     <Compile Include="DataType\CommFuncs.cs" />
     <Compile Include="DataType\DataType.cs" />
+    <Compile Include="Pages\01HomePage\PageHomePageView.xaml.cs">
+      <DependentUpon>PageHomePageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\01HomePage\PageHomePageViewModel.cs" />
+    <Compile Include="Pages\02Well\PageWellView.xaml.cs">
+      <DependentUpon>PageWellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\02Well\PageWellViewModel.cs" />
+    <Compile Include="Pages\03EntWell\PageEntWellView.xaml.cs">
+      <DependentUpon>PageEntWellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\03EntWell\PageEntWellViewModel.cs" />
+    <Compile Include="Pages\04SediCtrl\PageSediCtrlView.xaml.cs">
+      <DependentUpon>PageSediCtrlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\04SediCtrl\PageSediCtrlViewModel.cs" />
+    <Compile Include="Pages\05GwDyna\PageGwDynaView.xaml.cs">
+      <DependentUpon>PageGwDynaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\05GwDyna\PageGwDynaViewModel.cs" />
+    <Compile Include="Pages\06GwProj\PageGwProjView.xaml.cs">
+      <DependentUpon>PageGwProjView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\06GwProj\PageGwProjViewModel.cs" />
+    <Compile Include="Pages\07Hydro\PageHydroView.xaml.cs">
+      <DependentUpon>PageHydroView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\07Hydro\PageHydroViewModel.cs" />
+    <Compile Include="Pages\08Law\PageLawView.xaml.cs">
+      <DependentUpon>PageLawView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\08Law\PageLawViewModel.cs" />
+    <Compile Include="Pages\09Setting\PageSettingView.xaml.cs">
+      <DependentUpon>PageSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\09Setting\PageSettingViewModel.cs" />
     <Compile Include="Socket\API_Def.cs" />
     <Compile Include="Socket\API_RecvRes.cs" />
     <Compile Include="Socket\CLNTAPI.cs" />
@@ -201,6 +237,42 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Pages\01HomePage\PageHomePageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\02Well\PageWellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\03EntWell\PageEntWellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\04SediCtrl\PageSediCtrlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\05GwDyna\PageGwDynaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\06GwProj\PageGwProjView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\07Hydro\PageHydroView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\08Law\PageLawView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\09Setting\PageSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resource\Style\DefaultStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -216,7 +288,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Ctrl\" />
-    <Folder Include="Page\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Image\Logo.png" />

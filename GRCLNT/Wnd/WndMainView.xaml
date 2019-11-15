@@ -242,7 +242,7 @@
                         <Button Grid.Row="13"  ToolTip="水文地质" ToolTipService.Placement="Right" ToolTipService.VerticalOffset="12"   Style="{StaticResource MaterialDesignToolForegroundButton}" Width="48" Height="48" Margin="2,0,0,0">
                             <materialDesign:PackIcon Kind="Map" Height="36" Width="36" Margin="-10" Foreground="White"/>
                         </Button>
-                        <Button Grid.Row="15"  ToolTipService.Placement="Right" ToolTipService.VerticalOffset="12"   Style="{StaticResource MaterialDesignToolForegroundButton}" Width="48" Height="48" Margin="2,0,0,0">
+                        <Button Grid.Row="15" ToolTip="法律法规" ToolTipService.Placement="Right" ToolTipService.VerticalOffset="12"   Style="{StaticResource MaterialDesignToolForegroundButton}" Width="48" Height="48" Margin="2,0,0,0">
                             <materialDesign:PackIcon Kind="ScaleBalance" Height="36" Width="36" Margin="-10" Foreground="White"/>
                         </Button>
                         <Border Grid.Row="2" Margin="14,0,12,0" Background="#22FFFFFF" Height="1"/>

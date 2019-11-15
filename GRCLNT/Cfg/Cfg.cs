@@ -62,7 +62,14 @@ namespace GRCLNT
             }
         }
 
-        public string ServerIp { get; set; }
+        public string ServerIp
+        {
+            get { return _serverIp; }
+            set
+            {
+                SetAndNotify(ref this._serverIp, value);
+            }
+        }
     }
 
     /// <summary>
