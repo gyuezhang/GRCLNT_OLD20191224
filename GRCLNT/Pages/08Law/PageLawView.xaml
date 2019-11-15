@@ -12,6 +12,6 @@
       Title="PageLawView">
 
     <Grid>
-        
+        <TextBlock Text="PageLawView" FontSize="64" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>

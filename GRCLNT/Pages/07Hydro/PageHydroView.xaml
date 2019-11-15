@@ -12,6 +12,6 @@
       Title="PageHydroView">
 
     <Grid>
-        
+        <TextBlock Text="PageHydroView" FontSize="64" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>

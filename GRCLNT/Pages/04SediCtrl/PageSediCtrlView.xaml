@@ -9,9 +9,9 @@
       xmlns:s="https://github.com/canton7/Stylet"
       d:DataContext="{d:DesignInstance local:PageSediCtrlViewModel}"
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page1">
+      Title="PageSediCtrlView">
 
     <Grid>
-        
+        <TextBlock Text="PageSediCtrlView" FontSize="64" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>
