@@ -51,7 +51,7 @@
 
             <!--标题logo-->
             <Border Grid.Column="0" Background="#34000000">
-                <Image Source="/GRCLNT;component/Resource/Image/Logo.png" Margin="8"/>
+                <Image Source="/GRCLNT;component/Resource/Image/Logo.png" Margin="11"/>
             </Border>
 
             <!--标题文字-->
@@ -60,8 +60,8 @@
                     <RowDefinition Height="6*"/>
                     <RowDefinition Height="4*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="宝坻区地下水资源信息管理系统" FontSize="28" Margin="0,10,40,0"/>
-                <TextBlock Grid.Row="1" Text="Baodi District Groundwater Resources Infomation Management System" FontSize="12.4" Margin="3,3,0,0"/>
+                <TextBlock Grid.Row="0" Text="宝坻区地下水资源信息管理系统" FontSize="28" Margin="5,10,40,0"/>
+                <TextBlock Grid.Row="1" Text="Baodi District Groundwater Resources Infomation Management System" FontSize="12.4" Margin="8,3,0,0"/>
             </Grid>
 
             <!--渐变形状-->
@@ -123,11 +123,11 @@
             <!--占位-->
             <Border Grid.Column="4"/>
 
-            <materialDesign:Badged WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="5"  Badge="3" Margin="10,12,20,10">
-                <Button  Width="48" Height="48" VerticalAlignment="Center" WindowChrome.IsHitTestVisibleInChrome="True"  Style="{StaticResource MaterialDesignIconButton}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}">
-                    <Image Source="/GRCLNT;component/Resource/Image/Logo.png"  Width="48" Height="48"/>
+            <!--<materialDesign:Badged WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="5"  Badge="3" Margin="10,12,20,10">-->
+            <Button  Width="42" Height="42" Grid.Column="5" Command="{s:Action OpenUserInfo}" Margin="10,12,20,10" VerticalAlignment="Center" WindowChrome.IsHitTestVisibleInChrome="True"  Style="{StaticResource MaterialDesignIconButton}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}">
+                    <TextBlock Text="{Binding strAvaName}" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,4,0,0"/>
                 </Button>
-            </materialDesign:Badged>
+            <!--</materialDesign:Badged>-->
         </Grid>
 
         <!--标题栏以下布局-->

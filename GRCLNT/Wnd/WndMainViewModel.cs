@@ -89,12 +89,17 @@ namespace GRCLNT.Wnd
                     break;
             }
         }
-
+        public string strAvaName { get; set; } = "张";
         public int iBdFocus { get; set; } = 1;
         public Visibility vSettingFocus { get; set; } = Visibility.Hidden;
 
         public Visibility vMenuFocus { get; set; } = Visibility.Visible;
 
         public Screen curPage { get; set; } = new PageHomePageViewModel();
+
+        public void OpenUserInfo()
+        {
+            MenuClick("1");
+        }
     }
 }
