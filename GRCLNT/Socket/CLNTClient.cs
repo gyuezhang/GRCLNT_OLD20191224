@@ -29,6 +29,9 @@ namespace GRCLNT.Socket
                     case API_ID.API_Login:
                         API_RecvRes.API_Login(request);
                         break;
+                    case API_ID.API_GetUserInfo:
+                        API_RecvRes.API_GetUserInfo(request);
+                        break;
                     //case API_ID.API_Admin_ChangePwd:
                     //    API_RecvRes.API_Admin_ChangePwd(request);
                     //    break;

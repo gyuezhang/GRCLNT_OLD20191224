@@ -125,7 +125,7 @@
 
             <materialDesign:Badged WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="5"  Badge="3" Margin="10,12,20,10">
                 <Button  Width="48" Height="48" VerticalAlignment="Center" WindowChrome.IsHitTestVisibleInChrome="True"  Style="{StaticResource MaterialDesignIconButton}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}">
-                    <Image Source="/UI;component/Resource/Image/Avator.png"  Width="48" Height="48"/>
+                    <Image Source="/GRCLNT;component/Resource/Image/Logo.png"  Width="48" Height="48"/>
                 </Button>
             </materialDesign:Badged>
         </Grid>
@@ -328,9 +328,8 @@
                     </Border.Background>
                 </Border>
                 <Grid Grid.Row="1">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,24,0,24">
-                        <Frame  NavigationUIVisibility="Hidden"/>
-
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,24,0,24" >
+                        <ContentControl  s:View.Model="{Binding curPage}" />
                     </ScrollViewer>
                     <Image Visibility="{Binding vImageDragVisible}" Width="24" Height="24" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/GRCLNT;component/Resource/Image/resize-bottom-right.png"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="2" Width="300">

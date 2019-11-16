@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace GRCLNT.Pages
 {
     /// <summary>
-    /// PageHomePageView.xaml 的交互逻辑
+    /// UserInfoCtrlView.xaml 的交互逻辑
     /// </summary>
-    public partial class PageHomePageView : UserControl
+    public partial class UserInfoCtrlView : UserControl
     {
-        public PageHomePageView()
+        public UserInfoCtrlView()
         {
             InitializeComponent();
         }

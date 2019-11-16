@@ -1,4 +1,6 @@
-﻿using GRCLNT.Wnd;
+﻿using GRCLNT.DataType;
+using GRCLNT.Pages;
+using GRCLNT.Wnd;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ namespace GRCLNT.Socket
     {
         //private static MainWindow wndMain;
         private static WndLoginViewModel wndLoginViewModel;
+        private static PageHomePageViewModel pageHomePageViewModel;
         //private static OrgMng_DeptPage pageOrgMng_Dept;
         //private static OrgMng_UserPage pageOrgMng_User;
         //private static OperUserDlg dlgOperUser;
@@ -28,6 +31,10 @@ namespace GRCLNT.Socket
             wndLoginViewModel = w;
         }
 
+        public static void SetPageHomePageViewModel(PageHomePageViewModel p)
+        {
+            pageHomePageViewModel = p;
+        }
         //public static void SetPageOrgMng_Dept(OrgMng_DeptPage p)
         //{
         //    pageOrgMng_Dept = p;
@@ -61,6 +68,12 @@ namespace GRCLNT.Socket
             wndLoginViewModel.LoginRes(request.resState);
         }
 
+        public static void API_GetUserInfo(CLNTStringPackageInfo request)
+        {
+            List<STR_User> users = new List<STR_User>();
+            users = STR_User.UsrsFromStrs(request.Parameters);
+            pageHomePageViewModel.GetUserfInfoRes(request.resState,users[0]);
+        }
         ///// <summary>
         ///// 更换密码接口返回状态
         ///// </summary>

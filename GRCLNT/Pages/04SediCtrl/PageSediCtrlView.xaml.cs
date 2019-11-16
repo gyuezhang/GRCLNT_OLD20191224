@@ -18,7 +18,7 @@ namespace GRCLNT.Pages
     /// <summary>
     /// Page1.xaml 的交互逻辑
     /// </summary>
-    public partial class PageSediCtrlView : Page
+    public partial class PageSediCtrlView : UserControl
     {
         public PageSediCtrlView()
         {

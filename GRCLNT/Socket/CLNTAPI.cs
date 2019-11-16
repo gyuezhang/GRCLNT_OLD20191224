@@ -42,6 +42,12 @@ namespace GRCLNT.Socket
             }
         }
 
+        public static void GetUserInfo(string name)
+        {
+            if (CLNTClient.ezClient.IsConnected)
+                CLNTClient.ezClient.Send(Encoding.UTF8.GetBytes("API_GetUserInfo " + name + " " + "\r\n"));
+        }
+
         /// <summary>
         /// 更换管理员密码接口
         /// </summary>

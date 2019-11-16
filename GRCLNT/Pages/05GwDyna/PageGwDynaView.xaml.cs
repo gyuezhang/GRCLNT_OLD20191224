@@ -18,7 +18,7 @@ namespace GRCLNT.Pages
     /// <summary>
     /// PageGwDynaView.xaml 的交互逻辑
     /// </summary>
-    public partial class PageGwDynaView : Page
+    public partial class PageGwDynaView : UserControl
     {
         public PageGwDynaView()
         {

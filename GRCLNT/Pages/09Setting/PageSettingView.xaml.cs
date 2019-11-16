@@ -18,7 +18,7 @@ namespace GRCLNT.Pages
     /// <summary>
     /// PageSettingView.xaml 的交互逻辑
     /// </summary>
-    public partial class PageSettingView : Page
+    public partial class PageSettingView : UserControl
     {
         public PageSettingView()
         {

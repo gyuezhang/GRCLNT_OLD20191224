@@ -5,6 +5,8 @@ using GRCLNT.Socket;
 using MaterialDesignThemes.Wpf;
 using System.Net;
 using System.Windows;
+using System.Windows.Controls;
+using GRCLNT.Pages;
 
 namespace GRCLNT.Wnd
 {
@@ -16,6 +18,11 @@ namespace GRCLNT.Wnd
             this.windowManager = windowManager;
             dbMaxHeight = SystemParameters.WorkArea.Height + 7;
             dbMaxWidth = SystemParameters.WorkArea.Width + 7;
+        }
+
+        public WndMainViewModel()
+        {
+
         }
         public WindowState CurWindowState { get; set; }
         public double dbMaxHeight { get; set; }
@@ -43,31 +50,40 @@ namespace GRCLNT.Wnd
             {
                 case 1:
                     iBdFocus = 1;
+                    curPage = new PageHomePageViewModel();
                     break;
                 case 2:
                     iBdFocus = 3;
+                    curPage = new PageWellViewModel();
                     break;
                 case 3:
                     iBdFocus = 5;
+                    curPage = new PageEntWellViewModel();
                     break;
                 case 4:
                     iBdFocus = 7;
+                    curPage = new PageSediCtrlViewModel();
                     break;
                 case 5:
                     iBdFocus = 9;
+                    curPage = new PageGwDynaViewModel();
                     break;
                 case 6:
                     iBdFocus = 11;
+                    curPage = new PageGwProjViewModel();
                     break;
                 case 7:
                     iBdFocus = 13;
+                    curPage = new PageHydroViewModel();
                     break;
                 case 8:
                     iBdFocus = 15;
+                    curPage = new PageLawViewModel();
                     break;
                 case 9:
                     vSettingFocus = Visibility.Visible;
                     vMenuFocus = Visibility.Hidden;
+                    curPage = new PageSettingViewModel();
                     break;
                 default:
                     break;
@@ -78,5 +94,7 @@ namespace GRCLNT.Wnd
         public Visibility vSettingFocus { get; set; } = Visibility.Hidden;
 
         public Visibility vMenuFocus { get; set; } = Visibility.Visible;
+
+        public Screen curPage { get; set; } = new PageHomePageViewModel();
     }
 }

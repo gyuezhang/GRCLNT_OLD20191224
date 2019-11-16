@@ -1,4 +1,4 @@
-﻿<Page x:Class="GRCLNT.Pages.PageSettingView"
+﻿<UserControl x:Class="GRCLNT.Pages.PageSettingView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,10 +8,9 @@
       mc:Ignorable="d" 
       xmlns:s="https://github.com/canton7/Stylet"
       d:DataContext="{d:DesignInstance local:PageSettingViewModel}"
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageSettingView">
+      d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid>
         <TextBlock Text="PageSettingView" FontSize="64" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
-</Page>
+</UserControl>

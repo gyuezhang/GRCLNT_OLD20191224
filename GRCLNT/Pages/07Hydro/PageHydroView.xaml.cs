@@ -18,7 +18,7 @@ namespace GRCLNT.Pages
     /// <summary>
     /// PageHydroView.xaml 的交互逻辑
     /// </summary>
-    public partial class PageHydroView : Page
+    public partial class PageHydroView : UserControl
     {
         public PageHydroView()
         {

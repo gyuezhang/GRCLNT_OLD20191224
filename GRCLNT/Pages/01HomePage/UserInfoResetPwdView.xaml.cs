@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace GRCLNT.Pages
 {
     /// <summary>
-    /// PageHomePageView.xaml 的交互逻辑
+    /// UserInfoResetPwdView.xaml 的交互逻辑
     /// </summary>
-    public partial class PageHomePageView : UserControl
+    public partial class UserInfoResetPwdView : UserControl
     {
-        public PageHomePageView()
+        public UserInfoResetPwdView()
         {
             InitializeComponent();
         }

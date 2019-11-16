@@ -18,7 +18,7 @@ namespace GRCLNT.Pages
     /// <summary>
     /// PageLawView.xaml 的交互逻辑
     /// </summary>
-    public partial class PageLawView : Page
+    public partial class PageLawView : UserControl
     {
         public PageLawView()
         {

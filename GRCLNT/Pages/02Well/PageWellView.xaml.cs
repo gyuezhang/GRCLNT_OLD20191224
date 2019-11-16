@@ -18,7 +18,7 @@ namespace GRCLNT.Pages
     /// <summary>
     /// PageWellView.xaml 的交互逻辑
     /// </summary>
-    public partial class PageWellView : Page
+    public partial class PageWellView : UserControl
     {
         public PageWellView()
         {

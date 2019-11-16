@@ -22,6 +22,7 @@
 
         API_Login,
         API_ChangeAccount,
+        API_GetUserInfo,
 
         API_ChangeWell,
         API_CreateWell,

@@ -32,7 +32,7 @@ namespace GRCLNT.Wnd
             TimerLoginSuccess.Stop();
             App.Current.Dispatcher.Invoke((Action)(() =>
             {
-                var wndMainViewModel = new WndMainViewModel(this.windowManager);
+                var wndMainViewModel = new WndMainViewModel();
                 this.windowManager.ShowWindow(wndMainViewModel);
                 this.RequestClose();
             }));
