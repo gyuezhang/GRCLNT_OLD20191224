@@ -12,10 +12,10 @@
       >
 
     <Grid>
-        <TabControl SelectedIndex="{Binding iTabIndex}" Background="Transparent" >
+        <TabControl SelectedIndex="{Binding iTabIndex}" Background="Transparent" BorderThickness="0">
             <TabControl.ItemContainerStyle>
                 <Style TargetType="{x:Type TabItem}">
-                    <Setter Property="Visibility" Value="Hidden" />
+                    <Setter Property="Visibility" Value="Collapsed" />
                 </Style>
             </TabControl.ItemContainerStyle>
             <Grid >

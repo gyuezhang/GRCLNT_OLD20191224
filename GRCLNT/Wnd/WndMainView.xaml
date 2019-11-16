@@ -327,9 +327,9 @@
                         </LinearGradientBrush>
                     </Border.Background>
                 </Border>
-                <Grid Grid.Row="1">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,24,0,24" >
-                        <ContentControl  s:View.Model="{Binding curPage}" />
+                <Grid Grid.Row="0" Grid.RowSpan="2">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,0,0" >
+                        <ContentControl  s:View.Model="{Binding curPage}" Background="Red"/>
                     </ScrollViewer>
                     <Image Visibility="{Binding vImageDragVisible}" Width="24" Height="24" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/GRCLNT;component/Resource/Image/resize-bottom-right.png"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="2" Width="300">
