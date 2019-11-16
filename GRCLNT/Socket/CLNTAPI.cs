@@ -54,6 +54,7 @@ namespace GRCLNT.Socket
                 CLNTClient.ezClient.Send(Encoding.UTF8.GetBytes("API_ChangeAccount " + user.UsrToStr() + "\r\n"));
         }
 
+
         /// <summary>
         /// 更换管理员密码接口
         /// </summary>

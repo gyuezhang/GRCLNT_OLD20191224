@@ -32,10 +32,12 @@ namespace GRCLNT.Pages
         }
 
         public STR_User userInfo { get; set; } = new STR_User();
+        public STR_User userInfoChanging { get; set; } = new STR_User();
 
         public void ChangeUserInfo()
         {
             iTabIndex = 3;
+            userInfoChanging = userInfo;
         }
 
         public void ResetPwd()
@@ -84,6 +86,20 @@ namespace GRCLNT.Pages
         {
             if (state == RES_STATE.OK)
             {
+                GetUserInfo();
+            }
+        }
+
+        public void OnChangeInfo()
+        {
+            CLNTAPI.API_ChangeAccount(userInfoChanging);
+        }
+
+        public void OnChangeInfoRes(RES_STATE state)
+        {
+            if(state == RES_STATE.OK)
+            {
+                userInfo = userInfoChanging;
             }
         }
     }
