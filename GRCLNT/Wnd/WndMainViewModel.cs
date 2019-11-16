@@ -25,8 +25,8 @@ namespace GRCLNT.Wnd
 
         }
         public WindowState CurWindowState { get; set; }
-        public double dbMaxHeight { get; set; }
-        public double dbMaxWidth { get; set; }
+        public double dbMaxHeight { get; set; } = SystemParameters.WorkArea.Height + 7;
+        public double dbMaxWidth { get; set; } = SystemParameters.WorkArea.Width + 7;
 
         public Thickness bdMargin { get; set; } = new Thickness(0, 0, 0, 0);
         public Visibility vImageDragVisible { get; set; } = Visibility.Visible;
