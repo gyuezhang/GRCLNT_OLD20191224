@@ -6,6 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:GRCLNT.Wnd"
         xmlns:s="https://github.com/canton7/Stylet"
+        xmlns:locals="clr-namespace:GRCLNT.Pages"
         d:DataContext="{d:DesignInstance local:WndMainViewModel}"
         mc:Ignorable="d"
         Title="宝坻区地下水资源信息管理系统" 
@@ -319,6 +320,8 @@
                     <RowDefinition Height="5"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                <locals:UC_Addr HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="0" Grid.RowSpan="2" Height="100" Panel.ZIndex="100"/>
+
                 <Border Grid.Row="0">
                     <Border.Background>
                         <LinearGradientBrush EndPoint="0.5,0.7" StartPoint="0.5,0.2">
@@ -329,7 +332,7 @@
                 </Border>
                 <Grid Grid.Row="0" Grid.RowSpan="2">
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,0,0" >
-                        <ContentControl  s:View.Model="{Binding curPage}" Background="Red"/>
+                        <ContentControl  s:View.Model="{Binding curPage}" />
                     </ScrollViewer>
                     <Image Visibility="{Binding vImageDragVisible}" Width="24" Height="24" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/GRCLNT;component/Resource/Image/resize-bottom-right.png"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="2" Width="300">

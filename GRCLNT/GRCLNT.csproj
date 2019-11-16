@@ -67,6 +67,7 @@
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
       <Private>True</Private>
@@ -127,6 +128,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -155,6 +157,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Cfg\Cfg.cs" />
+    <Compile Include="Ctrl\UC_Addr.xaml.cs">
+      <DependentUpon>UC_Addr.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataType\CommFuncs.cs" />
     <Compile Include="DataType\DataType.cs" />
     <Compile Include="Pages\01HomePage\DashBoardView.xaml.cs">
@@ -249,6 +254,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Ctrl\UC_Addr.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\01HomePage\DashBoardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -314,9 +323,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Ctrl\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resource\Image\Logo.png" />
   </ItemGroup>
