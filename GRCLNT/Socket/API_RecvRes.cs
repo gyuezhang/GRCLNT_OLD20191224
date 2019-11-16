@@ -74,6 +74,11 @@ namespace GRCLNT.Socket
             users = STR_User.UsrsFromStrs(request.Parameters);
             pageHomePageViewModel.GetUserfInfoRes(request.resState,users[0]);
         }
+
+        public static void API_ChangeAccount(CLNTStringPackageInfo request)
+        {
+            pageHomePageViewModel.ChangeAccountRes(request.resState);
+        }
         ///// <summary>
         ///// 更换密码接口返回状态
         ///// </summary>

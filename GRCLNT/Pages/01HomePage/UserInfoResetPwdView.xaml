@@ -5,11 +5,19 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:GRCLNT.Pages"
+             xmlns:helper="clr-namespace:GRCLNT.Tool"
              xmlns:s="https://github.com/canton7/Stylet"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance local:PageHomePageViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="resetpwd" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="66"/>    
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="300">
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="15" Text="重置密码" FontSize="24"/>
+
+            <PasswordBox Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" helper:PasswordHelper.Attach="True"  helper:PasswordHelper.Password="{Binding strResetPwdOld,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Margin="5" Foreground="White" FontSize="18" materialDesign:HintAssist.Hint="旧密码" HorizontalAlignment="Stretch" />
+            <PasswordBox Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" helper:PasswordHelper.Attach="True"  helper:PasswordHelper.Password="{Binding strResetPwdNew1,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"   Margin="5" Foreground="White" FontSize="18" materialDesign:HintAssist.Hint="新密码" HorizontalAlignment="Stretch" />
+            <PasswordBox Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" helper:PasswordHelper.Attach="True"  helper:PasswordHelper.Password="{Binding strResetPwdNew2,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"   Margin="5" Foreground="White" FontSize="18" materialDesign:HintAssist.Hint="确认密码" HorizontalAlignment="Stretch" />
+            <Button  FontSize="18" Margin="10" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignRaisedDarkButton}" Command="{s:Action OnResetPwd}">重 置</Button>
+        </StackPanel>
     </Grid>
 </UserControl>

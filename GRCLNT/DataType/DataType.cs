@@ -2,7 +2,7 @@
 
 namespace GRCLNT.DataType
 {
-    public struct STR_User
+    public class STR_User
     {
         public int Id { get; set; }
         public string Name { get; set; }
