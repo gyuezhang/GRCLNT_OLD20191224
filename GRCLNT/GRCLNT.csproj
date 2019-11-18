@@ -37,6 +37,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>View\Resource\Image\Logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
@@ -76,6 +79,7 @@
     <Compile Include="Bootstrapper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\Resource\CustCtrl\PasswordHelper.cs" />
     <Compile Include="View\Wnd\WndLoginView.xaml.cs">
       <DependentUpon>WndLoginView.xaml</DependentUpon>
     </Compile>
@@ -107,6 +111,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\Resource\Style\DefaultStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Wnd\WndLoginView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -117,6 +125,14 @@
       <Project>{85FE35F2-BB86-41F2-8822-E58DEBE5090C}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resource\Image\bgleft.png" />
+    <Resource Include="View\Resource\Image\BtnCard_Dashboard.png" />
+    <Resource Include="View\Resource\Image\BtnCard_UserInfo.png" />
+    <Resource Include="View\Resource\Image\Logo.ico" />
+    <Resource Include="View\Resource\Image\Logo.png" />
+    <Resource Include="View\Resource\Image\resize-bottom-right.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.0.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.0.0\build\Fody.targets')" />
