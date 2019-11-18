@@ -70,8 +70,8 @@
     <Compile Include="Bootstrapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="View\Wnd\ShellView.xaml.cs">
-      <DependentUpon>ShellView.xaml</DependentUpon>
+    <Compile Include="View\Wnd\WndLoginView.xaml.cs">
+      <DependentUpon>WndLoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\WndLoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -101,7 +101,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\Wnd\ShellView.xaml">
+    <Page Include="View\Wnd\WndLoginView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
