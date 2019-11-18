@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GRCLNT", "GRCLNT\GRCLNT.csproj", "{906AACA6-3CA0-4C26-8F5D-1EDEB4BC07F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Util", "Util\Util.csproj", "{9FA3344B-9EC6-43AE-9E14-D88CA62E6FFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Socket", "Socket\Socket.csproj", "{18E3AB09-03E6-4BB4-B84F-64ECB0A19028}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{906AACA6-3CA0-4C26-8F5D-1EDEB4BC07F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{906AACA6-3CA0-4C26-8F5D-1EDEB4BC07F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{906AACA6-3CA0-4C26-8F5D-1EDEB4BC07F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FA3344B-9EC6-43AE-9E14-D88CA62E6FFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FA3344B-9EC6-43AE-9E14-D88CA62E6FFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FA3344B-9EC6-43AE-9E14-D88CA62E6FFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FA3344B-9EC6-43AE-9E14-D88CA62E6FFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18E3AB09-03E6-4BB4-B84F-64ECB0A19028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18E3AB09-03E6-4BB4-B84F-64ECB0A19028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18E3AB09-03E6-4BB4-B84F-64ECB0A19028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18E3AB09-03E6-4BB4-B84F-64ECB0A19028}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -55,8 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cfg.cs" />
-    <Compile Include="Md5.cs" />
+    <Compile Include="CfgLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>

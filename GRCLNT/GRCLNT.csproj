@@ -197,6 +197,14 @@
       <Project>{85FE35F2-BB86-41F2-8822-E58DEBE5090C}</Project>
       <Name>Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Socket\Socket.csproj">
+      <Project>{18e3ab09-03e6-4bb4-b84f-64ecb0a19028}</Project>
+      <Name>Socket</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{9fa3344b-9ec6-43ae-9e14-d88ca62e6ffc}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Resource\Image\bgleft.png" />

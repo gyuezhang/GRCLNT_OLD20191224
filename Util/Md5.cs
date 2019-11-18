@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace Models
+namespace Util
 {
     class Md5
     {
@@ -26,4 +26,5 @@ namespace Models
             return sBuilder.ToString();
         }
     }
+
 }
