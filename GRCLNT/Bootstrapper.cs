@@ -1,7 +1,7 @@
 ﻿using System;
 using Stylet;
 using StyletIoC;
-using GRCLNT.Pages;
+using GRCLNT;
 
 namespace GRCLNT
 {

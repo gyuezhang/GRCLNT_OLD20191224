@@ -1,7 +1,7 @@
 ﻿using System;
 using Stylet;
 
-namespace GRCLNT.Pages
+namespace GRCLNT
 {
     public class ShellViewModel : Screen
     {
