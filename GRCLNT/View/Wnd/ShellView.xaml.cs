@@ -18,9 +18,9 @@ namespace GRCLNT
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class ShellView : Window
+    public partial class WndLoginView : Window
     {
-        public ShellView()
+        public WndLoginView()
         {
             InitializeComponent();
         }
