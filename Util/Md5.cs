@@ -3,9 +3,9 @@ using System.Text;
 
 namespace Util
 {
-    class Md5
+    public class Md5
     {
-        static string GetMd5Hash(string input)
+        public static string GetMd5Hash(string input)
         {
             MD5 md5Hash = MD5.Create();
             // Convert the input string to a byte array and compute the hash.

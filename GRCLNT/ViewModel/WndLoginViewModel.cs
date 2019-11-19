@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Net;
+using System.Windows;
 using MaterialDesignThemes.Wpf;
 using Models;
 using Socket;
@@ -14,12 +15,37 @@ namespace GRCLNT
         {
             _windowManager = windowManager;
             CLNTClient.Conn(loginCfg.SvrIp);
-            CLNTRecvHandler.ConnState += RecvHandler_ConnState;
+            CLNTResHandler.ConnState += ResHandler_ConnState;
+            CLNTResHandler.login += CLNTResHandler_login;
         }
 
-        private void RecvHandler_ConnState(CLNTStringPackageInfo request)
+        private void CLNTResHandler_login(RES_STATE state, User user)
         {
-            
+            switch(state)
+            {
+                case RES_STATE.OK:
+                    RTData.loginSuccessUserInfo = user;
+                    LoginSuccess();
+                    break;
+                case RES_STATE.FAILED:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void ResHandler_ConnState(RES_STATE state)
+        {
+            switch(state)
+            {
+                case RES_STATE.OK:
+                    loginMessageQueue.Enqueue("已成功连接到服务器");
+                    break;
+                case RES_STATE.FAILED:
+                    break;
+                default:
+                    break;
+            }
         }
 
         #region Bindings
@@ -38,7 +64,7 @@ namespace GRCLNT
 
         public void OnStartLogin()
         {
-            CLNTAPI.Login(loginCfg.UsrName, loginCfg.UsrPwd);
+            StartManualLogin();
         }
 
         public void OnSettingOK()
@@ -49,7 +75,11 @@ namespace GRCLNT
 
         public void OnTestServer()
         {
-            iTransitionerIndex = 0;
+            if(ChangeIp())
+            {
+                loginMessageQueue.Enqueue("正在连接到服务器");
+                CLNTClient.Conn(loginCfg.SvrIp);
+            }
         }
 
         public void OnShowSetting()
@@ -80,11 +110,12 @@ namespace GRCLNT
         public void LoginSuccess()
         {
             Cfg.SetLogin(loginCfg);
+            loginMessageQueue.Enqueue("登录成功");
         }
 
         public void StartManualLogin()
         {
-
+            CLNTAPI.Login(loginCfg.UsrName, Md5.GetMd5Hash(loginCfg.UsrPwd));
         }
 
         public void StartAutoLogin()
@@ -92,9 +123,23 @@ namespace GRCLNT
 
         }
 
-        public void LoginRes()
+        private bool ChangeIp()
         {
-
+            if (loginCfg.SvrIp == "")
+            {
+                loginMessageQueue.Enqueue("IP地址不能为空");
+                return false;
+            }
+            try
+            {
+                IPAddress.Parse(loginCfg.SvrIp);
+            }
+            catch
+            {
+                loginMessageQueue.Enqueue("无效的IP地址");
+                return false;
+            }
+            return true;
         }
     }
 }

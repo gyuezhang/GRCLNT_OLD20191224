@@ -10,9 +10,9 @@ namespace Socket
     /// <summary>
     /// 客户端接收过滤器
     /// </summary>
-    public class CLNTRecvFilter : SuperSocket.ProtoBase.TerminatorReceiveFilter<CLNTStringPackageInfo>
+    public class CLNTResFilter : SuperSocket.ProtoBase.TerminatorReceiveFilter<CLNTStringPackageInfo>
     {
-        public CLNTRecvFilter()
+        public CLNTResFilter()
             : base(Encoding.UTF8.GetBytes("<RESTMNT>"))
         {
             clntSp = new CLNTStringParse();
@@ -89,7 +89,7 @@ namespace Socket
             tmp = tmp.Where(s => !string.IsNullOrEmpty(s)).ToArray();
             apiId = (API_ID)Enum.Parse(typeof(API_ID), tmp[0]);
             resState = (RES_STATE)Enum.Parse(typeof(RES_STATE), tmp[1]);
-            parameters = tmp.CloneRange(2, tmp.Length - 2).ToString();
+            parameters = string.Join("", tmp.CloneRange(2, tmp.Length - 2));
         }
     }
 }

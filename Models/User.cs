@@ -1,16 +1,24 @@
-﻿using Stylet;
+﻿using Newtonsoft.Json;
+using Stylet;
 
 namespace Models
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class User : PropertyChangedBase
     {
+
         private string _id;
+
         private string _name;
+
         private string _pwd;
+
         private string _deptName;
+
         private string _tel;
         private string _email;
 
+        [JsonProperty]
         public string Id
         {
             get { return _id; }
@@ -20,6 +28,7 @@ namespace Models
             }
         }
 
+        [JsonProperty]
         public string Name
         {
             get { return _name; }
@@ -29,6 +38,7 @@ namespace Models
             }
         }
 
+        [JsonProperty]
         public string Pwd
         {
             get { return _pwd; }
@@ -38,6 +48,7 @@ namespace Models
             }
         }
 
+        [JsonProperty]
         public string DeptName
         {
             get { return _deptName; }
@@ -47,6 +58,7 @@ namespace Models
             }
         }
 
+        [JsonProperty]
         public string Tel
         {
             get { return _tel; }
@@ -56,6 +68,7 @@ namespace Models
             }
         }
 
+        [JsonProperty]
         public string Email
         {
             get { return _email; }

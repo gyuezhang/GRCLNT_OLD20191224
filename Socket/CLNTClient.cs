@@ -15,14 +15,15 @@ namespace Socket
         {
             Ip = ip;
             ezClient = new EasyClient();
-            ezClient.Initialize(new CLNTRecvFilter(), (request) =>
+            ezClient.Initialize(new CLNTResFilter(), (request) =>
             {
                 switch(request.apiId)
                 {
                 case API_ID.API_ConnState:
-                    CLNTRecvHandler.OnConnState(request);
+                    CLNTResHandler.OnConnState(request);
                     break;
                 case API_ID.API_Login:
+                    CLNTResHandler.OnLogin(request);
                     break;
                 default:
                     break;
@@ -40,6 +41,7 @@ namespace Socket
 
         public static void Send(API_ID id,string para)
         {
+            string abc = id.ToString();
             ezClient.Send(Encoding.UTF8.GetBytes(id.ToString() + " " + para + "\r\n"));
         }
 
