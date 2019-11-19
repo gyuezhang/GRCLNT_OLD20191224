@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using MaterialDesignThemes.Wpf;
 using Models;
+using Socket;
 using Stylet;
 using Util;
 
@@ -13,6 +14,7 @@ namespace GRCLNT
         public WndLoginViewModel(IWindowManager windowManager)
         {
             _windowManager = windowManager;
+            CLNTClient.Conn(loginCfg.SvrIp);
 
         }
 
@@ -32,12 +34,13 @@ namespace GRCLNT
 
         public void OnStartLogin()
         {
-            LoginSuccess();
+            CLNTAPI.Login(loginCfg.UsrName, loginCfg.UsrPwd);
         }
 
         public void OnSettingOK()
         {
             iTransitionerIndex = 0;
+            CLNTClient.Conn(loginCfg.SvrIp);
         }
 
         public void OnTestServer()

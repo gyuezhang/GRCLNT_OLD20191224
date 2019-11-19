@@ -46,7 +46,7 @@ namespace Socket
             InitializeData(source, sourceParser);
         }
 
-        public CLNTStringPackageInfo(API_ID id, RES_STATE state, string[] para)
+        public CLNTStringPackageInfo(API_ID id, RES_STATE state, string para)
         {
             apiId = id;
             resState = state;

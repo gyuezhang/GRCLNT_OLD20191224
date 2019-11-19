@@ -8,5 +8,9 @@ namespace Socket
 {
     class CLNTRecvHandler
     {
+        public static void ConnState(CLNTStringPackageInfo request)
+        {
+
+        }
     }
 }

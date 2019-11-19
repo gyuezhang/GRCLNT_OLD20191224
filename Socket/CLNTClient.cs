@@ -17,15 +17,16 @@ namespace Socket
             ezClient = new EasyClient();
             ezClient.Initialize(new CLNTRecvFilter(), (request) =>
             {
-                 switch(request.apiId)
-                 {
-                 case API_ID.API_ConnState:
-                     break;
-                 case API_ID.API_Login:
-                     break;
-                 default:
-                     break;
-                 }
+                switch(request.apiId)
+                {
+                case API_ID.API_ConnState:
+                    CLNTRecvHandler.ConnState(request);
+                    break;
+                case API_ID.API_Login:
+                    break;
+                default:
+                    break;
+                }
             });
             _ = SyncConn();
         }
@@ -40,6 +41,11 @@ namespace Socket
         public static void Send(API_ID id,string para)
         {
             ezClient.Send(Encoding.UTF8.GetBytes(id.ToString() + " " + para + "\r\n"));
+        }
+
+        public static void TryReconn()
+        {
+            Conn(Ip);
         }
     }
 }
