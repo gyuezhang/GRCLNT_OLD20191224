@@ -10,12 +10,16 @@ namespace GRCLNT
     public class WndLoginViewModel : Screen
     {
         private IWindowManager _windowManager;
-
         public WndLoginViewModel(IWindowManager windowManager)
         {
             _windowManager = windowManager;
             CLNTClient.Conn(loginCfg.SvrIp);
+            CLNTRecvHandler.ConnState += RecvHandler_ConnState;
+        }
 
+        private void RecvHandler_ConnState(CLNTStringPackageInfo request)
+        {
+            
         }
 
         #region Bindings

@@ -20,7 +20,7 @@ namespace Socket
                 switch(request.apiId)
                 {
                 case API_ID.API_ConnState:
-                    CLNTRecvHandler.ConnState(request);
+                    CLNTRecvHandler.OnConnState(request);
                     break;
                 case API_ID.API_Login:
                     break;

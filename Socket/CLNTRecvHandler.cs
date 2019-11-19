@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Socket
 {
-    class CLNTRecvHandler
+    public class CLNTRecvHandler
     {
-        public static void ConnState(CLNTStringPackageInfo request)
+        public delegate void ConnStateEventHandler(CLNTStringPackageInfo request);
+        public static event ConnStateEventHandler ConnState;
+        public static void OnConnState(CLNTStringPackageInfo request)
         {
-
+            ConnState(request);
         }
     }
 }
