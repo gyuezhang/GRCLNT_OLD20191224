@@ -113,6 +113,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API_Def.cs" />
+    <Compile Include="CLNTAPI.cs" />
+    <Compile Include="CLNTClient.cs" />
+    <Compile Include="CLNTRecvFilter.cs" />
+    <Compile Include="CLNTRecvHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
