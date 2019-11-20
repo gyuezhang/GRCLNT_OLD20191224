@@ -167,10 +167,16 @@ namespace GRCLNT
 
         public void StartAutoLogin()
         {
-            loginMessageQueue.Enqueue("正在自动登录");
+            loginMessageQueue.Enqueue("正在自动登录",
+                "取消",
+                CancelAutoLogin);
             CLNTAPI.Login(Cfg.GetLogin().UsrName, Cfg.GetLogin().UsrPwd);
         }
-
+        public void CancelAutoLogin()
+        {
+            TimerLoginSuccess.Stop();
+            loginMessageQueue.Enqueue("自动登录已取消");
+        }
         private bool ChangeIp()
         {
             if (loginCfg.SvrIp == "")
