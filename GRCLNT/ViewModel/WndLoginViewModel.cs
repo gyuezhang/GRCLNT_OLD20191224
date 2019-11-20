@@ -168,7 +168,7 @@ namespace GRCLNT
             Cfg.SetLogin(loginCfg);
             loginMessageQueue.Enqueue("登录成功");
             bFirstLogin = false; 
-            TimerLoginSuccess.Interval = new TimeSpan(0, 0, 0, 4);
+            TimerLoginSuccess.Interval = new TimeSpan(0, 0, 0, 3);
             TimerLoginSuccess.Start();
         }
 

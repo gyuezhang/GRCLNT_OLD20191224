@@ -126,7 +126,7 @@
 
             <!--<materialDesign:Badged WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="5"  Badge="3" Margin="10,12,20,10">-->
             <Button  Width="42" Height="42" Grid.Column="5" Command="{s:Action OpenUserInfo}" Margin="10,12,20,10" VerticalAlignment="Center" WindowChrome.IsHitTestVisibleInChrome="True"  Style="{StaticResource MaterialDesignIconButton}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}">
-                <TextBlock Text="{Binding strAvaName}" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,4,0,0"/>
+                <TextBlock Text="{Binding strAvaLetter}" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0"/>
             </Button>
             <!--</materialDesign:Badged>-->
         </Grid>
@@ -334,7 +334,7 @@
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,0,0" >
                         <ContentControl  s:View.Model="{Binding curPage}" />
                     </ScrollViewer>
-                    <Image Visibility="{Binding vImageDragVisible}" Width="24" Height="24" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/GRCLNT;component/Resource/Image/resize-bottom-right.png"/>
+                    <Image Visibility="{Binding vImageDragVisible}" Width="24" Height="24" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/GRCLNT;component/View/Resource/Image/resize-bottom-right.png"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="2" Width="300">
                         <materialDesign:Snackbar  MessageQueue="{materialDesign:MessageQueue}" />
                     </StackPanel>

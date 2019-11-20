@@ -1,4 +1,5 @@
-﻿using Stylet;
+﻿using Models;
+using Stylet;
 using System;
 using System.Windows;
 
@@ -36,6 +37,7 @@ namespace GRCLNT
             vImageDragVisible = (CurWindowState != WindowState.Maximized) ? Visibility.Visible : Visibility.Hidden;
         }
 
+        public string strAvaLetter { get; set; } = RTData.loginSuccessUserInfo.Name.Substring(0, 1);
         public void OnLogOut()
         {
             App.Current.Dispatcher.Invoke((Action)(() =>
