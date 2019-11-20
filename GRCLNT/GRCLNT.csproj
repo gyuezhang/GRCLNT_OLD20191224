@@ -143,6 +143,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="ViewModel\CtrlAddrBarViewModel.cs" />
     <Compile Include="ViewModel\PageSediCtrlViewModel.cs" />
     <Compile Include="ViewModel\PageGwDynaViewModel.cs" />
     <Compile Include="ViewModel\PageGwProjViewModel.cs" />
@@ -152,6 +153,9 @@
     <Compile Include="ViewModel\PageEntWellViewModel.cs" />
     <Compile Include="ViewModel\PageWellViewModel.cs" />
     <Compile Include="ViewModel\PageHomeViewModel.cs" />
+    <Compile Include="View\Ctrl\CtrlAddrBarView.xaml.cs">
+      <DependentUpon>CtrlAddrBarView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Page\Home\PageHome_UserInfo_ChangePwd_View.xaml.cs">
       <DependentUpon>PageHome_UserInfo_ChangePwd_View.xaml</DependentUpon>
     </Compile>
@@ -227,6 +231,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\Ctrl\CtrlAddrBarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Page\Home\PageHome_UserInfo_ChangePwd_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
