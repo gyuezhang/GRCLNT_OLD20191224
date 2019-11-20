@@ -63,6 +63,7 @@ namespace GRCLNT
             {
                 case 1:
                     iBdFocus = 1;
+                    curPage = new PageHomeViewModel();
                     break;
                 case 2:
                     iBdFocus = 3;

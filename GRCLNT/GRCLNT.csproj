@@ -152,6 +152,9 @@
     <Compile Include="ViewModel\PageEntWellViewModel.cs" />
     <Compile Include="ViewModel\PageWellViewModel.cs" />
     <Compile Include="ViewModel\PageHomeViewModel.cs" />
+    <Compile Include="View\Page\Home\PageHome_UserInfo_View.xaml.cs">
+      <DependentUpon>PageHome_UserInfo_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Page\PageEntWellView.xaml.cs">
       <DependentUpon>PageEntWellView.xaml</DependentUpon>
     </Compile>
@@ -161,7 +164,7 @@
     <Compile Include="View\Page\PageGwProjView.xaml.cs">
       <DependentUpon>PageGwProjView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Page\PageHomeView.xaml.cs">
+    <Compile Include="View\Page\Home\PageHomeView.xaml.cs">
       <DependentUpon>PageHomeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Page\PageHydroView.xaml.cs">
@@ -218,6 +221,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\Page\Home\PageHome_UserInfo_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Page\PageEntWellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -230,7 +237,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Page\PageHomeView.xaml">
+    <Page Include="View\Page\Home\PageHomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
