@@ -33,6 +33,7 @@ namespace GRCLNT
 
         private void TimerLoginSuccess_Tick(object sender, System.EventArgs e)
         {
+            loginMessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(0.6));
             TimerLoginSuccess.Stop();
             App.Current.Dispatcher.Invoke((Action)(() =>
             {
@@ -68,6 +69,7 @@ namespace GRCLNT
                     LoginSuccess();
                     break;
                 case RES_STATE.FAILED:
+                    loginMessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(0.6));
                     loginMessageQueue.Enqueue("用户名或密码错误");
                     break;
                 default:
@@ -81,7 +83,7 @@ namespace GRCLNT
 
         public WindowState loginWindowState { get; set; }
 
-        public SnackbarMessageQueue loginMessageQueue { get; set; } = new SnackbarMessageQueue();
+        public SnackbarMessageQueue loginMessageQueue { get; set; } = new SnackbarMessageQueue(TimeSpan.FromSeconds(0.6));
 
         public int iTransitionerIndex { get; set; } = 0;
 
@@ -152,7 +154,7 @@ namespace GRCLNT
             Cfg.SetLogin(loginCfg);
             loginMessageQueue.Enqueue("登录成功");
             bFirstLogin = false; 
-            TimerLoginSuccess.Interval = new TimeSpan(0, 0, 0, 3);
+            TimerLoginSuccess.Interval = new TimeSpan(0, 0, 0, 4);
             TimerLoginSuccess.Start();
         }
 
@@ -167,6 +169,7 @@ namespace GRCLNT
 
         public void StartAutoLogin()
         {
+            loginMessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(5));
             loginMessageQueue.Enqueue("正在自动登录",
                 "取消",
                 CancelAutoLogin);
@@ -174,6 +177,7 @@ namespace GRCLNT
         }
         public void CancelAutoLogin()
         {
+            loginMessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(0.6));
             TimerLoginSuccess.Stop();
             loginMessageQueue.Enqueue("自动登录已取消");
         }
