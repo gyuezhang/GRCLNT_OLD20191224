@@ -1,5 +1,7 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Windows;
+using System.Windows.Threading;
 using MaterialDesignThemes.Wpf;
 using Models;
 using Socket;
@@ -25,9 +27,21 @@ namespace GRCLNT
             else
                 curPwd = "";
             CheckAutoLogin();
-            //if (loginCfg.RecordPwd)
-            //    loginCfg.UsrPwd = "11111111";
+
+            TimerLoginSuccess.Tick += TimerLoginSuccess_Tick;
         }
+
+        private void TimerLoginSuccess_Tick(object sender, System.EventArgs e)
+        {
+            TimerLoginSuccess.Stop();
+            App.Current.Dispatcher.Invoke((Action)(() =>
+            {
+                var wndMainViewModel = new WndMainViewModel();
+                this._windowManager.ShowWindow(wndMainViewModel);
+                this.RequestClose();
+            }));
+        }
+
         private static bool bFirstLogin { get; set; } = true;
         private static int iPwdChangeCnt { get; set; }
 
@@ -72,6 +86,9 @@ namespace GRCLNT
         public int iTransitionerIndex { get; set; } = 0;
 
         public string curPwd { get; set; }
+
+        private DispatcherTimer TimerLoginSuccess = new DispatcherTimer();
+
 
         #endregion Bindings
 
@@ -129,9 +146,14 @@ namespace GRCLNT
 
         public void LoginSuccess()
         {
+            if (iPwdChangeCnt > 1)
+                loginCfg.UsrPwd = curPwd;
+
             Cfg.SetLogin(loginCfg);
             loginMessageQueue.Enqueue("登录成功");
-            bFirstLogin = false;
+            bFirstLogin = false; 
+            TimerLoginSuccess.Interval = new TimeSpan(0, 0, 0, 3);
+            TimerLoginSuccess.Start();
         }
 
         public void StartManualLogin()
