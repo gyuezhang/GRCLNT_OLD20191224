@@ -100,8 +100,8 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <materialDesign:PackIcon Grid.Column="0" Kind="VpnKey" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Width="20" Height="20" Margin="2,14,2,2"/>
-                        <PasswordBox  WindowChrome.IsHitTestVisibleInChrome="True"  Grid.Column="1" Foreground="White" Margin="10,0,0,0" materialDesign:HintAssist.Hint="密   码"
-                            materialDesign:HintAssist.Foreground="Green"  materialDesign:TextFieldAssist.UnderlineBrush="Green" local:PasswordHelper.Attach="True"  local:PasswordHelper.Password="{Binding loginCfg.UsrPwd,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontSize="18"/>
+                        <PasswordBox   WindowChrome.IsHitTestVisibleInChrome="True"  Grid.Column="1" Foreground="White" Margin="10,0,0,0" materialDesign:HintAssist.Hint="密   码" PasswordChanged="{s:Action OnPwdChanged}"
+                             materialDesign:TextFieldAssist.UnderlineBrush="Green" local:PasswordHelper.Attach="True"  local:PasswordHelper.Password="{Binding curPwd,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontSize="18"/>
                     </Grid>
 
                     <Grid HorizontalAlignment="Center" Width="300" Margin="0,10,0,0">
@@ -165,7 +165,7 @@
 
         <!--底部普通消息提示-->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="2" Width="300">
-            <materialDesign:Snackbar  MessageQueue="{Binding loginMessageQueue}" ActionButtonStyle="{StaticResource ActionButtonStyleCust}"/>
+            <materialDesign:Snackbar  MessageQueue="{Binding loginMessageQueue}" ActionButtonStyle="{StaticResource ActionButtonStyleCust}" />
         </StackPanel>
 
     </Grid>

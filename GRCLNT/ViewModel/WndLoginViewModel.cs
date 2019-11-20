@@ -14,12 +14,22 @@ namespace GRCLNT
         public WndLoginViewModel(IWindowManager windowManager)
         {
             _windowManager = windowManager;
+            iPwdChangeCnt = 0;
+            loginCfg = Cfg.GetLogin();
             CLNTClient.Conn(loginCfg.SvrIp);
             CLNTResHandler.ConnState += CLNTResHandler_ConnState;
             CLNTResHandler.login += CLNTResHandler_login;
+
+            if (loginCfg.RecordPwd)
+                curPwd = "11111111";
+            else
+                curPwd = "";
             CheckAutoLogin();
+            //if (loginCfg.RecordPwd)
+            //    loginCfg.UsrPwd = "11111111";
         }
         private static bool bFirstLogin { get; set; } = true;
+        private static int iPwdChangeCnt { get; set; }
 
         private void CLNTResHandler_ConnState(RES_STATE state)
         {
@@ -44,6 +54,7 @@ namespace GRCLNT
                     LoginSuccess();
                     break;
                 case RES_STATE.FAILED:
+                    loginMessageQueue.Enqueue("用户名或密码错误");
                     break;
                 default:
                     break;
@@ -52,13 +63,15 @@ namespace GRCLNT
 
         #region Bindings
 
-        public CfgLogin loginCfg { get; set; } = Cfg.GetLogin();
+        public CfgLogin loginCfg { get; set; } 
 
         public WindowState loginWindowState { get; set; }
 
         public SnackbarMessageQueue loginMessageQueue { get; set; } = new SnackbarMessageQueue();
 
         public int iTransitionerIndex { get; set; } = 0;
+
+        public string curPwd { get; set; }
 
         #endregion Bindings
 
@@ -105,6 +118,11 @@ namespace GRCLNT
             }
         }
 
+        public void OnPwdChanged()
+        {
+            iPwdChangeCnt++;
+        }
+
         #endregion Actions
 
 
@@ -118,11 +136,16 @@ namespace GRCLNT
 
         public void StartManualLogin()
         {
-            CLNTAPI.Login(loginCfg.UsrName, Md5.GetMd5Hash(loginCfg.UsrPwd));
+            loginMessageQueue.Enqueue("正在登录");
+            if(iPwdChangeCnt == 1)
+                CLNTAPI.Login(loginCfg.UsrName, loginCfg.UsrPwd);
+            else
+                CLNTAPI.Login(loginCfg.UsrName, Md5.GetMd5Hash(curPwd));
         }
 
         public void StartAutoLogin()
         {
+            loginMessageQueue.Enqueue("正在自动登录");
             CLNTAPI.Login(Cfg.GetLogin().UsrName, Cfg.GetLogin().UsrPwd);
         }
 
@@ -147,8 +170,6 @@ namespace GRCLNT
 
         private void CheckAutoLogin()
         {
-            if (loginCfg.RecordPwd)
-                loginCfg.UsrPwd = "11111111";
             if (loginCfg.AutoLogin && bFirstLogin)
                 StartAutoLogin();
         }
