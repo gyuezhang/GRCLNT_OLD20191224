@@ -143,6 +143,42 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="ViewModel\PageSediCtrlViewModel.cs" />
+    <Compile Include="ViewModel\PageGwDynaViewModel.cs" />
+    <Compile Include="ViewModel\PageGwProjViewModel.cs" />
+    <Compile Include="ViewModel\PageHydroViewModel.cs" />
+    <Compile Include="ViewModel\PageLawViewModel.cs" />
+    <Compile Include="ViewModel\PageSettingViewModel.cs" />
+    <Compile Include="ViewModel\PageEntWellViewModel.cs" />
+    <Compile Include="ViewModel\PageWellViewModel.cs" />
+    <Compile Include="ViewModel\PageHomeViewModel.cs" />
+    <Compile Include="View\Page\PageEntWellView.xaml.cs">
+      <DependentUpon>PageEntWellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\PageGwDynaView.xaml.cs">
+      <DependentUpon>PageGwDynaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\PageGwProjView.xaml.cs">
+      <DependentUpon>PageGwProjView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\PageHomeView.xaml.cs">
+      <DependentUpon>PageHomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\PageHydroView.xaml.cs">
+      <DependentUpon>PageHydroView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\PageLawView.xaml.cs">
+      <DependentUpon>PageLawView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\PageSediCtrlView.xaml.cs">
+      <DependentUpon>PageSediCtrlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\PageSettingView.xaml.cs">
+      <DependentUpon>PageSettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\PageWellView.xaml.cs">
+      <DependentUpon>PageWellView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Wnd\WndMainView.xaml.cs">
       <DependentUpon>WndMainView.xaml</DependentUpon>
     </Compile>
@@ -181,6 +217,42 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\Page\PageEntWellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\PageGwDynaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\PageGwProjView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\PageHomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\PageHydroView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\PageLawView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\PageSediCtrlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\PageSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\PageWellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Resource\Style\DefaultStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
