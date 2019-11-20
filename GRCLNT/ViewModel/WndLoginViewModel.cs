@@ -15,8 +15,24 @@ namespace GRCLNT
         {
             _windowManager = windowManager;
             CLNTClient.Conn(loginCfg.SvrIp);
-            CLNTResHandler.ConnState += ResHandler_ConnState;
+            CLNTResHandler.ConnState += CLNTResHandler_ConnState;
             CLNTResHandler.login += CLNTResHandler_login;
+            CheckAutoLogin();
+        }
+        private static bool bFirstLogin { get; set; } = true;
+
+        private void CLNTResHandler_ConnState(RES_STATE state)
+        {
+            switch (state)
+            {
+                case RES_STATE.OK:
+                    loginMessageQueue.Enqueue("已成功连接到服务器");
+                    break;
+                case RES_STATE.FAILED:
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void CLNTResHandler_login(RES_STATE state, User user)
@@ -26,20 +42,6 @@ namespace GRCLNT
                 case RES_STATE.OK:
                     RTData.loginSuccessUserInfo = user;
                     LoginSuccess();
-                    break;
-                case RES_STATE.FAILED:
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void ResHandler_ConnState(RES_STATE state)
-        {
-            switch(state)
-            {
-                case RES_STATE.OK:
-                    loginMessageQueue.Enqueue("已成功连接到服务器");
                     break;
                 case RES_STATE.FAILED:
                     break;
@@ -111,6 +113,7 @@ namespace GRCLNT
         {
             Cfg.SetLogin(loginCfg);
             loginMessageQueue.Enqueue("登录成功");
+            bFirstLogin = false;
         }
 
         public void StartManualLogin()
@@ -120,7 +123,7 @@ namespace GRCLNT
 
         public void StartAutoLogin()
         {
-
+            CLNTAPI.Login(Cfg.GetLogin().UsrName, Cfg.GetLogin().UsrPwd);
         }
 
         private bool ChangeIp()
@@ -140,6 +143,14 @@ namespace GRCLNT
                 return false;
             }
             return true;
+        }
+
+        private void CheckAutoLogin()
+        {
+            if (loginCfg.RecordPwd)
+                loginCfg.UsrPwd = "11111111";
+            if (loginCfg.AutoLogin && bFirstLogin)
+                StartAutoLogin();
         }
     }
 }

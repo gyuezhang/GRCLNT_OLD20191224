@@ -89,12 +89,22 @@ namespace Util
             XmlWriter myWriter = XmlWriter.Create(cfgPath, mySettings);
 
             myWriter.WriteStartElement("Login");
+
             myWriter.WriteElementString("UserName", login.UsrName);
-            myWriter.WriteElementString("UserPwd", login.UsrPwd);
             if (login.RecordPwd)
-                myWriter.WriteElementString("RecordPwd", "1");
+            {
+                myWriter.WriteElementString("RecordPwd", "1"); 
+                if (login.UsrPwd.Length != 32)
+                    myWriter.WriteElementString("UserPwd", Md5.GetMd5Hash(login.UsrPwd));
+                else
+                    myWriter.WriteElementString("UserPwd", login.UsrPwd);
+
+            }
             else
-                myWriter.WriteElementString("RecordPwd", "0");
+            {
+                myWriter.WriteElementString("RecordPwd", "0"); 
+                myWriter.WriteElementString("UserPwd", "");
+            }
 
             if (login.AutoLogin)
                 myWriter.WriteElementString("AutoLogin", "1");
