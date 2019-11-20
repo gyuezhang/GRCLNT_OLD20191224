@@ -179,13 +179,14 @@
     <Compile Include="View\Page\PageWellView.xaml.cs">
       <DependentUpon>PageWellView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Resource\Tool\UI_Def.cs" />
     <Compile Include="View\Wnd\WndMainView.xaml.cs">
       <DependentUpon>WndMainView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewModel\WndMainViewModel.cs" />
-    <Compile Include="View\Resource\CustCtrl\PasswordHelper.cs" />
+    <Compile Include="View\Resource\Tool\PasswordHelper.cs" />
     <Compile Include="View\Wnd\WndLoginView.xaml.cs">
       <DependentUpon>WndLoginView.xaml</DependentUpon>
     </Compile>
