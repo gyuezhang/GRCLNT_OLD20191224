@@ -13,21 +13,37 @@ namespace GRCLNT
     public class WndLoginViewModel : Screen
     {
         private IWindowManager _windowManager;
+
+        private static bool bFirstLogin { get; set; } = true;
+
+        private static int iPwdChangeCnt { get; set; } = 0;
+
+        private DispatcherTimer TimerLoginSuccess = new DispatcherTimer();
+
         public WndLoginViewModel(IWindowManager windowManager)
         {
             _windowManager = windowManager;
-            iPwdChangeCnt = 0;
+
+            ///获取配置文件的登录信息
             loginCfg = Cfg.GetLogin();
-            CLNTClient.Conn(loginCfg.SvrIp);
+            
+            ///注册服务器接口返回处理函数
             CLNTResHandler.ConnState += CLNTResHandler_ConnState;
             CLNTResHandler.login += CLNTResHandler_login;
 
+            ///尝试连接服务器
+            CLNTClient.Conn(loginCfg.SvrIp);
+
+            ///把界面的PWD隐藏
             if (loginCfg.RecordPwd)
                 curPwd = "11111111";
             else
                 curPwd = "";
+
+            ///检测是否自动登录
             CheckAutoLogin();
 
+            ///注册登录成功后等待的Timer函数
             TimerLoginSuccess.Tick += TimerLoginSuccess_Tick;
         }
 
@@ -43,9 +59,7 @@ namespace GRCLNT
             }));
         }
 
-        private static bool bFirstLogin { get; set; } = true;
-        private static int iPwdChangeCnt { get; set; }
-
+        #region API ResHander
         private void CLNTResHandler_ConnState(RES_STATE state)
         {
             switch (state)
@@ -76,6 +90,7 @@ namespace GRCLNT
                     break;
             }
         }
+        #endregion
 
         #region Bindings
 
@@ -88,9 +103,6 @@ namespace GRCLNT
         public int iTransitionerIndex { get; set; } = 0;
 
         public string curPwd { get; set; }
-
-        private DispatcherTimer TimerLoginSuccess = new DispatcherTimer();
-
 
         #endregion Bindings
 
@@ -109,7 +121,7 @@ namespace GRCLNT
 
         public void OnTestServer()
         {
-            if(ChangeIp())
+            if(CheckIp())
             {
                 loginMessageQueue.Enqueue("正在连接到服务器");
                 CLNTClient.Conn(loginCfg.SvrIp);
@@ -141,7 +153,6 @@ namespace GRCLNT
         {
             iPwdChangeCnt++;
         }
-
         #endregion Actions
 
 
@@ -164,7 +175,7 @@ namespace GRCLNT
             if(iPwdChangeCnt == 1)
                 CLNTAPI.Login(loginCfg.UsrName, loginCfg.UsrPwd);
             else
-                CLNTAPI.Login(loginCfg.UsrName, Md5.GetMd5Hash(curPwd));
+                CLNTAPI.Login(loginCfg.UsrName, Md5.GetHash(curPwd));
         }
 
         public void StartAutoLogin()
@@ -175,13 +186,15 @@ namespace GRCLNT
                 CancelAutoLogin);
             CLNTAPI.Login(Cfg.GetLogin().UsrName, Cfg.GetLogin().UsrPwd);
         }
+
         public void CancelAutoLogin()
         {
             loginMessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(0.6));
             TimerLoginSuccess.Stop();
             loginMessageQueue.Enqueue("自动登录已取消");
         }
-        private bool ChangeIp()
+
+        private bool CheckIp()
         {
             if (loginCfg.SvrIp == "")
             {

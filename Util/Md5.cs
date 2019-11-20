@@ -5,7 +5,12 @@ namespace Util
 {
     public class Md5
     {
-        public static string GetMd5Hash(string input)
+        /// <summary>
+        /// 获取字符串的md5哈希值
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static string GetHash(string input)
         {
             MD5 md5Hash = MD5.Create();
             // Convert the input string to a byte array and compute the hash.

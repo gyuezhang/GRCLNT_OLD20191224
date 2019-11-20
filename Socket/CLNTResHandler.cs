@@ -21,7 +21,6 @@ namespace Socket
         public static event LoginEventHandler login;
         public static void OnLogin(CLNTStringPackageInfo request)
         {
-
             string a = string.Join("", request.Parameters);
             User u = JsonConvert.DeserializeObject<User>(a);
             login(request.resState, u);
