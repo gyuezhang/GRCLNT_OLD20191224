@@ -152,8 +152,14 @@
     <Compile Include="ViewModel\PageEntWellViewModel.cs" />
     <Compile Include="ViewModel\PageWellViewModel.cs" />
     <Compile Include="ViewModel\PageHomeViewModel.cs" />
+    <Compile Include="View\Page\Home\PageHome_UserInfo_ChangePwd_View.xaml.cs">
+      <DependentUpon>PageHome_UserInfo_ChangePwd_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Page\Home\PageHome_UserInfo_View.xaml.cs">
       <DependentUpon>PageHome_UserInfo_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\Home\PageHome_UserInfo_ChangeInfo_View.xaml.cs">
+      <DependentUpon>PageHome_UserInfo_ChangeInfo_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Page\PageEntWellView.xaml.cs">
       <DependentUpon>PageEntWellView.xaml</DependentUpon>
@@ -221,7 +227,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\Page\Home\PageHome_UserInfo_ChangePwd_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Page\Home\PageHome_UserInfo_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\Home\PageHome_UserInfo_ChangeInfo_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

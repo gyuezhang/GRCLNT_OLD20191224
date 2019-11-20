@@ -10,6 +10,8 @@ namespace GRCLNT
 
         public void OnShowDashboard()
         {
+            iPageIndex = 1;
+
         }
 
         public void OnShowUserInfo()
@@ -17,14 +19,28 @@ namespace GRCLNT
             iPageIndex = 2;
         }
 
-        public void OnChangeUserInfo()
+        public void OnChangeInfo()
         {
-
+            iPageIndex = 3;
         }
 
-        public void OnResetPwd()
+        public void OnChangePwd()
         {
+            iPageIndex = 4;
+        }
 
+        public void OnChangeInfoOK()
+        {
+            OnShowUserInfo();
+        }
+
+        public string pwdOld { get; set; }
+        public string pwdNew { get; set; }
+        public string pwdNew2 { get; set; }
+
+        public void OnChangePwdOK()
+        {
+            OnShowUserInfo();
         }
     }
 }
