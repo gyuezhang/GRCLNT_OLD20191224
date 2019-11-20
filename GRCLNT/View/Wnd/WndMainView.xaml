@@ -52,7 +52,7 @@
 
             <!--标题logo-->
             <Border Grid.Column="0" Background="#34000000">
-                <Image Source="/GRCLNT;component/Resource/Image/Logo.png" Margin="11"/>
+                <Image Source="/GRCLNT;component/View/Resource/Image/Logo.png" Margin="11"/>
             </Border>
 
             <!--标题文字-->
