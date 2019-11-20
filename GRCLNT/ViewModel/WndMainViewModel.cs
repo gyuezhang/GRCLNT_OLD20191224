@@ -37,7 +37,7 @@ namespace GRCLNT
             vImageDragVisible = (CurWindowState != WindowState.Maximized) ? Visibility.Visible : Visibility.Hidden;
         }
 
-        public string strAvaLetter { get; set; } = RTData.loginSuccessUserInfo.Name.Substring(0, 1);
+        public string strAvaLetter { get; set; } = RTData.loginSuccessUserInfo.Name.Substring(0, 1).ToUpper();
         public void OnLogOut()
         {
             App.Current.Dispatcher.Invoke((Action)(() =>
@@ -48,5 +48,56 @@ namespace GRCLNT
             }));
 
         }
+
+        public void OnOpenUsrInfo()
+        {
+
+        }
+
+        public void OnChangePage(string strIndex)
+        {
+            int iIndex = int.Parse(strIndex);
+            vSettingFocus = Visibility.Hidden;
+            vMenuFocus = Visibility.Visible;
+            switch (iIndex)
+            {
+                case 1:
+                    iBdFocus = 1;
+                    break;
+                case 2:
+                    iBdFocus = 3;
+                    break;
+                case 3:
+                    iBdFocus = 5;
+                    break;
+                case 4:
+                    iBdFocus = 7;
+                    break;
+                case 5:
+                    iBdFocus = 9;
+                    break;
+                case 6:
+                    iBdFocus = 11;
+                    break;
+                case 7:
+                    iBdFocus = 13;
+                    break;
+                case 8:
+                    iBdFocus = 15;
+                    break;
+                case 9:
+                    vSettingFocus = Visibility.Visible;
+                    vMenuFocus = Visibility.Hidden;
+                    break;
+                default:
+                    break;
+            }
+        }
+        public int iBdFocus { get; set; } = 1;
+        public Visibility vSettingFocus { get; set; } = Visibility.Hidden;
+
+        public Visibility vMenuFocus { get; set; } = Visibility.Visible;
+
+
     }
 }
