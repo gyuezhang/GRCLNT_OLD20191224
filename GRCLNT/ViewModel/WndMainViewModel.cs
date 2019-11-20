@@ -109,5 +109,19 @@ namespace GRCLNT
 
         public Screen curPage { get; set; } = new PageHomeViewModel();
 
+        public void OnLogout()
+        {
+            App.Current.Dispatcher.Invoke((Action)(() =>
+            {
+                var wndLoginViewModel = new WndLoginViewModel(_windowManager);
+                this._windowManager.ShowWindow(wndLoginViewModel);
+                this.RequestClose();
+            }));
+        }
+
+        public void OnExit()
+        {
+            this.RequestClose();
+        }
     }
 }
