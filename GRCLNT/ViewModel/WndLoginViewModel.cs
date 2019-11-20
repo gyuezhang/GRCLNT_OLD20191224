@@ -23,7 +23,7 @@ namespace GRCLNT
         public WndLoginViewModel(IWindowManager windowManager)
         {
             _windowManager = windowManager;
-
+            iPwdChangeCnt = 0;
             ///获取配置文件的登录信息
             loginCfg = Cfg.GetLogin();
             
@@ -51,9 +51,12 @@ namespace GRCLNT
         {
             loginMessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(0.6));
             TimerLoginSuccess.Stop();
+            ///注册服务器接口返回处理函数
+            CLNTResHandler.ConnState -= CLNTResHandler_ConnState;
+            CLNTResHandler.login -= CLNTResHandler_login;
             App.Current.Dispatcher.Invoke((Action)(() =>
             {
-                var wndMainViewModel = new WndMainViewModel();
+                var wndMainViewModel = new WndMainViewModel(_windowManager);
                 this._windowManager.ShowWindow(wndMainViewModel);
                 this.RequestClose();
             }));

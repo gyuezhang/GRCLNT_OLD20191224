@@ -10,6 +10,6 @@
         d:DataContext="{d:DesignInstance local:WndMainViewModel}"
         Title="WndMainView" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="Logout" Command="{s:Action OnLogOut}"/>
     </Grid>
 </Window>
