@@ -66,28 +66,36 @@ namespace GRCLNT
                     break;
                 case 2:
                     iBdFocus = 3;
+                    curPage = new PageWellViewModel();
                     break;
                 case 3:
                     iBdFocus = 5;
+                    curPage = new PageEntWellViewModel();
                     break;
                 case 4:
                     iBdFocus = 7;
+                    curPage = new PageSediCtrlViewModel();
                     break;
                 case 5:
                     iBdFocus = 9;
+                    curPage = new PageGwDynaViewModel();
                     break;
                 case 6:
                     iBdFocus = 11;
+                    curPage = new PageGwProjViewModel();
                     break;
                 case 7:
                     iBdFocus = 13;
+                    curPage = new PageHydroViewModel();
                     break;
                 case 8:
                     iBdFocus = 15;
+                    curPage = new PageLawViewModel();
                     break;
                 case 9:
                     vSettingFocus = Visibility.Visible;
                     vMenuFocus = Visibility.Hidden;
+                    curPage = new PageSettingViewModel();
                     break;
                 default:
                     break;
@@ -98,6 +106,7 @@ namespace GRCLNT
 
         public Visibility vMenuFocus { get; set; } = Visibility.Visible;
 
+        public Screen curPage { get; set; } = new PageHomeViewModel();
 
     }
 }
