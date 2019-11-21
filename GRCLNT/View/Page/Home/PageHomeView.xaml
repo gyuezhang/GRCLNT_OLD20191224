@@ -34,7 +34,7 @@
                     </Button>
                 </StackPanel>
             </Grid>
-            <Grid/>
+            <local:PageHome_Dashboard_View/>
             <local:PageHome_UserInfo_View/>
             <local:PageHome_UserInfo_ChangeInfo_View/>
             <local:PageHome_UserInfo_ChangePwd_View/>

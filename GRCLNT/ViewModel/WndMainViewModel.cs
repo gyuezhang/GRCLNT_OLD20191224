@@ -17,6 +17,7 @@ namespace GRCLNT
             dbMaxHeight = SystemParameters.WorkArea.Height + 7;
             dbMaxWidth = SystemParameters.WorkArea.Width + 7;
             curPage = new PageHomeViewModel(this);
+            ((PageHomeViewModel)curPage).OnShowDashboard();
         }
 
         public WndMainViewModel()
