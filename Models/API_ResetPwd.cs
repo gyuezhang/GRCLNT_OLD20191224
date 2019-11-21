@@ -12,10 +12,10 @@ namespace Models
             this.NewPwd = newPwd;
         }
         [JsonProperty]
-        private string Id { get; set; }
+        public string Id { get; set; }
         [JsonProperty]
-        private string OldPwd { get; set; }
+        public string OldPwd { get; set; }
         [JsonProperty]
-        private string NewPwd { get; set; }
+        public string NewPwd { get; set; }
     }
 }

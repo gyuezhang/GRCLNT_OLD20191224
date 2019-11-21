@@ -31,11 +31,11 @@ namespace Socket
             changeUserInfo(request.resState, JsonConvert.DeserializeObject<User>(string.Join("", request.Parameters)));
         }
 
-        public delegate void ResetPwdEventHandler(RES_STATE state, string newPwd);
+        public delegate void ResetPwdEventHandler(RES_STATE state);
         public static event ResetPwdEventHandler resetPwd;
         public static void OnResetPwd(CLNTStringPackageInfo request)
         {
-            resetPwd(request.resState, string.Join("", request.Parameters));
+            resetPwd(request.resState);
         }
     }
 }

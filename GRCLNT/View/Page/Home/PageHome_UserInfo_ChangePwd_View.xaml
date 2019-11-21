@@ -12,10 +12,30 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="380">
             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="15" Text="重置密码" FontSize="28"/>
-            <PasswordBox Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" local:PasswordHelper.Attach="True"  local:PasswordHelper.Password="{Binding pwdOld,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Margin="5" Foreground="White" FontSize="18" materialDesign:HintAssist.Hint="旧密码" HorizontalAlignment="Stretch" />
-            <PasswordBox Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" local:PasswordHelper.Attach="True"  local:PasswordHelper.Password="{Binding pwdNew,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"   Margin="5" Foreground="White" FontSize="18" materialDesign:HintAssist.Hint="新密码" HorizontalAlignment="Stretch" />
-            <PasswordBox Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" local:PasswordHelper.Attach="True"  local:PasswordHelper.Password="{Binding pwdNew2,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"   Margin="5" Foreground="White" FontSize="18" materialDesign:HintAssist.Hint="确认密码" HorizontalAlignment="Stretch" />
-
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <materialDesign:PackIcon Grid.Column="0" Kind="KeyOutline" VerticalAlignment="Center" HorizontalAlignment="Center" Width="28" Height="28" Margin="2,14,2,2" Foreground="White"/>
+                <PasswordBox  Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" local:PasswordHelper.Attach="True"  local:PasswordHelper.Password="{Binding pwdOld,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Margin="5" Foreground="White" FontSize="18" materialDesign:HintAssist.Hint="旧密码" HorizontalAlignment="Stretch" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <materialDesign:PackIcon Grid.Column="0" Kind="VpnKey" VerticalAlignment="Center" HorizontalAlignment="Center" Width="28" Height="28" Margin="2,14,2,2" Foreground="White"/>
+                <PasswordBox Grid.Column="1"  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" local:PasswordHelper.Attach="True"  local:PasswordHelper.Password="{Binding pwdNew,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"   Margin="5" Foreground="White" FontSize="18" materialDesign:HintAssist.Hint="新密码" HorizontalAlignment="Stretch" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <materialDesign:PackIcon Grid.Column="0" Kind="VpnKey" VerticalAlignment="Center" HorizontalAlignment="Center" Width="28" Height="28" Margin="2,14,2,2" Foreground="White"/>
+                <PasswordBox  Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" local:PasswordHelper.Attach="True"  local:PasswordHelper.Password="{Binding pwdNew2,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"   Margin="5" Foreground="White" FontSize="18" materialDesign:HintAssist.Hint="确认密码" HorizontalAlignment="Stretch" />
+            </Grid>
             <Grid Margin="0,15,0,0" HorizontalAlignment="Right">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>

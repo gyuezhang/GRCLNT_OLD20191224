@@ -1,7 +1,9 @@
-﻿using Models;
+﻿using MaterialDesignThemes.Wpf;
+using Models;
 using Stylet;
 using System;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace GRCLNT
 {
@@ -14,6 +16,7 @@ namespace GRCLNT
             _windowManager = windowManager;
             dbMaxHeight = SystemParameters.WorkArea.Height + 7;
             dbMaxWidth = SystemParameters.WorkArea.Width + 7;
+            curPage = new PageHomeViewModel(this);
         }
 
         public WndMainViewModel()
@@ -63,40 +66,40 @@ namespace GRCLNT
             {
                 case 1:
                     iBdFocus = 1;
-                    curPage = new PageHomeViewModel();
+                    curPage = new PageHomeViewModel(this);
                     break;
                 case 2:
                     iBdFocus = 3;
-                    curPage = new PageWellViewModel();
+                    curPage = new PageWellViewModel(this);
                     break;
                 case 3:
                     iBdFocus = 5;
-                    curPage = new PageEntWellViewModel();
+                    curPage = new PageEntWellViewModel(this);
                     break;
                 case 4:
                     iBdFocus = 7;
-                    curPage = new PageSediCtrlViewModel();
+                    curPage = new PageSediCtrlViewModel(this);
                     break;
                 case 5:
                     iBdFocus = 9;
-                    curPage = new PageGwDynaViewModel();
+                    curPage = new PageGwDynaViewModel(this);
                     break;
                 case 6:
                     iBdFocus = 11;
-                    curPage = new PageGwProjViewModel();
+                    curPage = new PageGwProjViewModel(this);
                     break;
                 case 7:
                     iBdFocus = 13;
-                    curPage = new PageHydroViewModel();
+                    curPage = new PageHydroViewModel(this);
                     break;
                 case 8:
                     iBdFocus = 15;
-                    curPage = new PageLawViewModel();
+                    curPage = new PageLawViewModel(this);
                     break;
                 case 9:
                     vSettingFocus = Visibility.Visible;
                     vMenuFocus = Visibility.Hidden;
-                    curPage = new PageSettingViewModel();
+                    curPage = new PageSettingViewModel(this);
                     break;
                 default:
                     break;
@@ -107,7 +110,7 @@ namespace GRCLNT
 
         public Visibility vMenuFocus { get; set; } = Visibility.Visible;
 
-        public Screen curPage { get; set; } = new PageHomeViewModel();
+        public Screen curPage { get; set; }
 
         public void OnLogout()
         {
@@ -123,5 +126,8 @@ namespace GRCLNT
         {
             this.RequestClose();
         }
+
+        public SnackbarMessageQueue mainMessageQueue { get; set; } = new SnackbarMessageQueue(TimeSpan.FromSeconds(1.2));
+
     }
 }

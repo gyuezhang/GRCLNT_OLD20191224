@@ -362,7 +362,7 @@
                     </ScrollViewer>
                     <Image Visibility="{Binding vImageDragVisible}" Width="24" Height="24" Margin="0,0,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/GRCLNT;component/View/Resource/Image/resize-bottom-right.png"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="2" Width="300">
-                        <materialDesign:Snackbar  MessageQueue="{materialDesign:MessageQueue}" />
+                        <materialDesign:Snackbar  MessageQueue="{Binding mainMessageQueue}" ActionButtonStyle="{StaticResource ActionButtonStyleCust}" />
                     </StackPanel>
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="32">
                         <local:CtrlAddrBarView/>

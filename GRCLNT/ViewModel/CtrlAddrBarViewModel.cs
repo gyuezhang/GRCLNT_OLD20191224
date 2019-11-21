@@ -4,5 +4,11 @@ namespace GRCLNT
 {
     class CtrlAddrBarViewModel : Screen
     {
+        public CtrlAddrBarViewModel(WndMainViewModel _wndMainVM)
+        {
+            wndMainVM = _wndMainVM;
+        }
+        private WndMainViewModel wndMainVM { get; set; }
+
     }
 }

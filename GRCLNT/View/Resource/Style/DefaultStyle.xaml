@@ -6,5 +6,9 @@
         <Setter Property="FontFamily" Value="NotoSans"/>
         <Setter Property="Foreground" Value="White"/>
     </Style>
+    <!--Snackbar-->
+    <Style x:Key="ActionButtonStyleCust" TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignSnackbarActionLightButton}">
+        <Setter Property="TextBlock.FontSize" Value="16" />
+    </Style>
 
 </ResourceDictionary>
