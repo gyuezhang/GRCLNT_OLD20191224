@@ -168,6 +168,27 @@
     <Compile Include="View\Page\00Home\PageHome_UserInfo_ChangeInfo_View.xaml.cs">
       <DependentUpon>PageHome_UserInfo_ChangeInfo_View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Page\01Well\PageWell_AddAuto_View.xaml.cs">
+      <DependentUpon>PageWell_AddAuto_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\01Well\PageWell_AddEdit_View.xaml.cs">
+      <DependentUpon>PageWell_AddEdit_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\01Well\PageWell_AddMtdSel_View.xaml.cs">
+      <DependentUpon>PageWell_AddMtdSel_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\01Well\PageWell_Output_View.xaml.cs">
+      <DependentUpon>PageWell_Output_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\01Well\PageWell_Search_View.xaml.cs">
+      <DependentUpon>PageWell_Search_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\01Well\PageWell_Setting_View.xaml.cs">
+      <DependentUpon>PageWell_Setting_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\01Well\PageWell_State_View.xaml.cs">
+      <DependentUpon>PageWell_State_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Page\PageEntWellView.xaml.cs">
       <DependentUpon>PageEntWellView.xaml</DependentUpon>
     </Compile>
@@ -254,6 +275,34 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Page\01Well\PageWell_AddAuto_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\01Well\PageWell_AddEdit_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\01Well\PageWell_AddMtdSel_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\01Well\PageWell_Output_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\01Well\PageWell_Search_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\01Well\PageWell_Setting_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\01Well\PageWell_State_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Page\PageEntWellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -327,7 +376,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Resource\Image\BtnCard_EntWellAdd.png" />
-    <Resource Include="View\Resource\Image\BtnCard_EntWellAddAuto.png" />
+    <Resource Include="View\Resource\BtnCard_EntWellAddAuto.png" />
     <Resource Include="View\Resource\Image\BtnCard_EntWellAddHand.png" />
     <Resource Include="View\Resource\Image\BtnCard_EntWellEdit.png" />
     <Resource Include="View\Resource\Image\BtnCard_EntWellOutput.png" />

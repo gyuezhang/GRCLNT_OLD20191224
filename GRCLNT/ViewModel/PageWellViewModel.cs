@@ -9,6 +9,6 @@ namespace GRCLNT
             wndMainVM = _wndMainVM;
         }
         private WndMainViewModel wndMainVM { get; set; }
-
+        public int iPageIndex { get; set; } = 0;
     }
 }
