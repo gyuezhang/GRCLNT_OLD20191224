@@ -21,7 +21,30 @@ namespace Socket
 
         public static void ChangeUserInfo(User user)
         {
+            if (CLNTClient.IsConnected)
+            {
+                CLNTClient.Send(API_ID.API_ChangeUserInfo, JsonConvert.SerializeObject(user));
+            }
+            else
+            {
+                CLNTClient.TryReconn();
+                CLNTResHandler.OnChangeUserInfo(new CLNTStringPackageInfo(API_ID.API_ChangeUserInfo, RES_STATE.SVR_NOTFOUND_RECONN, ""));
+            }
+        }
+        
 
+        public static void ResetPwd(string userId,string oldPwd,string newPwd)
+        {
+            if (CLNTClient.IsConnected)
+            {
+                API_ResetPwd iResetPwd = new API_ResetPwd(userId, oldPwd, newPwd);
+                CLNTClient.Send(API_ID.API_ResetPwd, JsonConvert.SerializeObject(iResetPwd));
+            }
+            else
+            {
+                CLNTClient.TryReconn();
+                CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
+            }
         }
     }
 }

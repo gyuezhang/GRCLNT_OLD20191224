@@ -18,7 +18,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <materialDesign:PackIcon Grid.Column="0" Kind="AccountsGroupOutline" VerticalAlignment="Center" HorizontalAlignment="Center" Width="28" Height="28" Margin="2,14,2,2" Foreground="White"/>
-                <TextBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  IsEnabled="False" Text="{Binding user.DeptName}"  Margin="5" Foreground="White" FontSize="22" materialDesign:HintAssist.Hint="部门" HorizontalAlignment="Stretch" />
+                <TextBox Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  IsEnabled="False" Text="{Binding _curUser.DeptName}"  Margin="5" Foreground="White" FontSize="22" materialDesign:HintAssist.Hint="部门" HorizontalAlignment="Stretch" />
             </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -26,7 +26,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <materialDesign:PackIcon Grid.Column="0" Kind="User" VerticalAlignment="Center" HorizontalAlignment="Center" Width="28" Height="28" Margin="2,14,2,2" Foreground="White"/>
-                <TextBox Grid.Column="2"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  IsEnabled="False" Text="{Binding user.Name}"  Margin="5" Foreground="White" FontSize="22" materialDesign:HintAssist.Hint="姓名" HorizontalAlignment="Stretch" />
+                <TextBox Grid.Column="2"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  IsEnabled="False" Text="{Binding _curUser.Name}"  Margin="5" Foreground="White" FontSize="22" materialDesign:HintAssist.Hint="姓名" HorizontalAlignment="Stretch" />
             </Grid>
 
             <Grid>
@@ -35,7 +35,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <materialDesign:PackIcon Grid.Column="0" Kind="Telephone" VerticalAlignment="Center" HorizontalAlignment="Center" Width="28" Height="28" Margin="2,14,2,2" Foreground="White"/>
-                <TextBox  Grid.Column="3" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding user.Tel}"  Margin="5" Foreground="White" FontSize="22" materialDesign:HintAssist.Hint="电话" HorizontalAlignment="Stretch" />
+                <TextBox  Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding changeUserTel}"  Margin="5" Foreground="White" FontSize="22" materialDesign:HintAssist.Hint="电话" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" />
             </Grid>
 
             <Grid>
@@ -44,7 +44,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <materialDesign:PackIcon Grid.Column="0" Kind="Email" VerticalAlignment="Center" HorizontalAlignment="Center" Width="28" Height="28" Margin="2,14,2,2" Foreground="White"/>
-                <TextBox  Grid.Column="4" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding user.Email}"  Margin="5" Foreground="White" FontSize="22" materialDesign:HintAssist.Hint="邮箱" HorizontalAlignment="Stretch" />
+                <TextBox  Grid.Column="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding changeUserEmail}"  Margin="5" Foreground="White" FontSize="22" materialDesign:HintAssist.Hint="邮箱" HorizontalAlignment="Stretch" />
             </Grid>
 
             <Grid Margin="0,15,0,0" HorizontalAlignment="Right">

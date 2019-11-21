@@ -21,9 +21,21 @@ namespace Socket
         public static event LoginEventHandler login;
         public static void OnLogin(CLNTStringPackageInfo request)
         {
-            string a = string.Join("", request.Parameters);
-            User u = JsonConvert.DeserializeObject<User>(a);
-            login(request.resState, u);
+            login(request.resState, JsonConvert.DeserializeObject<User>(string.Join("", request.Parameters)));
+        }
+
+        public delegate void ChangeUserInfoEventHandler(RES_STATE state, User user);
+        public static event ChangeUserInfoEventHandler changeUserInfo;
+        public static void OnChangeUserInfo(CLNTStringPackageInfo request)
+        {
+            changeUserInfo(request.resState, JsonConvert.DeserializeObject<User>(string.Join("", request.Parameters)));
+        }
+
+        public delegate void ResetPwdEventHandler(RES_STATE state, string newPwd);
+        public static event ResetPwdEventHandler resetPwd;
+        public static void OnResetPwd(CLNTStringPackageInfo request)
+        {
+            resetPwd(request.resState, string.Join("", request.Parameters));
         }
     }
 }

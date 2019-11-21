@@ -16,6 +16,7 @@ namespace Models
         private string _deptName;
 
         private string _tel;
+
         private string _email;
 
         [JsonProperty]

@@ -13,6 +13,8 @@ namespace Socket
     {
         API_ConnState,
         API_Login,
+        API_ChangeUserInfo,
+        API_ResetPwd,
     }
 
     /// <summary>
