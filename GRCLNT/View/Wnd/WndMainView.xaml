@@ -10,7 +10,7 @@
         d:DataContext="{d:DesignInstance local:WndMainViewModel}"
         Title="宝坻区地下水资源信息管理系统" 
         Height="840" Width="1440" 
-        MinHeight="720" MinWidth="1260"
+        MinHeight="840" MinWidth="1440"
         MaxHeight="{Binding dbMaxHeight}" MaxWidth="{Binding dbMaxWidth}"
         WindowState="{Binding CurWindowState, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
         StateChanged="{s:Action OnStateChanged}"

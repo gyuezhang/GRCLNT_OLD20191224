@@ -156,16 +156,16 @@
     <Compile Include="View\Ctrl\CtrlAddrBarView.xaml.cs">
       <DependentUpon>CtrlAddrBarView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Page\Home\PageHome_Dashboard_View.xaml.cs">
+    <Compile Include="View\Page\00Home\PageHome_Dashboard_View.xaml.cs">
       <DependentUpon>PageHome_Dashboard_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Page\Home\PageHome_UserInfo_ChangePwd_View.xaml.cs">
+    <Compile Include="View\Page\00Home\PageHome_UserInfo_ChangePwd_View.xaml.cs">
       <DependentUpon>PageHome_UserInfo_ChangePwd_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Page\Home\PageHome_UserInfo_View.xaml.cs">
+    <Compile Include="View\Page\00Home\PageHome_UserInfo_View.xaml.cs">
       <DependentUpon>PageHome_UserInfo_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Page\Home\PageHome_UserInfo_ChangeInfo_View.xaml.cs">
+    <Compile Include="View\Page\00Home\PageHome_UserInfo_ChangeInfo_View.xaml.cs">
       <DependentUpon>PageHome_UserInfo_ChangeInfo_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Page\PageEntWellView.xaml.cs">
@@ -177,7 +177,7 @@
     <Compile Include="View\Page\PageGwProjView.xaml.cs">
       <DependentUpon>PageGwProjView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Page\Home\PageHomeView.xaml.cs">
+    <Compile Include="View\Page\00Home\PageHomeView.xaml.cs">
       <DependentUpon>PageHomeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Page\PageHydroView.xaml.cs">
@@ -192,7 +192,7 @@
     <Compile Include="View\Page\PageSettingView.xaml.cs">
       <DependentUpon>PageSettingView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Page\PageWellView.xaml.cs">
+    <Compile Include="View\Page\01Well\PageWellView.xaml.cs">
       <DependentUpon>PageWellView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Resource\Tool\UI_Def.cs" />
@@ -238,19 +238,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Page\Home\PageHome_Dashboard_View.xaml">
+    <Page Include="View\Page\00Home\PageHome_Dashboard_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Page\Home\PageHome_UserInfo_ChangePwd_View.xaml">
+    <Page Include="View\Page\00Home\PageHome_UserInfo_ChangePwd_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Page\Home\PageHome_UserInfo_View.xaml">
+    <Page Include="View\Page\00Home\PageHome_UserInfo_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Page\Home\PageHome_UserInfo_ChangeInfo_View.xaml">
+    <Page Include="View\Page\00Home\PageHome_UserInfo_ChangeInfo_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -266,7 +266,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Page\Home\PageHomeView.xaml">
+    <Page Include="View\Page\00Home\PageHomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -286,7 +286,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Page\PageWellView.xaml">
+    <Page Include="View\Page\01Well\PageWellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -324,6 +324,18 @@
     <Resource Include="View\Resource\Image\Logo.ico" />
     <Resource Include="View\Resource\Image\Logo.png" />
     <Resource Include="View\Resource\Image\resize-bottom-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Resource\Image\BtnCard_EntWellAdd.png" />
+    <Resource Include="View\Resource\Image\BtnCard_EntWellAddAuto.png" />
+    <Resource Include="View\Resource\Image\BtnCard_EntWellAddHand.png" />
+    <Resource Include="View\Resource\Image\BtnCard_EntWellEdit.png" />
+    <Resource Include="View\Resource\Image\BtnCard_EntWellOutput.png" />
+    <Resource Include="View\Resource\Image\BtnCard_EntWellSearch.png" />
+    <Resource Include="View\Resource\Image\BtnCard_EntWellSearchCond.png" />
+    <Resource Include="View\Resource\Image\BtnCard_EntWellSearchLoc.png" />
+    <Resource Include="View\Resource\Image\BtnCard_EntWellSetting.png" />
+    <Resource Include="View\Resource\Image\BtnCard_EntWellStat.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.0.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.0.0\build\Fody.targets')" />
