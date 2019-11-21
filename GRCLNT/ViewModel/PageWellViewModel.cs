@@ -10,5 +10,10 @@ namespace GRCLNT
         }
         private WndMainViewModel wndMainVM { get; set; }
         public int iPageIndex { get; set; } = 0;
+
+        public void OnShowPage(string i)
+        {
+            iPageIndex = int.Parse(i);
+        }
     }
 }
