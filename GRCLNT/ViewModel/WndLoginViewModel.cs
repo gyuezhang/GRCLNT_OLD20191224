@@ -89,6 +89,9 @@ namespace GRCLNT
                     loginMessageQueue = new SnackbarMessageQueue(TimeSpan.FromSeconds(0.6));
                     loginMessageQueue.Enqueue("用户名或密码错误");
                     break;
+                case RES_STATE.SVR_NOTFOUND_RECONN:
+                    loginMessageQueue.Enqueue("服务器断开，正在重连。。。");
+                    break;
                 default:
                     break;
             }

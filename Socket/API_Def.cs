@@ -31,6 +31,6 @@ namespace Socket
         /// <summary>
         /// 客户端自身状态
         /// </summary>
-        SVR_NOTFOUND,
+        SVR_NOTFOUND_RECONN,
     }
 }

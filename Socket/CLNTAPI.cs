@@ -15,7 +15,13 @@ namespace Socket
             else
             {
                 CLNTClient.TryReconn();
+                CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_Login,RES_STATE.SVR_NOTFOUND_RECONN,""));
             }
+        }
+
+        public static void ChangeUserInfo(User user)
+        {
+
         }
     }
 }
