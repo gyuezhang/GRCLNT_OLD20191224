@@ -100,13 +100,13 @@ namespace GRCLNT
                 case EnumPage.Home_UsrInfo:
                     return "用户信息";
                 case EnumPage.Home_UsrInfo_ChangeInfo:
-                    return "更换信息";
+                    return "更换用户信息";
                 case EnumPage.Home_UsrInfo_ChangPwd:
                     return "重置密码";
                 case EnumPage.Well:
                     return "机井信息";
                 case EnumPage.Well_AddMtdSel:
-                    return "采集方式";
+                    return "信息采集";
                 case EnumPage.Well_AddEdit:
                     return "手动添加";
                 case EnumPage.Well_AddAuto:
