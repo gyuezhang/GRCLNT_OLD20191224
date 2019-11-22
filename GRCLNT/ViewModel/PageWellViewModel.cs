@@ -27,6 +27,7 @@ namespace GRCLNT
                     wndMainVM.UpdateAddr(EnumPage.Well_AddEdit);
                     break;
                 case 3:
+                    inputFilePath = "";
                     wndMainVM.UpdateAddr(EnumPage.Well_AddAuto);
                     break;
                 case 4:
@@ -45,5 +46,32 @@ namespace GRCLNT
                     break;
             }
         }
+
+        public string inputFilePath { get; set; }
+
+        public void OnOpenDlgToAutoInput()
+        {
+            Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
+            ofd.DefaultExt = ".xlsx";
+            ofd.Filter = "Excel文件|*.xlsx;*.xls";
+            if (ofd.ShowDialog() == true)
+            {
+                //此处做你想做的事 ...=ofd.FileName; 
+                inputFilePath = ofd.FileName;
+            }
+
+        }
+
+        public void OnStartAutoInput()
+        {
+
+        }
+
+
+        public void OnOpenAutoInputTemplate()
+        {
+
+        }
+
     }
 }

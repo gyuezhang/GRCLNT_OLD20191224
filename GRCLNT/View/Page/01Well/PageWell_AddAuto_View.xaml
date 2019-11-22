@@ -10,6 +10,20 @@
              d:DataContext="{d:DesignInstance local:PageWellViewModel}"             
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="PageWell_AddAuto_View Under Construction..." HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"  Margin="0,0,0,10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+            <TextBox Width="450" Text="{Binding inputFilePath}" Margin="0,0,20,0" Foreground="White" FontSize="18"  Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" 
+                     VerticalAlignment="Center" TextWrapping="Wrap" MaxWidth="1000" materialDesign:HintAssist.Hint="文件路径" IsEnabled="False"/>
+            <Button Margin="5" Height="40" Command="{s:Action OnOpenDlgToAutoInput}" Content="浏览" FontSize="24" Foreground="White" VerticalAlignment="Center"/>
+            <Button Margin="5" Height="40" Command="{s:Action OnStartAutoInput}" Content="开始导入" FontSize="24" Foreground="White" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="0,10,0,0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            <TextBlock Margin="5,8,17,5" Text="※ 导入的表格文件需要遵循指定格式" FontSize="18" VerticalAlignment="Center"/>
+            <Button Margin="5" Height="40" Command="{s:Action OnOpenAutoInputTemplate}" Content="查看模板" FontSize="24" Foreground="White" VerticalAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </UserControl>
