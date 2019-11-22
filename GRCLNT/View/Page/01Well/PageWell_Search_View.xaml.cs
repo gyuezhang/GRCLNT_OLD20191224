@@ -1,4 +1,6 @@
 ﻿using System.Windows.Controls;
+using BruTile.Predefined;
+using Mapsui.Layers;
 
 namespace GRCLNT
 {
@@ -10,6 +12,7 @@ namespace GRCLNT
         public PageWell_Search_View()
         {
             InitializeComponent();
+            MyMapControl.Map.Layers.Add(new TileLayer(KnownTileSources.Create()));
         }
     }
 }
