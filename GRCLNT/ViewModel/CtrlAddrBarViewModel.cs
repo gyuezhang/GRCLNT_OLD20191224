@@ -43,34 +43,58 @@ namespace GRCLNT
                     items.Add(new AddrBarItem(EnumPage.Home_UsrInfo_ChangPwd));
                     break;
                 case EnumPage.Well:
+                    items.Add(new AddrBarItem(EnumPage.Well));
                     break;
                 case EnumPage.Well_AddMtdSel:
+                    items.Add(new AddrBarItem(EnumPage.Well));
+                    items.Add(new AddrBarItem(EnumPage.Well_AddMtdSel));
                     break;
                 case EnumPage.Well_AddEdit:
+                    items.Add(new AddrBarItem(EnumPage.Well));
+                    items.Add(new AddrBarItem(EnumPage.Well_AddMtdSel));
+                    items.Add(new AddrBarItem(EnumPage.Well_AddEdit));
                     break;
                 case EnumPage.Well_AddAuto:
+                    items.Add(new AddrBarItem(EnumPage.Well));
+                    items.Add(new AddrBarItem(EnumPage.Well_AddMtdSel));
+                    items.Add(new AddrBarItem(EnumPage.Well_AddAuto));
                     break;
                 case EnumPage.Well_Search:
+                    items.Add(new AddrBarItem(EnumPage.Well));
+                    items.Add(new AddrBarItem(EnumPage.Well_Search));
                     break;
                 case EnumPage.Well_State:
+                    items.Add(new AddrBarItem(EnumPage.Well));
+                    items.Add(new AddrBarItem(EnumPage.Well_State));
                     break;
                 case EnumPage.Well_Output:
+                    items.Add(new AddrBarItem(EnumPage.Well));
+                    items.Add(new AddrBarItem(EnumPage.Well_Output));
                     break;
                 case EnumPage.Well_Setting:
+                    items.Add(new AddrBarItem(EnumPage.Well));
+                    items.Add(new AddrBarItem(EnumPage.Well_Setting));
                     break;
                 case EnumPage.EntWell:
+                    items.Add(new AddrBarItem(EnumPage.EntWell));
                     break;
                 case EnumPage.SediCtrl:
+                    items.Add(new AddrBarItem(EnumPage.SediCtrl));
                     break;
                 case EnumPage.GwDyna:
+                    items.Add(new AddrBarItem(EnumPage.GwDyna));
                     break;
                 case EnumPage.GwProj:
+                    items.Add(new AddrBarItem(EnumPage.GwProj));
                     break;
                 case EnumPage.Hydro:
+                    items.Add(new AddrBarItem(EnumPage.Hydro));
                     break;
                 case EnumPage.Law:
+                    items.Add(new AddrBarItem(EnumPage.Law));
                     break;
                 case EnumPage.Setting:
+                    items.Add(new AddrBarItem(EnumPage.Setting));
                     break;
                 default:
                     break;

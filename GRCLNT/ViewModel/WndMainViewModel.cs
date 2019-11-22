@@ -20,7 +20,7 @@ namespace GRCLNT
             ((PageHomeViewModel)curPage).OnShowDashboard();
 
             addrsBar = new CtrlAddrBarViewModel(this);
-            UpdateAddr(EnumPage.Home);
+            UpdateAddr(EnumPage.Home_Dashboard);
         }
 
         public WndMainViewModel()
@@ -139,6 +139,7 @@ namespace GRCLNT
         {
             try
             {
+                addrsBar = new CtrlAddrBarViewModel(this);
                 addrsBar.UpdateList(id);
             }
             catch

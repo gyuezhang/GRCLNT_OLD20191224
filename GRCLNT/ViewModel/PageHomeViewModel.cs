@@ -65,6 +65,7 @@ namespace GRCLNT
         {
             iPageIndex = 2;
             wndMainVM.UpdateAddr(EnumPage.Home_UsrInfo);
+
         }
 
         public void OnChangeInfo()

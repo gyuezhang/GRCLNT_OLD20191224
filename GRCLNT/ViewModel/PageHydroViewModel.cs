@@ -7,6 +7,7 @@ namespace GRCLNT
         public PageHydroViewModel(WndMainViewModel _wndMainVM)
         {
             wndMainVM = _wndMainVM;
+            wndMainVM.UpdateAddr(EnumPage.Hydro);
         }
         private WndMainViewModel wndMainVM { get; set; }
 
