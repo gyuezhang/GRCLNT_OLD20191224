@@ -20,7 +20,7 @@
             <DataTemplate>
                 <Border>
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:Chip  Content="{Binding cont}" Foreground="White" Margin="0,0,10,0"  FontSize="18"  IconBackground="#66000000">
+                        <materialDesign:Chip  Content="{Binding cont}" Command="{s:Action OnChipClick}" CommandParameter="{Binding strPageId}" Foreground="White" Margin="0,0,10,0"  FontSize="18"  IconBackground="#66000000">
                             <materialDesign:Chip.Icon>
                                 <materialDesign:PackIcon Kind="{Binding iconKind}" Foreground="#CCFFFFFF"  Height="28" Width="28"/>
                             </materialDesign:Chip.Icon>

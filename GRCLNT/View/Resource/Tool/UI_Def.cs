@@ -42,6 +42,16 @@ namespace GRCLNT
         private string _cont;
         private PackIconKind _iconKind;
         private Visibility _vHasChild;
+        private string _strPageId;
+
+        public string strPageId
+        {
+            get { return _strPageId; }
+            set
+            {
+                SetAndNotify(ref _strPageId, value);
+            }
+        }
 
         public string cont
         {
@@ -76,6 +86,7 @@ namespace GRCLNT
             cont = GetPageIdName();
             iconKind = GetIconKind();
             vHasChild = Visibility.Visible;
+            strPageId = id.ToString();
         }
 
         private string GetPageIdName()

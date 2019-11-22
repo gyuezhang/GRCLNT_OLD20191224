@@ -147,5 +147,67 @@ namespace GRCLNT
 
             }
         }
+
+        public void UpdatePages(EnumPage id)
+        {
+            switch(id)
+            {
+                case EnumPage.Home:
+                    ((PageHomeViewModel)curPage).ShowHome();
+                    return;
+                case EnumPage.Home_Dashboard:
+                    ((PageHomeViewModel)curPage).OnShowDashboard();
+                    return ;
+                case EnumPage.Home_UsrInfo:
+                    ((PageHomeViewModel)curPage).OnShowUserInfo();
+                    return ;
+                case EnumPage.Home_UsrInfo_ChangeInfo:
+                    ((PageHomeViewModel)curPage).OnChangeInfo();
+                    return ;
+                case EnumPage.Home_UsrInfo_ChangPwd:
+                    ((PageHomeViewModel)curPage).OnChangePwd();
+                    return;
+                case EnumPage.Well:
+                    ((PageWellViewModel)curPage).OnShowPage("0");
+                    return;
+                case EnumPage.Well_AddMtdSel:
+                    ((PageWellViewModel)curPage).OnShowPage("1");
+                    return ;
+                case EnumPage.Well_AddEdit:
+                    ((PageWellViewModel)curPage).OnShowPage("2");
+                    return ;
+                case EnumPage.Well_AddAuto:
+                    ((PageWellViewModel)curPage).OnShowPage("3");
+                    return ;
+                case EnumPage.Well_Search:
+                    ((PageWellViewModel)curPage).OnShowPage("4");
+                    return ;
+                case EnumPage.Well_State:
+                    ((PageWellViewModel)curPage).OnShowPage("5");
+                    return ;
+                case EnumPage.Well_Output:
+                    ((PageWellViewModel)curPage).OnShowPage("6");
+                    return ;
+                case EnumPage.Well_Setting:
+                    ((PageWellViewModel)curPage).OnShowPage("7");
+                    return ;
+                case EnumPage.EntWell:
+                    return ;
+                case EnumPage.SediCtrl:
+                    return ;
+                case EnumPage.GwDyna:
+                    return ;
+                case EnumPage.GwProj:
+                    return ;
+                case EnumPage.Hydro:
+                    return ;
+                case EnumPage.Law:
+                    return ;
+                case EnumPage.Setting:
+                    return ;
+                default:
+                    return ;
+            }
+        }
     }
 }

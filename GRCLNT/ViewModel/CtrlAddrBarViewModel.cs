@@ -1,5 +1,6 @@
 ﻿using MaterialDesignThemes.Wpf;
 using Stylet;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 
@@ -100,6 +101,20 @@ namespace GRCLNT
                     break;
             }
             items[items.Count - 1].vHasChild = Visibility.Collapsed;
+        }
+
+        public void OnChipClick(string pageId)
+        {
+            try
+            {
+                EnumPage id = (EnumPage)Enum.Parse(typeof(EnumPage), pageId);
+                wndMainVM.UpdateAddr(id);
+                wndMainVM.UpdatePages(id);
+            }
+            catch
+            {
+
+            }
         }
     }
 }
