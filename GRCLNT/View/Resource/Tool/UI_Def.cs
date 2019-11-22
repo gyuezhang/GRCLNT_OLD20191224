@@ -134,45 +134,45 @@ namespace GRCLNT
                 case EnumPage.Home:
                     return PackIconKind.Home;
                 case EnumPage.Home_Dashboard:
-                    return PackIconKind.Home;
+                    return PackIconKind.ViewDashboard;
                 case EnumPage.Home_UsrInfo:
-                    return PackIconKind.Home;
+                    return PackIconKind.AccountBadgeHorizontal;
                 case EnumPage.Home_UsrInfo_ChangeInfo:
-                    return PackIconKind.Home;
+                    return PackIconKind.AccountDetails;
                 case EnumPage.Home_UsrInfo_ChangPwd:
-                    return PackIconKind.Home;
+                    return PackIconKind.LockReset;
                 case EnumPage.Well:
-                    return PackIconKind.Home;
+                    return PackIconKind.WaterPump;
                 case EnumPage.Well_AddMtdSel:
-                    return PackIconKind.Home;
+                    return PackIconKind.Forwardburger;
                 case EnumPage.Well_AddEdit:
-                    return PackIconKind.Home;
+                    return PackIconKind.PlaylistEdit;
                 case EnumPage.Well_AddAuto:
-                    return PackIconKind.Home;
+                    return PackIconKind.ScrewMachineFlatTop;
                 case EnumPage.Well_Search:
-                    return PackIconKind.Home;
+                    return PackIconKind.SearchWeb;
                 case EnumPage.Well_State:
-                    return PackIconKind.Home;
+                    return PackIconKind.ChartLine;
                 case EnumPage.Well_Output:
-                    return PackIconKind.Home;
+                    return PackIconKind.PageNextOutline;
                 case EnumPage.Well_Setting:
-                    return PackIconKind.Home;
+                    return PackIconKind.Equaliser;
                 case EnumPage.EntWell:
-                    return PackIconKind.Home;
+                    return PackIconKind.Factory;
                 case EnumPage.SediCtrl:
-                    return PackIconKind.Home;
+                    return PackIconKind.Layers;
                 case EnumPage.GwDyna:
-                    return PackIconKind.Home;
+                    return PackIconKind.Water;
                 case EnumPage.GwProj:
-                    return PackIconKind.Home;
+                    return PackIconKind.Worker;
                 case EnumPage.Hydro:
-                    return PackIconKind.Home;
+                    return PackIconKind.Map;
                 case EnumPage.Law:
-                    return PackIconKind.Home;
+                    return PackIconKind.ScaleBalance;
                 case EnumPage.Setting:
-                    return PackIconKind.Home;
+                    return PackIconKind.Settings;
                 default:
-                    return PackIconKind.Home;
+                    return PackIconKind.Brightness1;
             }
         }
     }
