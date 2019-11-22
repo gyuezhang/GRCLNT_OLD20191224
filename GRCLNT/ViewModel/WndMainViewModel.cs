@@ -181,15 +181,21 @@ namespace GRCLNT
                     return ;
                 case EnumPage.Well_Search:
                     ((PageWellViewModel)curPage).OnShowPage("4");
-                    return ;
-                case EnumPage.Well_State:
+                    return;
+                case EnumPage.Well_Search_Loc:
                     ((PageWellViewModel)curPage).OnShowPage("5");
+                    return;
+                case EnumPage.Well_Search_Lst:
+                    ((PageWellViewModel)curPage).OnShowPage("6");
+                    return;
+                case EnumPage.Well_State:
+                    ((PageWellViewModel)curPage).OnShowPage("7");
                     return ;
                 case EnumPage.Well_Output:
-                    ((PageWellViewModel)curPage).OnShowPage("6");
+                    ((PageWellViewModel)curPage).OnShowPage("8");
                     return ;
                 case EnumPage.Well_Setting:
-                    ((PageWellViewModel)curPage).OnShowPage("7");
+                    ((PageWellViewModel)curPage).OnShowPage("9");
                     return ;
                 case EnumPage.EntWell:
                     return ;

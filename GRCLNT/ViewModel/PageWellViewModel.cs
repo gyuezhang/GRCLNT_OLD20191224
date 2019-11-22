@@ -34,12 +34,18 @@ namespace GRCLNT
                     wndMainVM.UpdateAddr(EnumPage.Well_Search);
                     break;
                 case 5:
-                    wndMainVM.UpdateAddr(EnumPage.Well_State);
+                    wndMainVM.UpdateAddr(EnumPage.Well_Search_Loc);
                     break;
                 case 6:
-                    wndMainVM.UpdateAddr(EnumPage.Well_Output);
+                    wndMainVM.UpdateAddr(EnumPage.Well_Search_Lst);
                     break;
                 case 7:
+                    wndMainVM.UpdateAddr(EnumPage.Well_State);
+                    break;
+                case 8:
+                    wndMainVM.UpdateAddr(EnumPage.Well_Output);
+                    break;
+                case 9:
                     wndMainVM.UpdateAddr(EnumPage.Well_Setting);
                     break;
                 default:

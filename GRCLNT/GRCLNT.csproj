@@ -223,6 +223,12 @@
     <Compile Include="View\Page\01Well\PageWell_Output_View.xaml.cs">
       <DependentUpon>PageWell_Output_View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Page\01Well\PageWell_Search_Loc_View.xaml.cs">
+      <DependentUpon>PageWell_Search_Loc_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page\01Well\PageWell_Search_Lst_View.xaml.cs">
+      <DependentUpon>PageWell_Search_Lst_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Page\01Well\PageWell_Search_View.xaml.cs">
       <DependentUpon>PageWell_Search_View.xaml</DependentUpon>
     </Compile>
@@ -331,6 +337,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Page\01Well\PageWell_Output_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\01Well\PageWell_Search_Loc_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\01Well\PageWell_Search_Lst_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

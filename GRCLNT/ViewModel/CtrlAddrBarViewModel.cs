@@ -64,6 +64,18 @@ namespace GRCLNT
                     items.Add(new AddrBarItem(EnumPage.Well));
                     items.Add(new AddrBarItem(EnumPage.Well_Search));
                     break;
+
+                case EnumPage.Well_Search_Loc:
+                    items.Add(new AddrBarItem(EnumPage.Well));
+                    items.Add(new AddrBarItem(EnumPage.Well_Search));
+                    items.Add(new AddrBarItem(EnumPage.Well_Search_Loc));
+                    break;
+                case EnumPage.Well_Search_Lst:
+                    items.Add(new AddrBarItem(EnumPage.Well));
+                    items.Add(new AddrBarItem(EnumPage.Well_Search));
+                    items.Add(new AddrBarItem(EnumPage.Well_Search_Lst));
+                    break;
+
                 case EnumPage.Well_State:
                     items.Add(new AddrBarItem(EnumPage.Well));
                     items.Add(new AddrBarItem(EnumPage.Well_State));

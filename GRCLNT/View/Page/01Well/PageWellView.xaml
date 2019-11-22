@@ -77,6 +77,8 @@
             <local:PageWell_AddEdit_View/>
             <local:PageWell_AddAuto_View/>
             <local:PageWell_Search_View/>
+            <local:PageWell_Search_Loc_View/>
+            <local:PageWell_Search_Lst_View/>
             <local:PageWell_State_View/>
             <local:PageWell_Output_View/>
             <local:PageWell_Setting_View/>

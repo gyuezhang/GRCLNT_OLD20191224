@@ -23,6 +23,8 @@ namespace GRCLNT
                 Well_AddEdit,
                 Well_AddAuto,
             Well_Search,
+                Well_Search_Loc,
+                Well_Search_Lst,
             Well_State,
             Well_Output,
             Well_Setting,
@@ -113,6 +115,10 @@ namespace GRCLNT
                     return "自动导入";
                 case EnumPage.Well_Search:
                     return "查询";
+                case EnumPage.Well_Search_Loc:
+                    return "位置查询";
+                case EnumPage.Well_Search_Lst:
+                    return "列表查询";
                 case EnumPage.Well_State:
                     return "统计";
                 case EnumPage.Well_Output:
@@ -162,6 +168,10 @@ namespace GRCLNT
                     return PackIconKind.ScrewMachineFlatTop;
                 case EnumPage.Well_Search:
                     return PackIconKind.SearchWeb;
+                case EnumPage.Well_Search_Loc:
+                    return PackIconKind.Location;
+                case EnumPage.Well_Search_Lst:
+                    return PackIconKind.ViewList;
                 case EnumPage.Well_State:
                     return PackIconKind.ChartLine;
                 case EnumPage.Well_Output:
