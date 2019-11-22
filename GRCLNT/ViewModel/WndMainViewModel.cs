@@ -18,6 +18,9 @@ namespace GRCLNT
             dbMaxWidth = SystemParameters.WorkArea.Width + 7;
             curPage = new PageHomeViewModel(this);
             ((PageHomeViewModel)curPage).OnShowDashboard();
+
+            addrsBar = new CtrlAddrBarViewModel(this);
+            UpdateAddr(EnumPage.Home);
         }
 
         public WndMainViewModel()
@@ -113,6 +116,8 @@ namespace GRCLNT
 
         public Screen curPage { get; set; }
 
+        public CtrlAddrBarViewModel addrsBar { get; set; }
+
         public void OnLogout()
         {
             App.Current.Dispatcher.Invoke((Action)(() =>
@@ -130,5 +135,16 @@ namespace GRCLNT
 
         public SnackbarMessageQueue mainMessageQueue { get; set; } = new SnackbarMessageQueue(TimeSpan.FromSeconds(1.2));
 
+        public void UpdateAddr(EnumPage id)
+        {
+            try
+            {
+                addrsBar.UpdateList(id);
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

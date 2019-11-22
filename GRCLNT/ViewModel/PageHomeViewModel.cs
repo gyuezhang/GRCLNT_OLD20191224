@@ -14,6 +14,7 @@ namespace GRCLNT
             wndMainVM = _wndMainVM;
             CLNTResHandler.changeUserInfo += CLNTResHandler_changeUserInfo;
             CLNTResHandler.resetPwd += CLNTResHandler_resetPwd;
+            wndMainVM.UpdateAddr(EnumPage.Home);
         }
 
         private WndMainViewModel wndMainVM { get; set; }
@@ -57,17 +58,19 @@ namespace GRCLNT
         public void OnShowDashboard()
         {
             iPageIndex = 1;
-
+            wndMainVM.UpdateAddr(EnumPage.Home_Dashboard);
         }
 
         public void OnShowUserInfo()
         {
             iPageIndex = 2;
+            wndMainVM.UpdateAddr(EnumPage.Home_UsrInfo);
         }
 
         public void OnChangeInfo()
         {
             iPageIndex = 3;
+            wndMainVM.UpdateAddr(EnumPage.Home_UsrInfo_ChangeInfo);
         }
 
         public void OnChangePwd()
@@ -76,6 +79,7 @@ namespace GRCLNT
             pwdNew = "";
             pwdNew2 = "";
             iPageIndex = 4;
+            wndMainVM.UpdateAddr(EnumPage.Home_UsrInfo_ChangPwd);
         }
 
         public void OnChangeInfoOK()

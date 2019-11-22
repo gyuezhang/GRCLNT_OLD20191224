@@ -9,24 +9,26 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance local:CtrlAddrBarViewModel}"       
              d:DesignHeight="60" d:DesignWidth="4096" HorizontalAlignment="Stretch">
-    <StackPanel Orientation="Horizontal">
-        <materialDesign:Chip  Content="首页" Foreground="White" Margin="0,0,10,0"  FontSize="18"  IconBackground="#66000000">
-            <materialDesign:Chip.Icon>
-                <materialDesign:PackIcon Kind="Home" Foreground="#CCFFFFFF"  Height="28" Width="28"/>
-            </materialDesign:Chip.Icon>
-        </materialDesign:Chip>
-        <materialDesign:PackIcon Kind="MenuRight" Foreground="White" VerticalAlignment="Center"  Margin="0,0,10,0" Height="32" Width="32" />
 
-        <materialDesign:Chip  Content="用户信息" Foreground="White"  Margin="0,0,10,0" FontSize="18" IconBackground="#66000000">
-            <materialDesign:Chip.Icon >
-                <materialDesign:PackIcon Kind="User" Foreground="#CCFFFFFF"  Height="28" Width="28"/>
-            </materialDesign:Chip.Icon>
-        </materialDesign:Chip>
-        <materialDesign:PackIcon Kind="MenuRight" Foreground="White" VerticalAlignment="Center"  Margin="0,0,10,0" Height="32" Width="32" />
-        <materialDesign:Chip  Content="重置密码" Foreground="White"  Margin="0,0,10,0" FontSize="18" IconBackground="#66000000">
-            <materialDesign:Chip.Icon >
-                <materialDesign:PackIcon Kind="PasswordReset" Foreground="#CCFFFFFF"  Height="28" Width="28"/>
-            </materialDesign:Chip.Icon>
-        </materialDesign:Chip>
-    </StackPanel>
+    <ItemsControl  ItemsSource="{Binding items}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Horizontal"/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Border>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:Chip  Content="{Binding cont}" Foreground="White" Margin="0,0,10,0"  FontSize="18"  IconBackground="#66000000">
+                            <materialDesign:Chip.Icon>
+                                <materialDesign:PackIcon Kind="{Binding iconKind}" Foreground="#CCFFFFFF"  Height="28" Width="28"/>
+                            </materialDesign:Chip.Icon>
+                        </materialDesign:Chip>
+                        <materialDesign:PackIcon Kind="MenuRight" Visibility="{Binding vHasChild}" Foreground="White" VerticalAlignment="Center"  Margin="0,0,10,0" Height="32" Width="32" />
+                    </StackPanel>
+                </Border>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
 </UserControl>
