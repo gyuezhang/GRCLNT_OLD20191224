@@ -37,5 +37,12 @@ namespace Socket
         {
             resetPwd(request.resState);
         }
+
+        public delegate void GetLevelZonesEventHandler(RES_STATE state, List<ZoningNode> nodes);
+        public static event GetLevelZonesEventHandler getLevelZones;
+        public static void OnGetLevelZones(CLNTStringPackageInfo request)
+        {
+            getLevelZones(request.resState, JsonConvert.DeserializeObject<List<ZoningNode>>(string.Join("", request.Parameters)));
+        }
     }
 }

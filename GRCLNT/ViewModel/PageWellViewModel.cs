@@ -1,4 +1,5 @@
-﻿using Stylet;
+﻿using Models;
+using Stylet;
 
 namespace GRCLNT
 {
@@ -8,9 +9,12 @@ namespace GRCLNT
         {
             wndMainVM = _wndMainVM;
             wndMainVM.UpdateAddr(EnumPage.Well);
+            czoning = RTData.zoning;
         }
         private WndMainViewModel wndMainVM { get; set; }
         public int iPageIndex { get; set; } = 0;
+
+        public static BDZoning czoning;
 
         public void OnShowPage(string i)
         {

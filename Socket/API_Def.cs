@@ -15,6 +15,8 @@ namespace Socket
         API_Login,
         API_ChangeUserInfo,
         API_ResetPwd,
+
+        API_GetLevelZoning,
     }
 
     /// <summary>

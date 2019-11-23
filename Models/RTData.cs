@@ -9,5 +9,7 @@ namespace Models
     public class RTData
     {
         public static User loginSuccessUserInfo { get; set; } = new User();
+
+        public static BDZoning zoning { get; set; } = new BDZoning();
     }
 }

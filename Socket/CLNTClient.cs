@@ -19,20 +19,23 @@ namespace Socket
             {
                 switch(request.apiId)
                 {
-                case API_ID.API_ConnState:
-                    CLNTResHandler.OnConnState(request);
-                    break;
-                case API_ID.API_Login:
-                    CLNTResHandler.OnLogin(request);
-                    break;
-                case API_ID.API_ChangeUserInfo:
-                    CLNTResHandler.OnChangeUserInfo(request);
-                    break;
-                case API_ID.API_ResetPwd:
-                    CLNTResHandler.OnResetPwd(request);
-                    break;
-                default:
-                    break;
+                    case API_ID.API_ConnState:
+                        CLNTResHandler.OnConnState(request);
+                        break;
+                    case API_ID.API_Login:
+                        CLNTResHandler.OnLogin(request);
+                        break;
+                    case API_ID.API_ChangeUserInfo:
+                        CLNTResHandler.OnChangeUserInfo(request);
+                        break;
+                    case API_ID.API_ResetPwd:
+                        CLNTResHandler.OnResetPwd(request);
+                        break;
+                    case API_ID.API_GetLevelZoning:
+                        CLNTResHandler.OnGetLevelZones(request);
+                        break;
+                    default:
+                        break;
                 }
             });
             _ = SyncConn();

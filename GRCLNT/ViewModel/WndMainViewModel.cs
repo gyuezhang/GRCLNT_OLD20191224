@@ -1,5 +1,6 @@
 ﻿using MaterialDesignThemes.Wpf;
 using Models;
+using Socket;
 using Stylet;
 using System;
 using System.Windows;
@@ -21,6 +22,30 @@ namespace GRCLNT
 
             addrsBar = new CtrlAddrBarViewModel(this);
             UpdateAddr(EnumPage.Home_Dashboard);
+
+            CLNTAPI.GetLevelZones(4);
+            CLNTAPI.GetLevelZones(5);
+
+            CLNTResHandler.getLevelZones += CLNTResHandler_getLevelZones;
+
+        }
+
+        private void CLNTResHandler_getLevelZones(RES_STATE state, System.Collections.Generic.List<ZoningNode> nodes)
+        {
+            if (state == RES_STATE.FAILED)
+            {
+                mainMessageQueue.Enqueue("获取区划信息失败");
+                return;
+            }
+
+            if (nodes.Count == 0)
+                return;
+            int iLevel = nodes[0].level;
+            if (iLevel == 4)
+                RTData.zoning.InitLevel4Nodes(nodes);
+            if (iLevel == 5)
+                RTData.zoning.InitLevel5Nodes(nodes);
+
         }
 
         public WndMainViewModel()

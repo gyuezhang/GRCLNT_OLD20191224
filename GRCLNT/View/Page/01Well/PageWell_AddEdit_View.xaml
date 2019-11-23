@@ -15,9 +15,8 @@
             <StackPanel Orientation="Horizontal" >
                 <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Foreground="White" VerticalAlignment="Center" Margin="0,0,20,0">基本信息 :</TextBlock>
                 <!--街道乡镇-->
-                <ComboBox FontSize="18" materialDesign:HintAssist.Hint="街道乡镇"
+                <ComboBox FontSize="18" materialDesign:HintAssist.Hint="街道乡镇" ItemsSource="{Binding Path=czoning.allLevel4Nodes}" DisplayMemberPath="name"
                 Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="15 8 15 8" HorizontalAlignment="Left">
-                    <ComboBoxItem  IsSelected="True">宝平街道</ComboBoxItem>
                 </ComboBox>
                 <!--所属企业-->
                 <TextBox Margin="15 0 15 8" MinWidth="200"  materialDesign:HintAssist.Hint="所属企业" FontSize="18" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />

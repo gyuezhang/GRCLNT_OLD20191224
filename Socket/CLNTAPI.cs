@@ -46,5 +46,18 @@ namespace Socket
                 CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
             }
         }
+
+        public static void GetLevelZones(int iLevel)
+        {
+            if (CLNTClient.IsConnected)
+            {
+                CLNTClient.Send(API_ID.API_GetLevelZoning, iLevel.ToString());
+            }
+            else
+            {
+                CLNTClient.TryReconn();
+               // CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
+            }
+        }
     }
 }
