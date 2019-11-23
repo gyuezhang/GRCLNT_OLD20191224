@@ -105,15 +105,17 @@ namespace Models
             get { return _curLevel4Node; }
             set
             {
-                SetAndNotify(ref _curLevel4Node, value);
                 curlevel5Nodes.Clear();
+                List<ZoningNode> tmp = new List<ZoningNode>();
                 foreach (ZoningNode cnode in allLevel5Nodes)
                 {
-                    if (cnode.pCode == _curLevel4Node.code)
-                        curlevel5Nodes.Add(cnode);
+                    if (cnode.pCode == value.code)
+                        tmp.Add(cnode);
                 }
+                curlevel5Nodes = tmp;
                 if (curlevel5Nodes.Count > 0)
-                    curlevel5Node=curlevel5Nodes[0];
+                    curlevel5Node = curlevel5Nodes[0];
+                SetAndNotify(ref _curLevel4Node, value);
             }
         }
 
