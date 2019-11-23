@@ -106,6 +106,14 @@ namespace Models
             set
             {
                 SetAndNotify(ref _curLevel4Node, value);
+                curlevel5Nodes.Clear();
+                foreach (ZoningNode cnode in allLevel5Nodes)
+                {
+                    if (cnode.pCode == _curLevel4Node.code)
+                        curlevel5Nodes.Add(cnode);
+                }
+                if (curlevel5Nodes.Count > 0)
+                    curlevel5Node=curlevel5Nodes[0];
             }
         }
 
@@ -130,18 +138,6 @@ namespace Models
             allLevel5Nodes = nodes;
         }
 
-        public void SelLevel4Node(ZoningNode node)
-        {
-            curlevel4Node = node;
-            curlevel5Nodes.Clear();
-            foreach (ZoningNode cnode in allLevel5Nodes)
-            {
-                if (cnode.pCode == node.code)
-                    curlevel5Nodes.Add(cnode);
-            }
-            if (curlevel5Nodes.Count > 0)
-                SelLevel5Node(curlevel5Nodes[0]);
-        }
 
         public void SelLevel5Node(ZoningNode node)
         {

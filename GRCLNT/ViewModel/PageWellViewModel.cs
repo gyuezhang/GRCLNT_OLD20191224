@@ -18,7 +18,10 @@ namespace GRCLNT
         public int iPageIndex { get; set; } = 0;
 
         public BDZoning czoning { get; set; } 
+        public void Onlevel4Changed()
+        {
 
+        }
         public void OnShowPage(string i)
         {
             iPageIndex = int.Parse(i);
