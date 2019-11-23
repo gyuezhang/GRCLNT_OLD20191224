@@ -37,7 +37,7 @@
                         </Button.Background>
                         <TextBlock Text="查询" FontSize="24" Margin="0,200,0,0"/>
                     </Button>
-                    <Button Command="{s:Action OnShowPage}" CommandParameter="5" Style="{StaticResource MaterialDesignRaisedButton}" Width="200" Height="240" materialDesign:ButtonAssist.CornerRadius="10"
+                    <Button Command="{s:Action OnShowPage}" CommandParameter="7" Style="{StaticResource MaterialDesignRaisedButton}" Width="200" Height="240" materialDesign:ButtonAssist.CornerRadius="10"
                     Margin="40,30" BorderThickness="0">
                         <Button.Background>
                             <ImageBrush ImageSource="/GRCLNT;component/View/Resource/Image/BtnCard_EntWellStat.png"/>
@@ -47,14 +47,14 @@
 
                 </StackPanel>
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" >
-                    <Button Command="{s:Action OnShowPage}" CommandParameter="6" Style="{StaticResource MaterialDesignRaisedButton}" Width="200" Height="240" materialDesign:ButtonAssist.CornerRadius="10"
+                    <Button Command="{s:Action OnShowPage}" CommandParameter="8" Style="{StaticResource MaterialDesignRaisedButton}" Width="200" Height="240" materialDesign:ButtonAssist.CornerRadius="10"
                     Margin="40,30" BorderThickness="0">
                         <Button.Background>
                             <ImageBrush ImageSource="/GRCLNT;component/View/Resource/Image/BtnCard_EntWellOutput.png"/>
                         </Button.Background>
                         <TextBlock Text="报表导出" FontSize="24" Margin="0,200,0,0"/>
                     </Button>
-                    <Button Command="{s:Action OnShowPage}" CommandParameter="7" Style="{StaticResource MaterialDesignRaisedButton}" Width="200" Height="240" materialDesign:ButtonAssist.CornerRadius="10"
+                    <Button Command="{s:Action OnShowPage}" CommandParameter="9" Style="{StaticResource MaterialDesignRaisedButton}" Width="200" Height="240" materialDesign:ButtonAssist.CornerRadius="10"
                     Margin="40,30" BorderThickness="0">
                         <Button.Background>
                             <ImageBrush ImageSource="/GRCLNT;component/View/Resource/Image/BtnCard_EntWellSetting.png"/>
