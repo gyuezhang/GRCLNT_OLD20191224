@@ -110,7 +110,7 @@ namespace GRCLNT
                 case EnumPage.Well_AddMtdSel:
                     return "信息采集";
                 case EnumPage.Well_AddEdit:
-                    return "手动添加";
+                    return "手动录入";
                 case EnumPage.Well_AddAuto:
                     return "自动导入";
                 case EnumPage.Well_Search:

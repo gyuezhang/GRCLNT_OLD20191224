@@ -15,10 +15,10 @@
             <StackPanel Orientation="Horizontal" >
                 <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Foreground="White" VerticalAlignment="Center" Margin="0,0,20,0">基本信息 :</TextBlock>
                 <!--街道乡镇-->
-                <ComboBox FontSize="18" materialDesign:HintAssist.Hint="街道乡镇" ItemsSource="{Binding Path=czoning.allLevel4Nodes}" DisplayMemberPath="name"
-                Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="15 8 15 8" HorizontalAlignment="Left" SelectedIndex="{Binding Path=czoning.curlevel4Node,UpdateSourceTrigger=PropertyChanged}"/>
+                <ComboBox FontSize="18" materialDesign:HintAssist.Hint="街道乡镇" ItemsSource="{Binding Path=czoning.allLevel4Nodes}" DisplayMemberPath="name" SelectedValuePath="."
+                Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="15 8 15 8" HorizontalAlignment="Left" SelectedItem="{Binding Path=czoning.curlevel4Node,UpdateSourceTrigger=PropertyChanged}"/>
                 <!--所属村-->
-                <ComboBox FontSize="18" materialDesign:HintAssist.Hint="所属村" ItemsSource="{Binding Path=czoning.allLevel5Nodes}" DisplayMemberPath="name"
+                <ComboBox FontSize="18" materialDesign:HintAssist.Hint="所属村" ItemsSource="{Binding Path=czoning.curlevel5Nodes}" DisplayMemberPath="name" SelectedValuePath="." 
                 Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="15 8 15 8" HorizontalAlignment="Left" SelectedItem="{Binding Path=czoning.curlevel5Node,UpdateSourceTrigger=PropertyChanged}"/>
 
                 <!--权属单位-->
