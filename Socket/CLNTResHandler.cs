@@ -42,7 +42,14 @@ namespace Socket
         public static event GetLevelZonesEventHandler getLevelZones;
         public static void OnGetLevelZones(CLNTStringPackageInfo request)
         {
-            getLevelZones(request.resState, JsonConvert.DeserializeObject<List<ZoningNode>>(string.Join("", request.Parameters)));
+            try
+            {
+                getLevelZones(request.resState, JsonConvert.DeserializeObject<List<ZoningNode>>(string.Join("", request.Parameters)));
+            }
+            catch
+            {
+
+            }
         }
     }
 }

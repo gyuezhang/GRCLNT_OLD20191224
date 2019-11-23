@@ -80,7 +80,7 @@ namespace Models
                 SetAndNotify(ref _allLevel4Nodes, value);
             }
         }
-
+        [JsonProperty]
         public List<ZoningNode> allLevel5Nodes
         {
             get { return _allLevel5Nodes; }
@@ -89,7 +89,7 @@ namespace Models
                 SetAndNotify(ref _allLevel5Nodes, value);
             }
         }
-
+        [JsonProperty]
         public List<ZoningNode> curlevel5Nodes
         {
             get { return _curLevel5Nodes; }
@@ -99,7 +99,7 @@ namespace Models
             }
         }
 
-
+        [JsonProperty]
         public ZoningNode curlevel4Node
         {
             get { return _curLevel4Node; }
@@ -109,7 +109,7 @@ namespace Models
             }
         }
 
-
+        [JsonProperty]
         public ZoningNode curlevel5Node
         {
             get { return _curLevel5Node; }
