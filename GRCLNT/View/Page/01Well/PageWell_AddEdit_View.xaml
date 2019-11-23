@@ -52,9 +52,10 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBox   Margin="125,8,15,8" materialDesign:HintAssist.Hint="用途" FontSize="18" Foreground="White"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <DatePicker   Margin="125,8,15,8"  materialDesign:HintAssist.Hint="成井时间" FontSize="18" Foreground="White"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
 
-                <DatePicker  Width="100"  materialDesign:HintAssist.Hint="成井时间" FontSize="18" Foreground="White"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                <TextBox  Margin="15 8 15 8" materialDesign:HintAssist.Hint="用途" FontSize="18" Foreground="White" MinWidth="100" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Foreground="White" VerticalAlignment="Center" Margin="0,0,20,0">企业取水 :</TextBlock>
