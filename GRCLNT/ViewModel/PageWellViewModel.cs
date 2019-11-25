@@ -16,6 +16,23 @@ namespace GRCLNT
                 czoning.curlevel4Node = czoning.allLevel4Nodes[0];
             CLNTResHandler.createWell += CLNTResHandler_createWell;
             CLNTResHandler.getWellByFilter += CLNTResHandler_getWellByFilter;
+            CLNTResHandler.deleteWell += CLNTResHandler_deleteWell;
+        }
+
+        private void CLNTResHandler_deleteWell(RES_STATE state)
+        {
+            switch (state)
+            {
+                case RES_STATE.OK:
+                    wndMainVM.mainMessageQueue.Enqueue("删除机井成功");
+                    RefreshWells("");
+                    break;
+                case RES_STATE.FAILED:
+                    wndMainVM.mainMessageQueue.Enqueue("删除机井失败");
+                    break;
+                default:
+                    break;
+            }
         }
 
         public List<Well> curWells { get; set; } = new List<Well>();
@@ -28,7 +45,7 @@ namespace GRCLNT
         public bool CanOnEditWell => (curSelectWell!=null);
         public void OnDeleteWell()
         {
-
+            CLNTAPI.DeleteWell(curSelectWell.Id);
         }
         public bool CanOnDeleteWell => (curSelectWell != null);
         private void CLNTResHandler_getWellByFilter(RES_STATE state, List<Well> wells)
@@ -97,6 +114,7 @@ namespace GRCLNT
                     break;
                 case 6:
                     wndMainVM.UpdateAddr(EnumPage.Well_Search_Lst);
+                    RefreshWells("");
                     break;
                 case 7:
                     wndMainVM.UpdateAddr(EnumPage.Well_State);

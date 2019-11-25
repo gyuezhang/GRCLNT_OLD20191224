@@ -85,7 +85,19 @@ namespace Socket
                 CLNTClient.TryReconn();
                 // CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
             }
+        }
 
+        public static void DeleteWell(int id)
+        {
+            if (CLNTClient.IsConnected)
+            {
+                CLNTClient.Send(API_ID.API_DeleteWell, id.ToString());
+            }
+            else
+            {
+                CLNTClient.TryReconn();
+                // CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
+            }
         }
     }
 }

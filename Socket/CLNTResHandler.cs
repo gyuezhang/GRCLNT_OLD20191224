@@ -80,5 +80,19 @@ namespace Socket
 
             }
         }
+
+        public delegate void DeleteWellEventHandler(RES_STATE state);
+        public static event DeleteWellEventHandler deleteWell;
+        public static void OnDeleteWell(CLNTStringPackageInfo request)
+        {
+            try
+            {
+                deleteWell(request.resState);
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

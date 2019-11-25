@@ -40,6 +40,9 @@ namespace Socket
                     case API_ID.API_GetWellByFilter:
                         CLNTResHandler.OnGetWellByFilter(request);
                         break;
+                    case API_ID.API_DeleteWell:
+                        CLNTResHandler.OnDeleteWell(request);
+                        break;
                     default:
                         break;
                 }
