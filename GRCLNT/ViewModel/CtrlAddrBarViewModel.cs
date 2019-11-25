@@ -55,6 +55,10 @@ namespace GRCLNT
                     items.Add(new AddrBarItem(EnumPage.Well_AddMtdSel));
                     items.Add(new AddrBarItem(EnumPage.Well_AddManual));
                     break;
+                case EnumPage.Well_Edit:
+                    items.Add(new AddrBarItem(EnumPage.Well));
+                    items.Add(new AddrBarItem(EnumPage.Well_Edit));
+                    break;
                 case EnumPage.Well_AddAuto:
                     items.Add(new AddrBarItem(EnumPage.Well));
                     items.Add(new AddrBarItem(EnumPage.Well_AddMtdSel));

@@ -28,7 +28,7 @@ namespace GRCLNT
             Well_State,
             Well_Output,
             Well_Setting,
-
+            Well_Edit,
         EntWell,
         SediCtrl,
         GwDyna,
@@ -119,6 +119,8 @@ namespace GRCLNT
                     return "位置查询";
                 case EnumPage.Well_Search_Lst:
                     return "列表查询";
+                case EnumPage.Well_Edit:
+                    return "编辑";
                 case EnumPage.Well_State:
                     return "统计";
                 case EnumPage.Well_Output:
@@ -164,6 +166,8 @@ namespace GRCLNT
                     return PackIconKind.Forwardburger;
                 case EnumPage.Well_AddManual:
                     return PackIconKind.PlaylistEdit;
+                case EnumPage.Well_Edit:
+                    return PackIconKind.Edit;
                 case EnumPage.Well_AddAuto:
                     return PackIconKind.ScrewMachineFlatTop;
                 case EnumPage.Well_Search:

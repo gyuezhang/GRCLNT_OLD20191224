@@ -40,8 +40,20 @@ namespace GRCLNT
 
         public void OnEditWell()
         {
-            Well a = curSelectWell;
+            OnShowPage("10");
+            editWell = curSelectWell;
         }
+
+        public void OnEditWellOK()
+        {
+
+        }
+
+        public void OnEditWellCancel()
+        {
+            OnShowPage("6");
+        }
+
         public bool CanOnEditWell => (curSelectWell!=null);
         public void OnDeleteWell()
         {
@@ -124,6 +136,9 @@ namespace GRCLNT
                     break;
                 case 9:
                     wndMainVM.UpdateAddr(EnumPage.Well_Setting);
+                    break;
+                case 10:
+                    wndMainVM.UpdateAddr(EnumPage.Well_Edit);
                     break;
                 default:
                     break;

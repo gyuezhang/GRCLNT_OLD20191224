@@ -82,6 +82,7 @@
             <local:PageWell_State_View/>
             <local:PageWell_Output_View/>
             <local:PageWell_Setting_View/>
+            <local:PageWell_Edit_View/>
         </TabControl>
     </Grid>
 </UserControl>

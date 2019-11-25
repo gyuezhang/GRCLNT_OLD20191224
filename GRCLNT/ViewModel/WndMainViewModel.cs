@@ -221,7 +221,10 @@ namespace GRCLNT
                     return ;
                 case EnumPage.Well_Setting:
                     ((PageWellViewModel)curPage).OnShowPage("9");
-                    return ;
+                    return;
+                case EnumPage.Well_Edit:
+                    ((PageWellViewModel)curPage).OnShowPage("10");
+                    return;
                 case EnumPage.EntWell:
                     return ;
                 case EnumPage.SediCtrl:

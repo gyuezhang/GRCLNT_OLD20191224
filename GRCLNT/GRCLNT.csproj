@@ -220,6 +220,9 @@
     <Compile Include="View\Page\01Well\PageWell_AddMtdSel_View.xaml.cs">
       <DependentUpon>PageWell_AddMtdSel_View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Page\01Well\PageWell_Edit_View.xaml.cs">
+      <DependentUpon>PageWell_Edit_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Page\01Well\PageWell_Output_View.xaml.cs">
       <DependentUpon>PageWell_Output_View.xaml</DependentUpon>
     </Compile>
@@ -333,6 +336,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Page\01Well\PageWell_AddMtdSel_View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Page\01Well\PageWell_Edit_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
