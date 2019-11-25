@@ -73,5 +73,19 @@ namespace Socket
                 // CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
             }
         }
+
+        public static void GetWellByFilter(string filter)
+        {
+            if (CLNTClient.IsConnected)
+            {
+                CLNTClient.Send(API_ID.API_GetWellByFilter, filter);
+            }
+            else
+            {
+                CLNTClient.TryReconn();
+                // CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
+            }
+
+        }
     }
 }

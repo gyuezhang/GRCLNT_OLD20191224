@@ -37,6 +37,9 @@ namespace Socket
                     case API_ID.API_CreateWell:
                         CLNTResHandler.OnCreateWell(request);
                         break;
+                    case API_ID.API_GetWellByFilter:
+                        CLNTResHandler.OnGetWellByFilter(request);
+                        break;
                     default:
                         break;
                 }

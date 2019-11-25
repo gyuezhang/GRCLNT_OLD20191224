@@ -65,5 +65,20 @@ namespace Socket
 
             }
         }
+
+        public delegate void GetWellByFilterEventHandler(RES_STATE state, List<Well> wells);
+        public static event GetWellByFilterEventHandler getWellByFilter;
+        public static void OnGetWellByFilter(CLNTStringPackageInfo request)
+        {
+            try
+            {
+
+                getWellByFilter(request.resState, JsonConvert.DeserializeObject<List<Well>>(string.Join("", request.Parameters)));
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

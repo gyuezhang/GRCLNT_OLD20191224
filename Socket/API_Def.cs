@@ -18,7 +18,8 @@ namespace Socket
 
         API_GetLevelZoning,
 
-        API_CreateWell,
+        API_CreateWell, 
+        API_GetWellByFilter,
     }
 
     /// <summary>

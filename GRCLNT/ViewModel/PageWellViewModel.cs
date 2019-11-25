@@ -14,6 +14,24 @@ namespace GRCLNT
             czoning = RTData.zoning;
             czoning.curlevel4Node = czoning.allLevel4Nodes[0];
             CLNTResHandler.createWell += CLNTResHandler_createWell;
+            CLNTResHandler.getWellByFilter += CLNTResHandler_getWellByFilter;
+        }
+
+        public List<Well> curWells { get; set; } = new List<Well>();
+
+        private void CLNTResHandler_getWellByFilter(RES_STATE state, List<Well> wells)
+        {
+            switch (state)
+            {
+                case RES_STATE.OK:
+                    curWells = wells;
+                    break;
+                case RES_STATE.FAILED:
+                    wndMainVM.mainMessageQueue.Enqueue("获取机井失败");
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void CLNTResHandler_createWell(RES_STATE state)
@@ -118,5 +136,10 @@ namespace GRCLNT
         }
 
         public Well createWell { get; set; } = new Well();
+
+        public void RefreshWells(string filter)
+        {
+            CLNTAPI.GetWellByFilter(filter);
+        }
     }
 }
