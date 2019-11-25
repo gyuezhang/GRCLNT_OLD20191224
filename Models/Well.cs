@@ -7,6 +7,10 @@ namespace Models
     [JsonObject(MemberSerialization.OptIn)]
     public class Well : PropertyChangedBase
     {
+        public Well()
+        {
+            _ditTime = DateTime.UtcNow;
+        }
         private int _id;//0
         private string _tsOrSt;//乡镇街道1
         private string _village;//村庄2
@@ -71,7 +75,7 @@ namespace Models
             get { return _loc; }
             set
             {
-                SetAndNotify(ref _loc, value);
+                SetAndNotify(ref _loc, value.Replace("System.Windows.Controls.ComboBoxItem: ", ""));
             }
         }
 
@@ -101,7 +105,7 @@ namespace Models
             get { return _unitCat; }
             set
             {
-                SetAndNotify(ref _unitCat, value);
+                SetAndNotify(ref _unitCat, value.Replace("System.Windows.Controls.ComboBoxItem: ",""));
             }
         }
 
@@ -141,7 +145,7 @@ namespace Models
             get { return _tubeMat; }
             set
             {
-                SetAndNotify(ref _tubeMat, value);
+                SetAndNotify(ref _tubeMat, value.Replace("System.Windows.Controls.ComboBoxItem: ", ""));
             }
         }
 
@@ -211,7 +215,7 @@ namespace Models
             get { return _pumpMode; }
             set
             {
-                SetAndNotify(ref _pumpMode, value);
+                SetAndNotify(ref _pumpMode, value.Replace("System.Windows.Controls.ComboBoxItem: ", ""));
             }
         }
 
