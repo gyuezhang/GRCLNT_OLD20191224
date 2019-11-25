@@ -14,24 +14,38 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Margin="0,16,60,19" HorizontalAlignment="Right" Grid.Row="0">
+        <Grid Margin="0,86,60,0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
             <!--<Button Content="refresh" Command="{s:Action RefreshWells}" CommandParameter=""/>-->
-            <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" Background="Transparent" CornerRadius="2" Panel.ZIndex="1" Margin="16 0 0 0" materialDesign:ShadowAssist.ShadowDepth="Depth1">
-                <Grid Width="220">
+            <materialDesign:ColorZone Grid.Column="3" Mode="Standard" Padding="8 4 8 4" Background="#11000000" CornerRadius="2" Panel.ZIndex="1" Margin="16 0 0 0" materialDesign:ShadowAssist.ShadowDepth="Depth1" VerticalAlignment="Center">
+                <Grid Width="320">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,0,5" FontSize="14" materialDesign:HintAssist.Hint="搜索"/>
-                    <Button Foreground="White" Grid.Column="1" Margin="0,5,0,0" Command="{s:Action RefreshWells}" Background="Transparent" BorderThickness="0">
-                        <materialDesign:PackIcon Kind="Magnify" Width="18" Height="18"/>
+                    <TextBox Grid.Column="0" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,0,0" FontSize="18" materialDesign:HintAssist.Hint="搜索"/>
+                    <Button Foreground="White" Grid.Column="1" Margin="0,0,0,0" Command="{s:Action RefreshWells}" Background="Transparent" BorderThickness="0">
+                        <materialDesign:PackIcon Kind="Magnify" Width="24" Height="24"/>
                     </Button>
                 </Grid>
-
             </materialDesign:ColorZone>
-        </StackPanel>
+            <TextBlock Text="共320条记录，当前选择0条" FontSize="18" Margin="32,0" Grid.Column="0" VerticalAlignment="Center"/>
+            <Button  BorderThickness="0" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" Background="#11000000"  Margin="30,10,10,10" Command="{s:Action OnEditWell}">
+                <materialDesign:PackIcon Kind="Edit" Foreground="Blue" Width="24" Height="24"/>
+            </Button>
+
+            <Button  BorderThickness="0" Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}" Background="#11000000"  Margin="10" Command="{s:Action OnDeleteWell}">
+                <materialDesign:PackIcon Kind="Delete" Foreground="Red" Width="24" Height="24"/>
+            </Button>
+            
+        </Grid>
         <DataGrid  Margin="32,20,60,32"  Grid.Row="1" ItemsSource="{Binding curWells}" HorizontalAlignment="Center"  VerticalAlignment="Top" AutoGenerateColumns="False"  Background="Transparent"
-                   materialDesign:DataGridAssist.CellPadding="4 2 2 2" materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 2 2" >
+                    materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 2 2" CanUserAddRows="False" SelectedItem="{Binding curSelectWell,UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.Columns >
                 <DataGridTextColumn Header="所属乡镇（街道）" Binding="{Binding TsOrSt}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="所属村" Binding="{Binding Village}"  IsReadOnly="True"/>

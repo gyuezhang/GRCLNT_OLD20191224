@@ -19,7 +19,18 @@ namespace GRCLNT
         }
 
         public List<Well> curWells { get; set; } = new List<Well>();
+        public Well curSelectWell { get; set; }
 
+        public void OnEditWell()
+        {
+            Well a = curSelectWell;
+        }
+        public bool CanOnEditWell => (curSelectWell!=null);
+        public void OnDeleteWell()
+        {
+
+        }
+        public bool CanOnDeleteWell => (curSelectWell != null);
         private void CLNTResHandler_getWellByFilter(RES_STATE state, List<Well> wells)
         {
             switch (state)
