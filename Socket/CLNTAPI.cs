@@ -1,5 +1,6 @@
 ﻿using Models;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Socket
 {
@@ -43,7 +44,7 @@ namespace Socket
             else
             {
                 CLNTClient.TryReconn();
-                CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
+                //CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
             }
         }
 
@@ -57,6 +58,19 @@ namespace Socket
             {
                 CLNTClient.TryReconn();
                // CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
+            }
+        }
+
+        public static void CreateWell(List<Well> wells)
+        {
+            if (CLNTClient.IsConnected)
+            {
+                CLNTClient.Send(API_ID.API_CreateWell, JsonConvert.SerializeObject(wells));
+            }
+            else
+            {
+                CLNTClient.TryReconn();
+                // CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
             }
         }
     }

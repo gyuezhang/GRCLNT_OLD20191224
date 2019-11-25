@@ -17,6 +17,8 @@ namespace Socket
         API_ResetPwd,
 
         API_GetLevelZoning,
+
+        API_CreateWell,
     }
 
     /// <summary>

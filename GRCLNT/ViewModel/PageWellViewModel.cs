@@ -1,4 +1,5 @@
 ﻿using Models;
+using Socket;
 using Stylet;
 using System.Collections.Generic;
 
@@ -13,7 +14,25 @@ namespace GRCLNT
             czoning = RTData.zoning;
 
             czoning = RTData.zoning;
+            CLNTResHandler.createWell += CLNTResHandler_createWell;
         }
+
+        private void CLNTResHandler_createWell(RES_STATE state)
+        {
+            switch (state)
+            {
+                case RES_STATE.OK:
+                    wndMainVM.mainMessageQueue.Enqueue("创建机井成功");
+                    break;
+                case RES_STATE.FAILED:
+                    wndMainVM.mainMessageQueue.Enqueue("创建机井失败");
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
         private WndMainViewModel wndMainVM { get; set; }
         public int iPageIndex { get; set; } = 0;
 
@@ -35,6 +54,7 @@ namespace GRCLNT
                     break;
                 case 2:
                     wndMainVM.UpdateAddr(EnumPage.Well_AddEdit);
+                    createWell= new Well();
                     break;
                 case 3:
                     inputFilePath = "";
@@ -89,5 +109,15 @@ namespace GRCLNT
 
         }
 
+        public void OnCreateWell()
+        {
+            List<Well> wells = new List<Well>();
+            createWell.TsOrSt = czoning.curlevel4Node.name;
+            createWell.Village = czoning.curlevel5Node.name;
+            wells.Add(createWell);
+            CLNTAPI.CreateWell(wells);
+        }
+
+        public Well createWell { get; set; } = new Well();
     }
 }

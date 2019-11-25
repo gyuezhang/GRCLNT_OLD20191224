@@ -51,5 +51,19 @@ namespace Socket
 
             }
         }
+
+        public delegate void CreateWellEventHandler(RES_STATE state);
+        public static event CreateWellEventHandler createWell;
+        public static void OnCreateWell(CLNTStringPackageInfo request)
+        {
+            try
+            {
+                createWell(request.resState);
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

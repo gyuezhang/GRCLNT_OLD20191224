@@ -14,7 +14,7 @@ namespace Models
         private string _lng;//东经4
         private string _lat;//北纬5
         private string _unitCat;//单位类型6
-        private string _usage;//用途7
+        private string _usefor;//用途7
         private DateTime _ditTime;//成井时间8
         private float _wellDepth;//井深9 米
         private string _tubeMat;//管材10
@@ -106,12 +106,12 @@ namespace Models
         }
 
         [JsonProperty]
-        public string Usage
+        public string Usefor
         {
-            get { return _usage; }
+            get { return _usefor; }
             set
             {
-                SetAndNotify(ref _usage, value);
+                SetAndNotify(ref _usefor, value);
             }
         }
 

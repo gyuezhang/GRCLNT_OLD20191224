@@ -34,6 +34,9 @@ namespace Socket
                     case API_ID.API_GetLevelZoning:
                         CLNTResHandler.OnGetLevelZones(request);
                         break;
+                    case API_ID.API_CreateWell:
+                        CLNTResHandler.OnCreateWell(request);
+                        break;
                     default:
                         break;
                 }
