@@ -43,6 +43,9 @@ namespace Socket
                     case API_ID.API_DeleteWell:
                         CLNTResHandler.OnDeleteWell(request);
                         break;
+                    case API_ID.API_ChangeWell:
+                        CLNTResHandler.OnChangeWell(request);
+                        break;
                     default:
                         break;
                 }

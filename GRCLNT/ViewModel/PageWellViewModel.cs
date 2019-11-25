@@ -17,6 +17,23 @@ namespace GRCLNT
             CLNTResHandler.createWell += CLNTResHandler_createWell;
             CLNTResHandler.getWellByFilter += CLNTResHandler_getWellByFilter;
             CLNTResHandler.deleteWell += CLNTResHandler_deleteWell;
+            CLNTResHandler.changeWell += CLNTResHandler_changeWell;
+        }
+
+        private void CLNTResHandler_changeWell(RES_STATE state)
+        {
+            switch (state)
+            {
+                case RES_STATE.OK:
+                    wndMainVM.mainMessageQueue.Enqueue("编辑机井成功");
+                    OnShowPage("6");
+                    break;
+                case RES_STATE.FAILED:
+                    wndMainVM.mainMessageQueue.Enqueue("编辑机井失败");
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void CLNTResHandler_deleteWell(RES_STATE state)
@@ -46,7 +63,7 @@ namespace GRCLNT
 
         public void OnEditWellOK()
         {
-
+            CLNTAPI.ChangeWell(editWell);
         }
 
         public void OnEditWellCancel()

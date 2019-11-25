@@ -99,5 +99,17 @@ namespace Socket
                 // CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
             }
         }
+        public static void ChangeWell(Well well)
+        {
+            if (CLNTClient.IsConnected)
+            {
+                CLNTClient.Send(API_ID.API_ChangeWell, JsonConvert.SerializeObject(well));
+            }
+            else
+            {
+                CLNTClient.TryReconn();
+                // CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
+            }
+        }
     }
 }

@@ -21,6 +21,7 @@ namespace Socket
         API_CreateWell, 
         API_GetWellByFilter,
         API_DeleteWell,
+        API_ChangeWell,
     }
 
     /// <summary>

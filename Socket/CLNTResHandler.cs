@@ -94,5 +94,19 @@ namespace Socket
 
             }
         }
+
+        public delegate void ChangeWellEventHandler(RES_STATE state);
+        public static event ChangeWellEventHandler changeWell;
+        public static void OnChangeWell(CLNTStringPackageInfo request)
+        {
+            try
+            {
+                changeWell(request.resState);
+            }
+            catch
+            {
+
+            }
+        }
     }
 }
