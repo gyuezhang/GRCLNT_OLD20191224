@@ -20,7 +20,7 @@ namespace GRCLNT
 
         Well,
             Well_AddMtdSel,
-                Well_AddEdit,
+                Well_AddManual,
                 Well_AddAuto,
             Well_Search,
                 Well_Search_Loc,
@@ -109,7 +109,7 @@ namespace GRCLNT
                     return "机井信息";
                 case EnumPage.Well_AddMtdSel:
                     return "信息采集";
-                case EnumPage.Well_AddEdit:
+                case EnumPage.Well_AddManual:
                     return "手动录入";
                 case EnumPage.Well_AddAuto:
                     return "自动导入";
@@ -162,7 +162,7 @@ namespace GRCLNT
                     return PackIconKind.WaterPump;
                 case EnumPage.Well_AddMtdSel:
                     return PackIconKind.Forwardburger;
-                case EnumPage.Well_AddEdit:
+                case EnumPage.Well_AddManual:
                     return PackIconKind.PlaylistEdit;
                 case EnumPage.Well_AddAuto:
                     return PackIconKind.ScrewMachineFlatTop;

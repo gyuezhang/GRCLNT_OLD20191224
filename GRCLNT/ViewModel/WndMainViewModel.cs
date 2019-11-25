@@ -198,7 +198,7 @@ namespace GRCLNT
                 case EnumPage.Well_AddMtdSel:
                     ((PageWellViewModel)curPage).OnShowPage("1");
                     return ;
-                case EnumPage.Well_AddEdit:
+                case EnumPage.Well_AddManual:
                     ((PageWellViewModel)curPage).OnShowPage("2");
                     return ;
                 case EnumPage.Well_AddAuto:

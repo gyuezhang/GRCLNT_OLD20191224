@@ -99,7 +99,7 @@ namespace GRCLNT
                     wndMainVM.UpdateAddr(EnumPage.Well_AddMtdSel);
                     break;
                 case 2:
-                    wndMainVM.UpdateAddr(EnumPage.Well_AddEdit);
+                    wndMainVM.UpdateAddr(EnumPage.Well_AddManual);
                     createWell= new Well();
                     break;
                 case 3:
@@ -166,7 +166,7 @@ namespace GRCLNT
         }
 
         public Well createWell { get; set; } = new Well();
-
+        public Well editWell { get; set; } = new Well();
         public void RefreshWells(string filter)
         {
             CLNTAPI.GetWellByFilter(filter);
