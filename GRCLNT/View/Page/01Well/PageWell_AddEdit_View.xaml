@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GRCLNT"
              xmlns:s="https://github.com/canton7/Stylet"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance local:PageWellViewModel}"             
@@ -55,7 +56,7 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <DatePicker   Margin="125,8,15,8"  materialDesign:HintAssist.Hint="成井时间" FontSize="18" Foreground="White"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                <DatePicker   Margin="125,8,15,8" SelectedDate="{Binding Path=createWell.DigTime, Mode=TwoWay, TargetNullValue={x:Static System:DateTime.Now}}" materialDesign:HintAssist.Hint="成井时间" FontSize="18" Foreground="White"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
 
                 <TextBox Text="{Binding createWell.Usefor ,UpdateSourceTrigger=PropertyChanged}"  Margin="15 8 15 8" materialDesign:HintAssist.Hint="用途" FontSize="18" Foreground="White" MinWidth="100" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
