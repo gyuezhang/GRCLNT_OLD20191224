@@ -14,10 +14,23 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Margin="0,28,0,19" HorizontalAlignment="Right" Grid.Row="0">
-            <Button Content="refresh" Command="{s:Action RefreshWells}" CommandParameter=""/>
+        <StackPanel Orientation="Horizontal" Margin="0,28,0,19" HorizontalAlignment="Center" Grid.Row="0">
+            <!--<Button Content="refresh" Command="{s:Action RefreshWells}" CommandParameter=""/>-->
+            <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" Background="Transparent" CornerRadius="2" Panel.ZIndex="1" Margin="16 0 0 0" materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                <Grid Width="220">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,0,5" FontSize="14" materialDesign:HintAssist.Hint="搜索"/>
+                    <Button Foreground="White" Grid.Column="1" Margin="0,5,0,0" Command="{s:Action RefreshWells}" Background="Transparent" BorderThickness="0">
+                        <materialDesign:PackIcon Kind="Magnify" Width="18" Height="18"/>
+                    </Button>
+                </Grid>
+
+            </materialDesign:ColorZone>
         </StackPanel>
-        <DataGrid  Margin="10"  Grid.Row="1" ItemsSource="{Binding curWells}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" AutoGenerateColumns="False" IsReadOnly="True" Background="Transparent">
+        <DataGrid  Margin="10"  Grid.Row="1" ItemsSource="{Binding curWells}" HorizontalAlignment="Center"  VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Visible"  ScrollViewer.HorizontalScrollBarVisibility="Auto" AutoGenerateColumns="False" IsReadOnly="True" Background="Transparent">
             <DataGrid.Columns >
                 <DataGridTextColumn Header="所属乡镇（街道）" Binding="{Binding TsOrSt}" Width="100"/>
                 <DataGridTextColumn Header="所属村" Binding="{Binding Village}" />
@@ -39,10 +52,10 @@
                 <DataGridTextColumn Header="水泵动力（kw）" Binding="{Binding PumpPower}" />
                 <DataGridTextColumn Header="井控面积（亩）" Binding="{Binding CoverArea}" />
                 <DataGridTextColumn Header="供水人口（人）" Binding="{Binding SupPeopleNum}" />
-                <DataGridTextColumn Header="是否水位观测点" Binding="{Binding IsWaterLevelOp}" />
-                <DataGridTextColumn Header="是否安装计量设施" Binding="{Binding IsMfInstalled}" />
+                <DataGridCheckBoxColumn Header="是否水位观测点" Binding="{Binding IsWaterLevelOp}" />
+                <DataGridCheckBoxColumn Header="是否安装计量设施" Binding="{Binding IsMfInstalled}" />
                 <DataGridTextColumn Header="连接机井眼数" Binding="{Binding LinkWellNo}" />
-                <DataGridTextColumn Header="是否连接防渗渠道" Binding="{Binding IsSeepChnLinked}" />
+                <DataGridCheckBoxColumn Header="是否连接防渗渠道" Binding="{Binding IsSeepChnLinked}" />
                 <DataGridTextColumn Header="防渗渠道长度（km）" Binding="{Binding SeepChnLength}" />
                 <DataGridTextColumn Header="备注" Binding="{Binding Remark}" />
             </DataGrid.Columns>
