@@ -12,7 +12,8 @@ namespace GRCLNT
             wndMainVM = _wndMainVM;
             wndMainVM.UpdateAddr(EnumPage.Well);
             czoning = RTData.zoning;
-            czoning.curlevel4Node = czoning.allLevel4Nodes[0];
+            if(czoning.allLevel4Nodes.Count>0)
+                czoning.curlevel4Node = czoning.allLevel4Nodes[0];
             CLNTResHandler.createWell += CLNTResHandler_createWell;
             CLNTResHandler.getWellByFilter += CLNTResHandler_getWellByFilter;
         }

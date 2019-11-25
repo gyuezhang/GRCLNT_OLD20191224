@@ -9,8 +9,43 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance local:PageWellViewModel}"             
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="PageWell_Search_Lst_View Under Construction..." HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32"/>
-        <Button Content="refresh" Command="{s:Action RefreshWells}" CommandParameter=""/>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="0,28,0,19" HorizontalAlignment="Right" Grid.Row="0">
+            <Button Content="refresh" Command="{s:Action RefreshWells}" CommandParameter=""/>
+        </StackPanel>
+        <DataGrid  Margin="10"  Grid.Row="1" ItemsSource="{Binding curWells}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" AutoGenerateColumns="False" IsReadOnly="True" Background="Transparent">
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="所属乡镇（街道）" Binding="{Binding TsOrSt}" Width="100"/>
+                <DataGridTextColumn Header="所属村" Binding="{Binding Village}" />
+                <DataGridTextColumn Header="位置" Binding="{Binding Loc}" Width="60"/>
+                <DataGridTextColumn Header="东经" Binding="{Binding Lng}" Width="80"/>
+                <DataGridTextColumn Header="北纬" Binding="{Binding Lat}" Width="80"/>
+                <DataGridTextColumn Header="权属单位" Binding="{Binding UnitCat}" />
+                <DataGridTextColumn Header="用途" Binding="{Binding Usefor}" Width="80"/>
+                <DataGridTextColumn Header="成井时间" Binding="{Binding DitTime}" />
+                <DataGridTextColumn Header="井深（m）" Binding="{Binding WellDepth}" />
+                <DataGridTextColumn Header="管材" Binding="{Binding TubeMat}" />
+                <DataGridTextColumn Header="井管内径（mm）" Binding="{Binding TubeIr}" />
+                <DataGridTextColumn Header="止水深度（m）" Binding="{Binding StanWaterDepth}" />
+                <DataGridTextColumn Header="咸水底板深度（m）" Binding="{Binding SaltWaterFloorDepth}" />
+                <DataGridTextColumn Header="过滤器位置低（m）" Binding="{Binding FilterLocLow}" />
+                <DataGridTextColumn Header="过滤器位置高（m）" Binding="{Binding FilterLocHigh}" />
+                <DataGridTextColumn Header="静水位（m）" Binding="{Binding StillWaterLoc}" />
+                <DataGridTextColumn Header="水泵型号" Binding="{Binding PumpMode}" />
+                <DataGridTextColumn Header="水泵动力（kw）" Binding="{Binding PumpPower}" />
+                <DataGridTextColumn Header="井控面积（亩）" Binding="{Binding CoverArea}" />
+                <DataGridTextColumn Header="供水人口（人）" Binding="{Binding SupPeopleNum}" />
+                <DataGridTextColumn Header="是否水位观测点" Binding="{Binding IsWaterLevelOp}" />
+                <DataGridTextColumn Header="是否安装计量设施" Binding="{Binding IsMfInstalled}" />
+                <DataGridTextColumn Header="连接机井眼数" Binding="{Binding LinkWellNo}" />
+                <DataGridTextColumn Header="是否连接防渗渠道" Binding="{Binding IsSeepChnLinked}" />
+                <DataGridTextColumn Header="防渗渠道长度（km）" Binding="{Binding SeepChnLength}" />
+                <DataGridTextColumn Header="备注" Binding="{Binding Remark}" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
