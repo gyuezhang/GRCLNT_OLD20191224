@@ -10,6 +10,7 @@ using BruTile.Predefined;
 using Mapsui.Layers;
 using Mapsui.UI.Wpf;
 using Mapsui.Geometries;
+using Mapsui.Projection;
 
 namespace GRCLNT
 {
@@ -37,6 +38,12 @@ namespace GRCLNT
         public void InitMap()
         {
             map.Map.Layers.Add(new TileLayer(KnownTileSources.Create()));
+
+
+            var centerOfBD = new Mapsui.Geometries.Point(117.309716, 39.717173);
+            var sphericalMercatorCoordinate = SphericalMercator.FromLonLat(centerOfBD.X, centerOfBD.Y);
+            map.Map.Home = n => n.NavigateTo(sphericalMercatorCoordinate, map.Map.Resolutions[12]);
+
         }
         private void ExcelOper_readWell(bool state, int curIndex, int totalCount, List<Well> wells)
         {
