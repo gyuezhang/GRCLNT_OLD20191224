@@ -186,11 +186,69 @@ namespace Util
                 row = sheet.GetRow(i);  //读取当前行数据
                 if (row != null)
                 {
-                    tempWell = new Well();
-                    if(row.GetCell(1)!=null)
-                        tempWell.TsOrSt = row.GetCell(1).ToString();
-
-                    wells.Add(tempWell);
+                    try
+                    {
+                        tempWell = new Well();
+                        if (row.GetCell(1) != null)
+                            tempWell.TsOrSt = row.GetCell(1).ToString();
+                        if (row.GetCell(2) != null)
+                            tempWell.Village = row.GetCell(2).ToString();
+                        if (row.GetCell(3) != null)
+                            tempWell.Loc = row.GetCell(3).ToString();
+                        if (row.GetCell(4) != null)
+                            tempWell.Lng = row.GetCell(4).ToString();
+                        if (row.GetCell(5) != null)
+                            tempWell.Lat = row.GetCell(5).ToString();
+                        if (row.GetCell(6) != null)
+                            tempWell.UnitCat = row.GetCell(6).ToString();
+                        if (row.GetCell(7) != null)
+                            tempWell.Usefor = row.GetCell(7).ToString();
+                        if (row.GetCell(8) != null)
+                            tempWell.DigTime = row.GetCell(8).DateCellValue;
+                        if (row.GetCell(9) != null)
+                            tempWell.WellDepth = float.Parse(row.GetCell(9).ToString());
+                        if (row.GetCell(10) != null)
+                            tempWell.TubeMat = row.GetCell(10).ToString();
+                        if (row.GetCell(11) != null)
+                            tempWell.TubeIr = float.Parse(row.GetCell(11).ToString());
+                        if (row.GetCell(12) != null)
+                            tempWell.StanWaterDepth = float.Parse(row.GetCell(12).ToString());
+                        if (row.GetCell(13) != null)
+                            tempWell.SaltWaterFloorDepth = float.Parse(row.GetCell(13).ToString());
+                        if (row.GetCell(14) != null)
+                        {
+                            string tmp = row.GetCell(14).ToString();
+                            tempWell.FilterLocLow = float.Parse(tmp.Split('-')[0]);
+                            tempWell.FilterLocHigh = float.Parse(tmp.Split('-')[1]);
+                        }
+                        if (row.GetCell(15) != null)
+                            tempWell.StillWaterLoc = float.Parse(row.GetCell(15).ToString());
+                        if (row.GetCell(16) != null)
+                            tempWell.PumpMode = row.GetCell(16).ToString();
+                        if (row.GetCell(17) != null)
+                            tempWell.PumpPower = float.Parse(row.GetCell(17).ToString());
+                        if (row.GetCell(18) != null)
+                            tempWell.CoverArea = float.Parse(row.GetCell(18).ToString());
+                        if (row.GetCell(19) != null)
+                            tempWell.SupPeopleNum = int.Parse(row.GetCell(19).ToString());
+                        if (row.GetCell(20) != null)
+                            tempWell.IsWaterLevelOp = (row.GetCell(20).ToString() == "是");
+                        if (row.GetCell(21) != null)
+                            tempWell.IsMfInstalled = (row.GetCell(21).ToString() == "是");
+                        if (row.GetCell(22) != null)
+                            tempWell.LinkWellNo = int.Parse(row.GetCell(22).ToString());
+                        if (row.GetCell(23) != null)
+                            tempWell.IsSeepChnLinked = (row.GetCell(23).ToString() == "是");
+                        if (row.GetCell(24) != null)
+                            tempWell.SeepChnLength = float.Parse(row.GetCell(24).ToString());
+                        if (row.GetCell(25) != null)
+                            tempWell.Remark = row.GetCell(25).ToString();
+                        wells.Add(tempWell);
+                    }
+                    catch
+                    {
+                        continue;
+                    }
                 }
                 OnReadWell(true, i-1, sheet.LastRowNum -2, wells);
             }

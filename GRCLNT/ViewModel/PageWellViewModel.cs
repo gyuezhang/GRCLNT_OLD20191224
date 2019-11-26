@@ -1,7 +1,9 @@
 ﻿using Models;
 using Socket;
 using Stylet;
+using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows;
 using Util;
 
@@ -32,13 +34,11 @@ namespace GRCLNT
                 {
                     vInputing = Visibility.Collapsed;
                     txtInputing = "共" + totalCount.ToString() + "条记录，读取完成";
-                    List<Well> tmp = new List<Well>();
-                    foreach (Well well in wells)
-                    {
-                        tmp.Clear();
-                        tmp.Add(well);
-                        CLNTAPI.CreateWell(tmp);
-                    }
+
+                    ThreadStart childref = new ThreadStart(ThreadCreateWellsFromFile);
+                    Thread childThread = new Thread(childref);
+                    childThread.Start();
+                    autoCreateWells = wells;
                     return;
                 }
                 vInputing = Visibility.Visible;
@@ -50,6 +50,28 @@ namespace GRCLNT
 
             }
         }
+        public static List<Well> autoCreateWells { get; set; }
+        public void ThreadCreateWellsFromFile()
+        {
+            vInputing = Visibility.Visible;
+
+            List<Well> tmp = new List<Well>();
+            int i = 0;
+            foreach (Well well in autoCreateWells)
+            {
+                ++i;
+                tmp.Clear();
+                tmp.Add(well);
+                CLNTAPI.CreateWell(tmp);
+                Thread.Sleep(100);
+                valueInputing = Convert.ToInt32((float)i / (float)autoCreateWells.Count *100.0);
+                txtInputing = "当前第" + i.ToString() + "条 / 共" + autoCreateWells.Count.ToString() + "条记录";
+
+            }
+            vInputing = Visibility.Collapsed;
+
+        }
+
 
         public Visibility vInputing { get; set; } = Visibility.Collapsed;
         public int valueInputing { get; set; } = 0;
