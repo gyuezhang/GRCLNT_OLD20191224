@@ -2,6 +2,8 @@
 using Socket;
 using Stylet;
 using System.Collections.Generic;
+using System.Windows;
+using Util;
 
 namespace GRCLNT
 {
@@ -18,8 +20,40 @@ namespace GRCLNT
             CLNTResHandler.getWellByFilter += CLNTResHandler_getWellByFilter;
             CLNTResHandler.deleteWell += CLNTResHandler_deleteWell;
             CLNTResHandler.changeWell += CLNTResHandler_changeWell;
+
+            ExcelOper.readWell += ExcelOper_readWell;
         }
 
+        private void ExcelOper_readWell(bool state, int curIndex, int totalCount, List<Well> wells)
+        {
+            if(state)
+            {
+                if(curIndex == totalCount)
+                {
+                    vInputing = Visibility.Collapsed;
+                    txtInputing = "共" + totalCount.ToString() + "条记录，读取完成";
+                    List<Well> tmp = new List<Well>();
+                    foreach (Well well in wells)
+                    {
+                        tmp.Clear();
+                        tmp.Add(well);
+                        CLNTAPI.CreateWell(tmp);
+                    }
+                    return;
+                }
+                vInputing = Visibility.Visible;
+                valueInputing = curIndex / totalCount * 100;
+                txtInputing = "当前第"+ curIndex.ToString() + "条 / 共" + totalCount.ToString()+"条记录";
+            }
+            else
+            {
+
+            }
+        }
+
+        public Visibility vInputing { get; set; } = Visibility.Collapsed;
+        public int valueInputing { get; set; } = 0;
+        public string txtInputing { get; set; } = "";
         private void CLNTResHandler_changeWell(RES_STATE state)
         {
             switch (state)
@@ -179,13 +213,13 @@ namespace GRCLNT
 
         public void OnStartAutoInput()
         {
-
+            ExcelOper.ReadWellsFromFile(inputFilePath);
         }
 
 
         public void OnOpenAutoInputTemplate()
         {
-
+            ExcelOper.OpenInputTemplete();
         }
 
         public void OnCreateWell()

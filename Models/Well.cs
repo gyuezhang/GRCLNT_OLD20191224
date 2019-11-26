@@ -12,32 +12,32 @@ namespace Models
             _ditTime = DateTime.UtcNow;
         }
         private int _id;//0
-        private string _tsOrSt;//乡镇街道1
-        private string _village;//村庄2
-        private string _loc;//位置3
-        private string _lng;//东经4
-        private string _lat;//北纬5
-        private string _unitCat;//单位类型6
-        private string _usefor;//用途7
-        private DateTime _ditTime;//成井时间8
-        private float _wellDepth;//井深9 米
-        private string _tubeMat;//管材10
-        private float _tubeIr;//井管内径11 毫米
-        private float _stanWaterDepth;//止水深度12 米
-        private float _saltWaterFloorDepth;//咸水底板深度13 米
-        private float _filterLocLow;//过滤器低位14 米
-        private float _filterLocHigh;//过滤器高位15 米
-        private float _stillWaterLoc;//静水位16 //米
-        private string _pumpMode;//水泵型号17
-        private float _pumpPower;//水泵功率18 //kw
-        private float _coverArea;//井控面积19
-        private int _supPeopleNum;//供水人口20
-        private bool _isWaterLevelOp;//是否水位观测点21
-        private bool _isMfInstalled;//是否安装计量设备22
-        private int _linkWellNo;//连接井眼眼数23
-        private bool _isSeepChnLinked;//装防渗渠道24
-        private float _seepChnLength;//防渗渠道长度25 //千米 float
-        private string _remark;//备注26
+        private string _tsOrSt;             //所属乡镇（街道）              1
+        private string _village;            //所属村                2
+        private string _loc;                //位置                3
+        private string _lng;                //东经                4
+        private string _lat;                //北纬                5
+        private string _unitCat;            //权属单位              6
+        private string _usefor;             //用途                    7
+        private DateTime _ditTime;          //成井时间              8
+        private float _wellDepth;           //井深（m）                9 米
+        private string _tubeMat;            //管材                10
+        private float _tubeIr;              //井管内径（mm）                  11 毫米
+        private float _stanWaterDepth;      //止水深度（m）              12 米
+        private float _saltWaterFloorDepth; //咸水底板深度（m）            13 米
+        private float _filterLocLow;        //过滤器低位（m）             14 米
+        private float _filterLocHigh;       //过滤器高位（m）             15 米
+        private float _stillWaterLoc;       //静水位（m）               16 //米
+        private string _pumpMode;           //水泵型号              17
+        private float _pumpPower;           //水泵功率（kw）              18 //kw
+        private float _coverArea;           //井控面积（亩）              19
+        private int _supPeopleNum;          //供水人口（人）              20
+        private bool _isWaterLevelOp;       //是否为水位观测点               21
+        private bool _isMfInstalled;        //是否安装计量设备              22
+        private int _linkWellNo;            //连接机井眼数                23
+        private bool _isSeepChnLinked;      //装防渗渠道                 24
+        private float _seepChnLength;       //防渗渠道长度（km）                25              //千米 float
+        private string _remark;             //备注                        26
 
         [JsonProperty]
         public int Id

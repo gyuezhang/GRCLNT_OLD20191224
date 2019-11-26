@@ -62,7 +62,6 @@ namespace Socket
 
         public static void Send(API_ID id,string para)
         {
-            string abc = id.ToString();
             ezClient.Send(Encoding.UTF8.GetBytes(id.ToString() + " " + para + "\r\n"));
         }
 
