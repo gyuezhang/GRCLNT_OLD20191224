@@ -6,6 +6,10 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Windows;
 using Util;
+using BruTile.Predefined;
+using Mapsui.Layers;
+using Mapsui.UI.Wpf;
+using Mapsui.Geometries;
 
 namespace GRCLNT
 {
@@ -24,8 +28,16 @@ namespace GRCLNT
             CLNTResHandler.changeWell += CLNTResHandler_changeWell;
 
             ExcelOper.readWell += ExcelOper_readWell;
-        }
 
+            InitMap();
+
+        }
+        public MapControl map { get; set; } = new MapControl();
+
+        public void InitMap()
+        {
+            map.Map.Layers.Add(new TileLayer(KnownTileSources.Create()));
+        }
         private void ExcelOper_readWell(bool state, int curIndex, int totalCount, List<Well> wells)
         {
             if(state)
