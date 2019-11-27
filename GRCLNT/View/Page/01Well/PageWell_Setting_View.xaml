@@ -10,6 +10,13 @@
              d:DataContext="{d:DesignInstance local:PageWellViewModel}"             
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="PageWell_Setting_View Under Construction..." HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32"/>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Style="{StaticResource MaterialDesignTitleTextBlock}" Foreground="White" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,20">参数设置</TextBlock>
+        </Grid>
     </Grid>
 </UserControl>
