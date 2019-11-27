@@ -20,6 +20,7 @@ using LiveCharts.Wpf;
 using LiveCharts;
 using LiveCharts.Defaults;
 using System.Windows.Media;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace GRCLNT
 {
@@ -41,11 +42,146 @@ namespace GRCLNT
 
             InitMap();
 
+            WellOutPut wop1 = new WellOutPut();
+            wop1.Name = "封皮";
+            wop1.Des = "封皮";
+            WellOutPut wop2 = new WellOutPut();
+            wop2.Name = "编制单位";
+            wop2.Des = "编制单位";
+            WellOutPut wop3 = new WellOutPut();
+            wop3.Name = "目录";
+            wop3.Des = "目录";
+            WellOutPut wop4 = new WellOutPut();
+            wop4.Name = "观测井分布图";
+            wop4.Des = "观测井分布图";
+            WellOutPut wop5 = new WellOutPut();
+            wop5.Name = "监测井情况表";
+            wop5.Des = "监测井情况表";
+            WellOutPut wop6 = new WellOutPut();
+            wop6.Name = "整编";
+            wop6.Des = "整编";
+            WellOutPut wop7 = new WellOutPut();
+            wop7.Name = "监测井情况表";
+            wop7.Des = "监测井情况表";
+            WellOutPut wop8 = new WellOutPut();
+            wop8.Name = "水位分布图";
+            wop8.Des = "水位分布图";
+            WellOutPut wop9 = new WellOutPut();
+            wop9.Name = "宝坻自动监测井";
+            wop9.Des = "宝坻自动监测井";
+            WellOutPut wop10 = new WellOutPut();
+            wop10.Name = "年特征统计表";
+            wop10.Des = "年特征统计表";
+            WellOutPut wop11 = new WellOutPut();
+            wop11.Name = "平均水位表";
+            wop11.Des = "平均水位表";
+            WellOutPut wop12 = new WellOutPut();
+            wop12.Name = "统测";
+            wop12.Des = "统测";
+            WellOutPut wop13 = new WellOutPut();
+            wop13.Name = "检测情况表";
+            wop13.Des = "检测情况表";
+            WellOutPut wop14 = new WellOutPut();
+            wop14.Name = "灌溉井开采量表";
+            wop14.Des = "灌溉井开采量表";
+            WellOutPut wop15 = new WellOutPut();
+            wop15.Name = "实开农业机井";
+            wop15.Des = "实开农业机井";
+            WellOutPut wop16 = new WellOutPut();
+            wop16.Name = "灌溉井开采量表";
+            wop16.Des = "灌溉井开采量表";
+            WellOutPut wop17 = new WellOutPut();
+            wop17.Name = "灌溉井开采量总表";
+            wop17.Des = "灌溉井开采量总表";
+            WellOutPut wop18 = new WellOutPut();
+            wop18.Name = "总开采量";
+            wop18.Des = "总开采量";
+            WellOutPut wop19 = new WellOutPut();
+            wop19.Name = "生活农业开采量表";
+            wop19.Des = "生活农业开采量表";
+            WellOutPut wop20 = new WellOutPut();
+            wop20.Name = "城镇机井开采量调查表";
+            wop20.Des = "城镇机井开采量调查表";
+            WellOutPut wop21 = new WellOutPut();
+            wop21.Name = "开采量总表";
+            wop21.Des = "封开采量总表皮";
+            WellOutPut wop22 = new WellOutPut();
+            wop22.Name = "镇街开采量";
+            wop22.Des = "镇街开采量";
+            WellOutPut wop23 = new WellOutPut();
+            wop23.Name = "气象资料";
+            wop23.Des = "气象资料";
+            WellOutPut wop24 = new WellOutPut();
+            wop24.Name = "动态曲线图";
+            wop24.Des = "动态曲线图";
+            WellOutPut wop25 = new WellOutPut();
+            wop25.Name = "开采量统计图";
+            wop25.Des = "开采量统计图";
+            outPutItems.Add(wop1);
+            outPutItems.Add(wop2);
+            outPutItems.Add(wop3);
+            outPutItems.Add(wop4);
+            outPutItems.Add(wop5);
+            outPutItems.Add(wop6);
+            outPutItems.Add(wop7);
+            outPutItems.Add(wop8);
+            outPutItems.Add(wop9);
+            outPutItems.Add(wop10);
+            outPutItems.Add(wop11);
+            outPutItems.Add(wop12);
+            outPutItems.Add(wop13);
+            outPutItems.Add(wop14);
+            outPutItems.Add(wop15);
+            outPutItems.Add(wop16);
+            outPutItems.Add(wop17);
+            outPutItems.Add(wop18);
+            outPutItems.Add(wop19);
+            outPutItems.Add(wop20);
+            outPutItems.Add(wop21);
+            outPutItems.Add(wop22);
+            outPutItems.Add(wop23);
+            outPutItems.Add(wop24);
+            outPutItems.Add(wop25);
         }
         public MapControl map { get; set; } = new MapControl();
 
         public UserControl curChart { get; set; } = new UserControl();
 
+        public void OnStartOutPut()
+        {
+
+           
+        }
+
+        public bool CanOnStartOutPut => (outputDirectory != null);
+
+
+        public void OnSelectDirectoryToOutput()
+        {
+
+            var dlg = new CommonOpenFileDialog();
+            dlg.Title = "My Title";
+            dlg.IsFolderPicker = true;
+            // dlg.InitialDirectory = currentDirectory;
+
+            dlg.AddToMostRecentlyUsedList = false;
+            dlg.AllowNonFileSystemItems = false;
+            // dlg.DefaultDirectory = currentDirectory;
+            dlg.EnsureFileExists = true;
+            dlg.EnsurePathExists = true;
+            dlg.EnsureReadOnly = false;
+            dlg.EnsureValidNames = true;
+            dlg.Multiselect = false;
+            dlg.ShowPlacesList = true;
+
+            if (dlg.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                outputDirectory = dlg.FileName;
+                // Do something with selected folder string
+            }
+        }
+
+        public string outputDirectory { get; set; }
         public void RefreshState()
         {
             curChart = new CartesianChart();
@@ -417,5 +553,8 @@ namespace GRCLNT
         {
             CLNTAPI.GetWellByFilter(filter);
         }
+
+        //
+        public List<WellOutPut> outPutItems { get; set; } = new List<WellOutPut>();
     }
 }
