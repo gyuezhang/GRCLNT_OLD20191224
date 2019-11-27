@@ -450,6 +450,9 @@
     <Resource Include="View\Resource\Image\BtnCard_EntWellSetting.png" />
     <Resource Include="View\Resource\Image\BtnCard_EntWellStat.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\Resource\Image\well.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.0.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.0.0\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

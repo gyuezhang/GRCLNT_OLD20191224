@@ -11,6 +11,10 @@ using Mapsui.Layers;
 using Mapsui.UI.Wpf;
 using Mapsui.Geometries;
 using Mapsui.Projection;
+using Mapsui.Providers;
+using System.Linq;
+using Mapsui.Styles;
+using System.Reflection;
 
 namespace GRCLNT
 {
@@ -38,12 +42,63 @@ namespace GRCLNT
         public void InitMap()
         {
             map.Map.Layers.Add(new TileLayer(KnownTileSources.Create()));
-
+            map.Map.Layers.Add(CreateWellLayer());
 
             var centerOfBD = new Mapsui.Geometries.Point(117.309716, 39.717173);
             var sphericalMercatorCoordinate = SphericalMercator.FromLonLat(centerOfBD.X, centerOfBD.Y);
             map.Map.Home = n => n.NavigateTo(sphericalMercatorCoordinate, map.Map.Resolutions[12]);
 
+        }
+
+        private MemoryLayer CreateWellLayer()
+        {
+            //return new MemoryLayer
+            //{
+            //    Name = "Points",
+            //    IsMapInfoLayer = true,
+            //    DataSource = new MemoryProvider(GetCitiesFromEmbeddedResource()),
+            //    Style = CreateBitmapStyle()
+            //};
+            MemoryLayer ml = new MemoryLayer();
+            ml.Name = "Point";
+            ml.IsMapInfoLayer = true;
+            MemoryProvider mp = new MemoryProvider(GetCitiesFromEmbeddedResource());
+            ml.DataSource = mp;
+            ml.Style = CreateBitmapStyle();
+            return ml;
+        }
+        private SymbolStyle CreateBitmapStyle()
+        {
+            // For this sample we get the bitmap from an embedded resouce
+            // but you could get the data stream from the web or anywhere
+            // else.
+
+            var path = @"GRCLNT.View.Resource.Image.well.png";
+            var bitmapId = GetBitmapIdForEmbeddedResource(path);
+            var bitmapHeight = 64; // To set the offset correct we need to know the bitmap height
+            return new SymbolStyle { BitmapId = bitmapId, SymbolScale = 0.20, SymbolOffset = new Offset(0, bitmapHeight * 0.5) };
+        }
+        private static int GetBitmapIdForEmbeddedResource(string imagePath)
+        {
+            var assembly = typeof(PageWellViewModel).GetTypeInfo().Assembly;
+            var image = assembly.GetManifestResourceStream(imagePath);
+            return BitmapRegistry.Instance.Register(image);
+        }
+        private IEnumerable<IFeature> GetCitiesFromEmbeddedResource()
+        {
+
+            return curWells.Select(c =>
+            {
+                var feature = new Feature();
+                if(c.Lng !="" && c.Lat != "")
+                {
+                    var point = SphericalMercator.FromLonLat(double.Parse(c.Lng), double.Parse(c.Lat));
+                    feature.Geometry = point;
+                }
+                return feature;
+            });
+
+            //IEnumerable<IFeature> res = new IEnumerable<IFeature>();
         }
         private void ExcelOper_readWell(bool state, int curIndex, int totalCount, List<Well> wells)
         {
@@ -215,6 +270,7 @@ namespace GRCLNT
                     break;
                 case 5:
                     wndMainVM.UpdateAddr(EnumPage.Well_Search_Loc);
+                    InitMap();
                     break;
                 case 6:
                     wndMainVM.UpdateAddr(EnumPage.Well_Search_Lst);
