@@ -15,6 +15,11 @@ using Mapsui.Providers;
 using System.Linq;
 using Mapsui.Styles;
 using System.Reflection;
+using System.Windows.Controls;
+using LiveCharts.Wpf;
+using LiveCharts;
+using LiveCharts.Defaults;
+using System.Windows.Media;
 
 namespace GRCLNT
 {
@@ -39,6 +44,83 @@ namespace GRCLNT
         }
         public MapControl map { get; set; } = new MapControl();
 
+        public UserControl curChart { get; set; } = new UserControl();
+
+        public void RefreshState()
+        {
+            curChart = new CartesianChart();
+            SeriesCollection sc = new SeriesCollection();
+            sc = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Values = new ChartValues<ObservableValue>
+                    {
+                        new ObservableValue(1233),
+                        new ObservableValue(513),
+                        new ObservableValue(224),
+                        new ObservableValue(741),
+                        new ObservableValue(745),
+                        new ObservableValue(333),
+                        new ObservableValue(152),
+                        new ObservableValue(267),
+                        new ObservableValue(743),
+                        new ObservableValue(173),
+                        new ObservableValue(683),
+                        new ObservableValue(356),
+                        new ObservableValue(1321),
+                        new ObservableValue(725),
+                        new ObservableValue(746),
+                        new ObservableValue(343),
+                        new ObservableValue(115),
+                        new ObservableValue(245),
+                        new ObservableValue(711),
+                        new ObservableValue(147),
+                        new ObservableValue(746),
+                        new ObservableValue(343),
+                        new ObservableValue(115),
+                        new ObservableValue(514)
+                    },
+                    PointGeometrySize = 10,
+                    StrokeThickness = 4,
+                    Fill = Brushes.Transparent
+                },
+            };
+            List<string> lbs = new List<string>();
+
+            ((CartesianChart)curChart).Series = sc;
+            Axis x = new Axis();
+            x.Title = "乡镇街道";
+            x.Labels = lbs;
+            lbs.Add("宝平街道");
+            lbs.Add("钰华街道");
+            lbs.Add("口东街道");
+            lbs.Add("朝霞街道");
+            lbs.Add("潮阳街道");
+            lbs.Add("海滨街道");
+            lbs.Add("八门城镇");
+            lbs.Add("大白庄镇");
+            lbs.Add("大口屯镇");
+            lbs.Add("大唐庄镇");
+            lbs.Add("大钟庄镇");
+            lbs.Add("尔王庄镇");
+            lbs.Add("方家庄镇");
+            lbs.Add("郝各庄镇");
+            lbs.Add("黄庄镇"  );
+            lbs.Add("霍各庄镇");
+            lbs.Add("林亭口镇");
+            lbs.Add("牛道口镇");
+            lbs.Add("牛家牌镇");
+            lbs.Add("史各庄镇");
+            lbs.Add("王卜庄镇");
+            lbs.Add("新安镇"  );
+            lbs.Add("新开口镇");
+            lbs.Add("周良庄镇");
+            Axis y = new Axis();
+            y.Title = "机井数量";
+            ((CartesianChart)curChart).AxisX.Add(x);
+            ((CartesianChart)curChart).AxisY.Add(y);
+        }
         public void InitMap()
         {
             map.Map.Layers.Add(new TileLayer(KnownTileSources.Create()));
@@ -50,6 +132,7 @@ namespace GRCLNT
 
         }
 
+        
         private MemoryLayer CreateWellLayer()
         {
             //return new MemoryLayer
