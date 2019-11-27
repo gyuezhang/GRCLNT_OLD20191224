@@ -75,7 +75,7 @@ namespace Models
             get { return _loc; }
             set
             {
-                SetAndNotify(ref _loc, value.Replace("System.Windows.Controls.ComboBoxItem: ", ""));
+                SetAndNotify(ref _loc, value);
             }
         }
 
@@ -105,7 +105,7 @@ namespace Models
             get { return _unitCat; }
             set
             {
-                SetAndNotify(ref _unitCat, value.Replace("System.Windows.Controls.ComboBoxItem: ",""));
+                SetAndNotify(ref _unitCat, value);
             }
         }
 
@@ -145,7 +145,7 @@ namespace Models
             get { return _tubeMat; }
             set
             {
-                SetAndNotify(ref _tubeMat, value.Replace("System.Windows.Controls.ComboBoxItem: ", ""));
+                SetAndNotify(ref _tubeMat, value);
             }
         }
 
@@ -215,7 +215,7 @@ namespace Models
             get { return _pumpMode; }
             set
             {
-                SetAndNotify(ref _pumpMode, value.Replace("System.Windows.Controls.ComboBoxItem: ", ""));
+                SetAndNotify(ref _pumpMode, value);
             }
         }
 

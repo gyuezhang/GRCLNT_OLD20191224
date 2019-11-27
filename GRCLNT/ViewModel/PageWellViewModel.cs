@@ -65,7 +65,10 @@ namespace GRCLNT
 
         private void CLNTResHandler_getWellParas(RES_STATE state, WellParas paras)
         {
-            wellParas = paras;
+            if (paras == null)
+                wellParas = new WellParas();
+            else
+                wellParas = paras;
         }
 
         public void InitOutputLst()
@@ -182,6 +185,82 @@ namespace GRCLNT
 
            
         }
+
+        public string strParaSettingLoc { get; set; }
+        public string strParaSettingUnitCat { get; set; }
+        public string strParaSettingTubeMat { get; set; }
+        public string strParaSettingPumpModel { get; set; }
+
+
+        public void OnParaSettingAddLoc()
+        {
+            wellParas.Loc.Add(new WellPara(WellParaType.Loc, strParaSettingLoc));
+            wellParas.ResetAllPara();
+            CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
+        }
+        public void OnParaSettingRemoveLoc()
+        {
+
+            wellParas.Loc.Remove(wellParas.CurLoc);
+            wellParas.ResetAllPara();
+            CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
+        }
+        public bool CanOnParaSettingAddLoc => (strParaSettingLoc != null);
+        public bool CanOnParaSettingRemoveLoc => (wellParas.CurLoc.Value != "");
+
+
+
+        public void OnParaSettingAddUnitCat()
+        {
+            wellParas.Loc.Add(new WellPara(WellParaType.UnitCat, strParaSettingUnitCat));
+            wellParas.ResetAllPara();
+            CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
+        }
+        public void OnParaSettingRemoveUnitCat()
+        {
+
+            wellParas.UnitCat.Remove(wellParas.CurUnitCat);
+            wellParas.ResetAllPara();
+            CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
+        }
+        public bool CanOnParaSettingAddUnitCat => (strParaSettingUnitCat != null);
+        public bool CanOnParaSettingRemoveUnitCat => (wellParas.CurUnitCat.Value != "");
+
+
+
+        public void OnParaSettingAddTubeMat()
+        {
+            wellParas.Loc.Add(new WellPara(WellParaType.TubeMat, strParaSettingTubeMat));
+            wellParas.ResetAllPara();
+            CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
+        }
+        public void OnParaSettingRemoveTubeMat()
+        {
+            wellParas.TubeMat.Remove(wellParas.CurTubeMat);
+            wellParas.ResetAllPara();
+            CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
+        }
+        public bool CanOnParaSettingAddTubeMat => (strParaSettingTubeMat != null);
+        public bool CanOnParaSettingRemoveTubeMat => (wellParas.CurTubeMat.Value != "");
+
+
+        public void OnParaSettingAddPumpModel()
+        {
+            wellParas.Loc.Add(new WellPara(WellParaType.PumpModel, strParaSettingPumpModel));
+            wellParas.ResetAllPara();
+            CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
+        }
+        public void OnParaSettingRemovePumpModel()
+        {
+
+            wellParas.PumpModel.Remove(wellParas.CurPumpModel);
+            wellParas.ResetAllPara();
+            CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
+        }
+        public bool CanOnParaSettingAddPumpModel => (strParaSettingPumpModel != null);
+        public bool CanOnParaSettingRemovePumpModel => (wellParas.CurPumpModel.Value != "");
+
+
 
         public bool CanOnStartOutPut => (outputDirectory != null);
 
@@ -573,6 +652,10 @@ namespace GRCLNT
             List<Well> wells = new List<Well>();
             createWell.TsOrSt = czoning.curlevel4Node.name;
             createWell.Village = czoning.curlevel5Node.name;
+            createWell.Loc = wellParas.CurLoc.Value;
+            createWell.TubeMat = wellParas.CurTubeMat.Value;
+            createWell.UnitCat = wellParas.CurUnitCat.Value;
+            createWell.PumpMode = wellParas.CurPumpModel.Value;
             wells.Add(createWell);
             CLNTAPI.CreateWell(wells);
         }

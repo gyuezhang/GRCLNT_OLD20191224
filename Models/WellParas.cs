@@ -15,6 +15,16 @@ namespace Models
     [JsonObject(MemberSerialization.OptIn)]
     public class WellPara : PropertyChangedBase
     {
+        public WellPara()
+        {
+
+        }
+
+        public WellPara(WellParaType type,string v)
+        {
+            Type = type;
+            Value = v;
+        }
         private WellParaType _type;
         private string _value;
 
@@ -94,6 +104,44 @@ namespace Models
         private List<WellPara> _tubeMat;
         private List<WellPara> _pumpModel;
         private List<WellPara> _allParas;
+
+        private WellPara _curUnitCat =new WellPara();
+        private WellPara _curLoc = new WellPara();
+        private WellPara _curTubeMat = new WellPara();
+        private WellPara _curPumpModel = new WellPara();
+
+        public WellPara CurUnitCat
+        {
+            get { return _curUnitCat; }
+            set
+            {
+                SetAndNotify(ref _curUnitCat, value);
+            }
+        }
+        public WellPara CurLoc
+        {
+            get { return _curLoc; }
+            set
+            {
+                SetAndNotify(ref _curLoc, value);
+            }
+        }
+        public WellPara CurTubeMat
+        {
+            get { return _curTubeMat; }
+            set
+            {
+                SetAndNotify(ref _curTubeMat, value);
+            }
+        }
+        public WellPara CurPumpModel
+        {
+            get { return _curPumpModel; }
+            set
+            {
+                SetAndNotify(ref _curPumpModel, value);
+            }
+        }
 
         [JsonProperty]
         public List<WellPara> UnitCat
