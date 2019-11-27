@@ -196,9 +196,25 @@ namespace Util
                         if (row.GetCell(3) != null)
                             tempWell.Loc = row.GetCell(3).ToString();
                         if (row.GetCell(4) != null)
+                        {
                             tempWell.Lng = row.GetCell(4).ToString();
+                            if (double.Parse(tempWell.Lng) < 117 || double.Parse(tempWell.Lng) > 118)
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                            continue;
                         if (row.GetCell(5) != null)
+                        {
                             tempWell.Lat = row.GetCell(5).ToString();
+                            if (double.Parse(tempWell.Lat) < 39 || double.Parse(tempWell.Lat) > 40)
+                            {
+                                continue;
+                            }
+                        }
+                        else
+                            continue;
                         if (row.GetCell(6) != null)
                             tempWell.UnitCat = row.GetCell(6).ToString();
                         if (row.GetCell(7) != null)

@@ -109,10 +109,10 @@ namespace GRCLNT
                     vInputing = Visibility.Collapsed;
                     txtInputing = "共" + totalCount.ToString() + "条记录，读取完成";
 
+                    autoCreateWells = wells;
                     ThreadStart childref = new ThreadStart(ThreadCreateWellsFromFile);
                     Thread childThread = new Thread(childref);
                     childThread.Start();
-                    autoCreateWells = wells;
                     return;
                 }
                 vInputing = Visibility.Visible;
