@@ -37,11 +37,39 @@ namespace GRCLNT
             CLNTResHandler.getWellByFilter += CLNTResHandler_getWellByFilter;
             CLNTResHandler.deleteWell += CLNTResHandler_deleteWell;
             CLNTResHandler.changeWell += CLNTResHandler_changeWell;
-
+            CLNTResHandler.getWellParas += CLNTResHandler_getWellParas;
+            CLNTResHandler.setWellParas += CLNTResHandler_setWellParas;
             ExcelOper.readWell += ExcelOper_readWell;
 
-            InitMap();
+            CLNTAPI.GetWellParas();
 
+            InitMap();
+            InitOutputLst();
+            
+        }
+
+        private void CLNTResHandler_setWellParas(RES_STATE state)
+        {
+            switch (state)
+            {
+                case RES_STATE.OK:
+                    wndMainVM.mainMessageQueue.Enqueue("参数设置成功");
+                    break;
+                case RES_STATE.FAILED:
+                    wndMainVM.mainMessageQueue.Enqueue("参数设置失败");
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void CLNTResHandler_getWellParas(RES_STATE state, WellParas paras)
+        {
+            wellParas = paras;
+        }
+
+        public void InitOutputLst()
+        {
             WellOutPut wop1 = new WellOutPut();
             wop1.Name = "封皮";
             wop1.Des = "封皮";
@@ -143,8 +171,10 @@ namespace GRCLNT
             outPutItems.Add(wop24);
             outPutItems.Add(wop25);
         }
+
         public MapControl map { get; set; } = new MapControl();
 
+        public WellParas wellParas { get; set; } = new WellParas();
         public UserControl curChart { get; set; } = new UserControl();
 
         public void OnStartOutPut()

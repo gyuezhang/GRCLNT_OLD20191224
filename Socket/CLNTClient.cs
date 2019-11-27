@@ -46,6 +46,12 @@ namespace Socket
                     case API_ID.API_ChangeWell:
                         CLNTResHandler.OnChangeWell(request);
                         break;
+                    case API_ID.API_GetWellParas:
+                        CLNTResHandler.OnGetWellParas(request);
+                        break;
+                    case API_ID.API_SetWellParas:
+                        CLNTResHandler.OnSetWellParas(request);
+                        break;
                     default:
                         break;
                 }

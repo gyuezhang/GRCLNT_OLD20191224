@@ -111,5 +111,31 @@ namespace Socket
                 // CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
             }
         }
+
+        public static void GetWellParas()
+        {
+            if (CLNTClient.IsConnected)
+            {
+                CLNTClient.Send(API_ID.API_GetWellParas,"");
+            }
+            else
+            {
+                CLNTClient.TryReconn();
+                // CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
+            }
+        }
+
+        public static void SetWellParas(WellParas wells)
+        {
+            if (CLNTClient.IsConnected)
+            {
+                CLNTClient.Send(API_ID.API_SetWellParas, JsonConvert.SerializeObject(wells));
+            }
+            else
+            {
+                CLNTClient.TryReconn();
+                // CLNTResHandler.OnLogin(new CLNTStringPackageInfo(API_ID.API_ResetPwd, RES_STATE.SVR_NOTFOUND_RECONN, ""));
+            }
+        }
     }
 }

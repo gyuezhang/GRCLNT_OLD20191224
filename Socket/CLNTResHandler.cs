@@ -108,5 +108,33 @@ namespace Socket
 
             }
         }
+
+        public delegate void GetWellParasEventHandler(RES_STATE state, WellParas paras);
+        public static event GetWellParasEventHandler getWellParas;
+        public static void OnGetWellParas(CLNTStringPackageInfo request)
+        {
+            try
+            {
+                getWellParas(request.resState, JsonConvert.DeserializeObject<WellParas>(string.Join("", request.Parameters)));
+            }
+            catch
+            {
+
+            }
+        }
+
+        public delegate void SetWellParasEventHandler(RES_STATE state);
+        public static event SetWellParasEventHandler setWellParas;
+        public static void OnSetWellParas(CLNTStringPackageInfo request)
+        {
+            try
+            {
+                setWellParas(request.resState);
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

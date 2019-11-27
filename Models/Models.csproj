@@ -66,6 +66,7 @@
     <Compile Include="User.cs" />
     <Compile Include="Well.cs" />
     <Compile Include="WellOutPut.cs" />
+    <Compile Include="WellParas.cs" />
     <Compile Include="Zoning.cs" />
   </ItemGroup>
   <ItemGroup>
