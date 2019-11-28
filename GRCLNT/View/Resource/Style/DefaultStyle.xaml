@@ -11,4 +11,18 @@
         <Setter Property="TextBlock.FontSize" Value="16" />
     </Style>
 
+    <Style x:Key="cbCust" TargetType="{x:Type CalendarButton}" BasedOn="{StaticResource MaterialDesignCalendarButton}">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <Style x:Key="CalendarStyleCust" TargetType="{x:Type Calendar}" BasedOn="{StaticResource MaterialDesignDatePickerCalendarPortrait}">
+        <Setter Property="Background" Value="#FF05B9F6" />
+        <Setter Property="CalendarButtonStyle" Value="{StaticResource cbCust}" />
+    </Style>
+
+    <Style TargetType="{x:Type DatePicker}" BasedOn="{StaticResource MaterialDesignFloatingHintDatePicker}">
+        <Setter Property="CalendarStyle" Value="{StaticResource CalendarStyleCust}"/>
+        <Setter Property="TextBlock.Foreground" Value="White"/>
+    </Style>
+    
 </ResourceDictionary>
