@@ -69,7 +69,10 @@ namespace GRCLNT
             if (paras == null)
                 wellParas = new WellParas();
             else
+            {
                 wellParas = new WellParas(paras.AllParas);
+                RTData.wellParas = wellParas;
+            }
         }
 
         public void InitOutputLst()
@@ -427,28 +430,30 @@ namespace GRCLNT
                 return feature;
             });
 
-            //IEnumerable<IFeature> res = new IEnumerable<IFeature>();
         }
-        private void ExcelOper_readWell(bool state, int curIndex, int totalCount, List<Well> wells)
+        private void ExcelOper_readWell(bool state, int curIndex, int totalCount, List<Well> wells, string errMsg)
         {
             if(state)
             {
-                if(curIndex == totalCount)
-                {
-                    txtReadAutoInputing = "共" + totalCount.ToString() + "条记录，读取完成";
 
-                    valueInputing = Convert.ToInt32((float)curIndex / (float)totalCount * 100.0);
+                txtReadAutoInputing = "共" + totalCount.ToString() + "条记录，读取完成(失败" + iErrCount.ToString() + "条）";
+
+                valueInputing = Convert.ToInt32((float)curIndex / (float)totalCount * 100.0);
+
+                if (errMsg == "Finished")
+                {
                     autoCreateWells = wells;
-                    
                     return;
                 }
-                vInputing = Visibility.Visible;
-                valueInputing = Convert.ToInt32((float)curIndex / (float)totalCount * 100.0);
-                txtReadAutoInputing = "当前第"+ curIndex.ToString() + "条 / 共" + totalCount.ToString()+"条记录";
             }
             else
             {
+                txtReadAutoInputing = "共" + totalCount.ToString() + "条记录，读取完成(失败" + iErrCount.ToString() + "条）";
 
+                valueInputing = Convert.ToInt32((float)curIndex / (float)totalCount * 100.0);
+                if (errMsg == "Done")
+                    iErrCount++;
+                AutoLoadLog.Add(errMsg);
             }
         }
 
@@ -456,50 +461,23 @@ namespace GRCLNT
         {
 
             CLNTAPI.CreateWell(autoCreateWells);
-            //ThreadStart childref = new ThreadStart(ThreadCreateWellsFromFile);
-            //Thread childThread = new Thread(childref);
-            //childThread.Start();
-            //vInputing = Visibility.Collapsed;
-        }
-
-        public static List<Well> autoCreateWells { get; set; }
-        public void ThreadCreateWellsFromFile()
-        {
-            vInputing2 = Visibility.Visible;
-
-            List<Well> tmp = new List<Well>();
-            int i = 0;
-            foreach (Well well in autoCreateWells)
-            {
-                ++i;
-                tmp.Clear();
-                tmp.Add(well);
-                CLNTAPI.CreateWell(tmp);
-                Thread.Sleep(300);
-                valueInputing2 = Convert.ToInt32((float)i / (float)autoCreateWells.Count *100.0);
-                txtReadAutoInputing2 = "当前第" + i.ToString() + "条 / 共" + autoCreateWells.Count.ToString() + "条记录";
-
-            }
             var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
+
             timer.Start();
             timer.Tick += (sender, args) =>
             {
                 timer.Stop();
-                vInputing2 = Visibility.Collapsed;
+                vInputing = Visibility.Collapsed;
             };
-
         }
 
-
+        public static List<Well> autoCreateWells { get; set; }
         public Visibility vInputing { get; set; } = Visibility.Collapsed;
 
-        public Visibility vInputing2 { get; set; } = Visibility.Collapsed;
         public int valueInputing { get; set; } = 0;
-        public int valueInputing2 { get; set; } = 0;
 
         public string txtReadAutoInputing { get; set; } = "";
 
-        public string txtReadAutoInputing2 { get; set; } = "";
 
         private void CLNTResHandler_changeWell(RES_STATE state)
         {
@@ -661,10 +639,15 @@ namespace GRCLNT
 
         public void OnStartAutoInput()
         {
+            vInputing = Visibility.Visible;
+            iErrCount = 0;
+            AutoLoadLog = new List<string>();
             ExcelOper.ReadWellsFromFile(inputFilePath);
         }
 
 
+        public List<string> AutoLoadLog { get; set; } = new List<string>();
+        public int iErrCount = 0;
         public void OnOpenAutoInputTemplate()
         {
             ExcelOper.OpenInputTemplete();

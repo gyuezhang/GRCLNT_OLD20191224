@@ -11,5 +11,7 @@ namespace Models
         public static User loginSuccessUserInfo { get; set; } = new User();
 
         public static BDZoning zoning { get; set; } = new BDZoning();
+
+        public static WellParas wellParas { get; set; } = new WellParas();
     }
 }

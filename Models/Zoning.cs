@@ -65,12 +65,27 @@ namespace Models
             _allLevel4Nodes = new List<ZoningNode>();
             _allLevel5Nodes = new List<ZoningNode>();
             _curLevel5Nodes = new List<ZoningNode>();
+            _allLevel4Names = new List<string>();
+            _allLevel5Names = new List<string>();
         }
+        private List<string> _allLevel4Names;
+        private List<string> _allLevel5Names;
+
         private List<ZoningNode> _allLevel4Nodes;
         private List<ZoningNode> _allLevel5Nodes;
         private List<ZoningNode> _curLevel5Nodes;
         private ZoningNode _curLevel4Node;
         private ZoningNode _curLevel5Node;
+
+        public List<string> GetLevel4Names()
+        {
+            return _allLevel4Names;
+        }
+        public List<string> GetLevel5Names()
+        {
+            return _allLevel5Names;
+        }
+
         [JsonProperty]
         public List<ZoningNode> allLevel4Nodes
         {
@@ -132,12 +147,24 @@ namespace Models
         {
             allLevel4Nodes.Clear();
             allLevel4Nodes = nodes;
+
+            _allLevel4Names.Clear();
+            foreach (ZoningNode n in nodes)
+            {
+                _allLevel4Names.Add(n.name);
+            }
         }
 
         public void InitLevel5Nodes(List<ZoningNode> nodes)
         {
             allLevel5Nodes.Clear();
             allLevel5Nodes = nodes;
+
+            _allLevel5Names.Clear();
+            foreach(ZoningNode n in nodes)
+            {
+                _allLevel5Names.Add(n.name);
+            }
         }
 
 
