@@ -36,7 +36,7 @@
                 </Grid>
             </materialDesign:ColorZone>
             <TextBlock Text="共320条记录，当前选择0条" FontSize="18" Margin="32,28,10,10" Grid.Column="0" />
-            <ComboBox FontSize="18" materialDesign:HintAssist.Hint="统计项" Grid.Column="2"  Foreground="White" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="15 8 15 8" HorizontalAlignment="Left" />
+            <ComboBox FontSize="18" materialDesign:HintAssist.Hint="统计项" Grid.Column="2"  Foreground="White" Margin="15 8 15 8" HorizontalAlignment="Left" />
 
         </Grid>
         <ContentControl Content="{Binding curChart}"  Margin="32,20,60,32"  Grid.Row="1"/>

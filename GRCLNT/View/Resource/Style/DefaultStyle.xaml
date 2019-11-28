@@ -24,5 +24,14 @@
         <Setter Property="CalendarStyle" Value="{StaticResource CalendarStyleCust}"/>
         <Setter Property="TextBlock.Foreground" Value="White"/>
     </Style>
+
+    
+    <Style  x:Key="cbItemStyleCust"  TargetType="{x:Type ComboBoxItem}" BasedOn="{StaticResource MaterialDesignComboBoxItemStyle}">
+        <Setter Property="Background" Value="#FF035BB3"/>
+    </Style>
+
+    <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignFloatingHintComboBox}">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource cbItemStyleCust}"/>
+    </Style>
     
 </ResourceDictionary>

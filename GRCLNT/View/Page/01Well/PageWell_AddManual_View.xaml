@@ -17,18 +17,18 @@
                 <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Foreground="White" VerticalAlignment="Center" Margin="0,0,20,0">基本信息 :</TextBlock>
                 <!--街道乡镇-->
                 <ComboBox FontSize="18" materialDesign:HintAssist.Hint="街道乡镇" ItemsSource="{Binding Path=czoning.allLevel4Nodes}" DisplayMemberPath="name" SelectedValuePath="."
-                Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="15 8 8 8" HorizontalAlignment="Left" SelectedItem="{Binding Path=czoning.curlevel4Node,UpdateSourceTrigger=PropertyChanged}"/>
+                 Margin="15 8 8 8" HorizontalAlignment="Left" SelectedItem="{Binding Path=czoning.curlevel4Node,UpdateSourceTrigger=PropertyChanged}"/>
                 <!--所属村-->
                 <ComboBox FontSize="18" materialDesign:HintAssist.Hint="所属村" ItemsSource="{Binding Path=czoning.curlevel5Nodes}" DisplayMemberPath="name" SelectedValuePath="." 
-                Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="15 8 15 8" HorizontalAlignment="Left" SelectedItem="{Binding Path=czoning.curlevel5Node,UpdateSourceTrigger=PropertyChanged}"/>
+                Margin="15 8 15 8" HorizontalAlignment="Left" SelectedItem="{Binding Path=czoning.curlevel5Node,UpdateSourceTrigger=PropertyChanged}"/>
 
                 <!--权属单位-->
                 <ComboBox FontSize="18" materialDesign:HintAssist.Hint="权属单位" SelectedItem="{Binding wellParas.CurUnitCat,UpdateSourceTrigger=PropertyChanged}"
-                Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="15 8 15 8" HorizontalAlignment="Left" ItemsSource="{Binding wellParas.UnitCat}" DisplayMemberPath="Value" >
+                 Margin="15 8 15 8" HorizontalAlignment="Left" ItemsSource="{Binding wellParas.UnitCat}" DisplayMemberPath="Value" >
                 </ComboBox>
                 <!--位置-->
                 <ComboBox FontSize="18" materialDesign:HintAssist.Hint="位置" SelectedItem="{Binding wellParas.CurLoc,UpdateSourceTrigger=PropertyChanged}"
-                Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="15 8 15 8" HorizontalAlignment="Left" ItemsSource="{Binding wellParas.Loc}" DisplayMemberPath="Value" >
+                 Margin="15 8 15 8" HorizontalAlignment="Left" ItemsSource="{Binding wellParas.Loc}" DisplayMemberPath="Value" >
                 </ComboBox>
                 <TextBox Margin="15,8,15,8" FontSize="18" Text="{Binding createWell.Lng,UpdateSourceTrigger=PropertyChanged,StringFormat={}{0:N6}}" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  >
                     <materialDesign:HintAssist.Hint>
@@ -61,7 +61,7 @@
 
                 <TextBox Margin="15 0 15 0"   materialDesign:HintAssist.Hint="井深（米）" FontSize="18" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding createWell.WellDepth,StringFormat={}{0:N1},UpdateSourceTrigger=PropertyChanged}"/>
                 <ComboBox FontSize="18" materialDesign:HintAssist.Hint="管材" SelectedItem="{Binding wellParas.CurTubeMat,UpdateSourceTrigger=PropertyChanged}"
-                Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="15 0 15 0" HorizontalAlignment="Left"  ItemsSource="{Binding wellParas.TubeMat}" DisplayMemberPath="Value">
+                 Margin="15 0 15 0" HorizontalAlignment="Left"  ItemsSource="{Binding wellParas.TubeMat}" DisplayMemberPath="Value">
                 </ComboBox>
                 <TextBox Margin="15 0 15 0" Text="{Binding createWell.TubeIr,StringFormat={}{0:N1},UpdateSourceTrigger=PropertyChanged}" FontSize="18" Foreground="White" materialDesign:HintAssist.Hint="井管内径（毫米）"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox Margin="15 0 15 0" Text="{Binding createWell.StanWaterDepth,StringFormat={}{0:N1},UpdateSourceTrigger=PropertyChanged}" FontSize="18" Foreground="White" materialDesign:HintAssist.Hint="止水深度（米）"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
@@ -78,7 +78,7 @@
                 <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Foreground="White" VerticalAlignment="Center" Margin="0,0,20,0">水泵信息 :</TextBlock>
 
                 <ComboBox FontSize="18" materialDesign:HintAssist.Hint="水泵型号"  SelectedItem="{Binding wellParas.CurPumpModel,UpdateSourceTrigger=PropertyChanged}"
-                Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="15 8 15 8" HorizontalAlignment="Left"  ItemsSource="{Binding wellParas.PumpModel}" DisplayMemberPath="Value">
+                 Margin="15 8 15 8" HorizontalAlignment="Left"  ItemsSource="{Binding wellParas.PumpModel}" DisplayMemberPath="Value">
                 </ComboBox>
                 <TextBox  materialDesign:HintAssist.Hint="水泵动力（千瓦）" Text="{Binding createWell.PumpPower,StringFormat={}{0:N1},UpdateSourceTrigger=PropertyChanged}" Margin="15 8 15 8" FontSize="18" Foreground="White"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
