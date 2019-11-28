@@ -21,6 +21,7 @@ using LiveCharts;
 using LiveCharts.Defaults;
 using System.Windows.Media;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using System.Windows.Threading;
 
 namespace GRCLNT
 {
@@ -434,28 +435,37 @@ namespace GRCLNT
             {
                 if(curIndex == totalCount)
                 {
-                    vInputing = Visibility.Collapsed;
-                    txtInputing = "共" + totalCount.ToString() + "条记录，读取完成";
+                    txtReadAutoInputing = "共" + totalCount.ToString() + "条记录，读取完成";
 
+                    valueInputing = Convert.ToInt32((float)curIndex / (float)totalCount * 100.0);
                     autoCreateWells = wells;
-                    ThreadStart childref = new ThreadStart(ThreadCreateWellsFromFile);
-                    Thread childThread = new Thread(childref);
-                    childThread.Start();
+                    
                     return;
                 }
                 vInputing = Visibility.Visible;
-                valueInputing = curIndex / totalCount * 100;
-                txtInputing = "当前第"+ curIndex.ToString() + "条 / 共" + totalCount.ToString()+"条记录";
+                valueInputing = Convert.ToInt32((float)curIndex / (float)totalCount * 100.0);
+                txtReadAutoInputing = "当前第"+ curIndex.ToString() + "条 / 共" + totalCount.ToString()+"条记录";
             }
             else
             {
 
             }
         }
+
+        public void OnStartUploadAutoWell()
+        {
+
+            CLNTAPI.CreateWell(autoCreateWells);
+            //ThreadStart childref = new ThreadStart(ThreadCreateWellsFromFile);
+            //Thread childThread = new Thread(childref);
+            //childThread.Start();
+            //vInputing = Visibility.Collapsed;
+        }
+
         public static List<Well> autoCreateWells { get; set; }
         public void ThreadCreateWellsFromFile()
         {
-            vInputing = Visibility.Visible;
+            vInputing2 = Visibility.Visible;
 
             List<Well> tmp = new List<Well>();
             int i = 0;
@@ -465,19 +475,32 @@ namespace GRCLNT
                 tmp.Clear();
                 tmp.Add(well);
                 CLNTAPI.CreateWell(tmp);
-                Thread.Sleep(100);
-                valueInputing = Convert.ToInt32((float)i / (float)autoCreateWells.Count *100.0);
-                txtInputing = "当前第" + i.ToString() + "条 / 共" + autoCreateWells.Count.ToString() + "条记录";
+                Thread.Sleep(300);
+                valueInputing2 = Convert.ToInt32((float)i / (float)autoCreateWells.Count *100.0);
+                txtReadAutoInputing2 = "当前第" + i.ToString() + "条 / 共" + autoCreateWells.Count.ToString() + "条记录";
 
             }
-            vInputing = Visibility.Collapsed;
+            var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
+            timer.Start();
+            timer.Tick += (sender, args) =>
+            {
+                timer.Stop();
+                vInputing2 = Visibility.Collapsed;
+            };
 
         }
 
 
         public Visibility vInputing { get; set; } = Visibility.Collapsed;
+
+        public Visibility vInputing2 { get; set; } = Visibility.Collapsed;
         public int valueInputing { get; set; } = 0;
-        public string txtInputing { get; set; } = "";
+        public int valueInputing2 { get; set; } = 0;
+
+        public string txtReadAutoInputing { get; set; } = "";
+
+        public string txtReadAutoInputing2 { get; set; } = "";
+
         private void CLNTResHandler_changeWell(RES_STATE state)
         {
             switch (state)

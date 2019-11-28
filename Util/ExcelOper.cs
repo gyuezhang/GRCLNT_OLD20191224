@@ -255,7 +255,7 @@ namespace Util
                             tempWell.LinkWellNo = int.Parse(row.GetCell(22).ToString());
                         if (row.GetCell(23) != null)
                             tempWell.IsSeepChnLinked = (row.GetCell(23).ToString() == "是");
-                        if (row.GetCell(24) != null)
+                        if (row.GetCell(24) != null && row.GetCell(24).ToString() != "")
                             tempWell.SeepChnLength = float.Parse(row.GetCell(24).ToString());
                         if (row.GetCell(25) != null)
                             tempWell.Remark = row.GetCell(25).ToString();
