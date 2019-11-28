@@ -97,6 +97,22 @@ namespace Models
                         break;
                 }
             }
+            if (UnitCat.Count != 0)
+            {
+                CurUnitCat = UnitCat[0];
+            }
+            if (Loc.Count != 0)
+            {
+                CurLoc = Loc[0];
+            }
+            if (PumpModel.Count != 0)
+            {
+                CurPumpModel = PumpModel[0];
+            }
+            if (TubeMat.Count != 0)
+            {
+                CurTubeMat = TubeMat[0];
+            }
         }
 
         private List<WellPara> _unitCat;

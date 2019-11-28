@@ -68,7 +68,7 @@ namespace GRCLNT
             if (paras == null)
                 wellParas = new WellParas();
             else
-                wellParas = paras;
+                wellParas = new WellParas(paras.AllParas);
         }
 
         public void InitOutputLst()
