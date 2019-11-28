@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Util
 {
@@ -24,6 +25,44 @@ namespace Util
             Regex reg = new Regex("^" + num + "//." + num + "//." + num + "//." + num + "$");
             Match ma = reg.Match(strIn);
             return ma.Success;
+        }
+
+        public static int IsLat(string strLat)
+        {
+            try
+            {
+                double d =double.Parse(strLat);
+                if (d > 40 || d < 39)
+                    return 3;
+                string aa = d.ToString();
+                int result = aa.Length - aa.IndexOf(".") - 1;
+                if (result < 6)
+                    return 2;
+            }
+            catch
+            {
+                return -1;
+            }
+            return 1;
+        }
+
+        public static int IsLng(string strLng)
+        {
+            try
+            {
+                double d = double.Parse(strLng);
+                if (d > 118 || d < 117)
+                    return 3;
+                string aa = d.ToString();
+                int result = aa.Length - aa.IndexOf(".") - 1;
+                if (result < 6)
+                    return 2;
+            }
+            catch
+            {
+                return -1;
+            }
+            return 1;
         }
     }
 }
