@@ -533,8 +533,10 @@ namespace Util
                         OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "Done");
 
                     }
-                    catch
+                    catch (Exception e)
                     {
+                        OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "Done");
+
                         continue;
                     }
                 }

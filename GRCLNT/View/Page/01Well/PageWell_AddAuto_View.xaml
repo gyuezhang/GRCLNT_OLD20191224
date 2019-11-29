@@ -37,7 +37,7 @@
             <Button Margin="5" Height="40" Command="{s:Action OnOpenAutoInputTemplate}" Content="查看模板" FontSize="24" Foreground="White" VerticalAlignment="Center"/>
         </StackPanel>
         <ScrollViewer Grid.Row="3" HorizontalAlignment="Stretch" VerticalScrollBarVisibility="Auto" Margin="0,0,0,32" Background="Red" MinHeight="200">
-            <DataGrid  Margin="0 8 0 0"  ItemsSource="{Binding AutoLoadLog}"  CanUserSortColumns="True" Background="Transparent" CanUserAddRows="False"  materialDesign:DataGridAssist.CellPadding="4 2 2 2"  materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 2 2" />
+            <ListView  ItemsSource="{Binding AutoLoadLog}"  />
         </ScrollViewer>
     </Grid>
 </UserControl>

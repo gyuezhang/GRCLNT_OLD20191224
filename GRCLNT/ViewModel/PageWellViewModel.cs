@@ -22,6 +22,7 @@ using LiveCharts.Defaults;
 using System.Windows.Media;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System.Windows.Threading;
+using System.Collections.ObjectModel;
 
 namespace GRCLNT
 {
@@ -435,10 +436,13 @@ namespace GRCLNT
         {
             if(state)
             {
+                Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() =>
+                {
 
-                txtReadAutoInputing = "共" + totalCount.ToString() + "条记录，读取完成(失败" + iErrCount.ToString() + "条）";
+                    txtReadAutoInputing = "共" + totalCount.ToString() + "条记录，读取完成(失败" + iErrCount.ToString() + "条）";
 
-                valueInputing = Convert.ToInt32((float)curIndex / (float)totalCount * 100.0);
+                    valueInputing = Convert.ToInt32((float)curIndex / (float)totalCount * 100.0);
+                }), null);
 
                 if (errMsg == "Finished")
                 {
@@ -448,13 +452,26 @@ namespace GRCLNT
             }
             else
             {
-                txtReadAutoInputing = "共" + totalCount.ToString() + "条记录，读取完成(失败" + iErrCount.ToString() + "条）";
-
-                valueInputing = Convert.ToInt32((float)curIndex / (float)totalCount * 100.0);
                 if (errMsg == "Done")
                     iErrCount++;
-                AutoLoadLog.Add(errMsg);
+                //                Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() =>
+                //{
+                DispatchService.Invoke(() =>
+                {
+                    UpdateErrLog(totalCount, iErrCount, errMsg);
+                });
+
+              //  }), null);
+              //  Dispatcher.CurrentDispatcher.BeginInvoke(DispatcherPriority.Send, new UpdateUiTextDelegate(WriteData), "filename is " + filename);
             }
+        }
+
+        private void UpdateErrLog(int a,int ce,string em)
+        {
+            txtReadAutoInputing = "共" + a.ToString() + "条记录，读取完成(失败" + iErrCount.ToString() + "条）";
+
+            valueInputing = Convert.ToInt32((float)ce / (float)a * 100.0);
+            AutoLoadLog.Add(em);
         }
 
         public void OnStartUploadAutoWell()
@@ -641,12 +658,12 @@ namespace GRCLNT
         {
             vInputing = Visibility.Visible;
             iErrCount = 0;
-            AutoLoadLog = new List<string>();
+            AutoLoadLog = new ObservableCollection<string>();
             ExcelOper.ReadWellsFromFile(inputFilePath);
         }
 
 
-        public List<string> AutoLoadLog { get; set; } = new List<string>();
+        public ObservableCollection<string> AutoLoadLog { get; set; } = new ObservableCollection<string>();
         public int iErrCount = 0;
         public void OnOpenAutoInputTemplate()
         {
@@ -806,5 +823,20 @@ namespace GRCLNT
 
         //
         public List<WellOutPut> outPutItems { get; set; } = new List<WellOutPut>();
+    }
+    public static class DispatchService
+    {
+        public static void Invoke(Action action)
+        {
+            Dispatcher dispatchObject = Application.Current.Dispatcher;
+            if (dispatchObject == null || dispatchObject.CheckAccess())
+            {
+                action();
+            }
+            else
+            {
+                dispatchObject.Invoke(action);
+            }
+        }
     }
 }
