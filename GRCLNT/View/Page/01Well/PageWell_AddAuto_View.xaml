@@ -36,7 +36,7 @@
             <TextBlock Margin="5,8,17,5" Text="※ 导入的表格文件需要遵循指定格式" FontSize="18" VerticalAlignment="Center"/>
             <Button Margin="5" Height="40" Command="{s:Action OnOpenAutoInputTemplate}" Content="查看模板" FontSize="24" Foreground="White" VerticalAlignment="Center"/>
         </StackPanel>
-        <ScrollViewer Grid.Row="3" HorizontalAlignment="Stretch" VerticalScrollBarVisibility="Auto" Margin="0,0,0,32" Background="Red" MinHeight="200">
+        <ScrollViewer Grid.Row="3" HorizontalAlignment="Stretch" VerticalScrollBarVisibility="Auto" Margin="0,0,0,32" Background="Red" MinHeight="200" MaxHeight="300">
             <ListView  ItemsSource="{Binding AutoLoadLog}"  />
         </ScrollViewer>
     </Grid>
