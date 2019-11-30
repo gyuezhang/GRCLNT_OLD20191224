@@ -34,7 +34,7 @@
                     </Button>
                 </Grid>
             </materialDesign:ColorZone>
-            <TextBlock Text="共320条记录，当前选择0条" FontSize="18" Margin="32,0" Grid.Column="0" VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding locLstText}" FontSize="18" Margin="32,0" Grid.Column="0" VerticalAlignment="Center"/>
             <Button  BorderThickness="0" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" Background="#11000000"  Margin="30,10,10,10" Command="{s:Action OnEditWell}">
                 <materialDesign:PackIcon Kind="Edit" Foreground="Blue" Width="24" Height="24"/>
             </Button>

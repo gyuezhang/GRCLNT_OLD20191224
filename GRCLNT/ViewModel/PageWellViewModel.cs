@@ -432,6 +432,9 @@ namespace GRCLNT
             });
 
         }
+
+        public string locLstText { get; set; } = "";
+
         private void ExcelOper_readWell(bool state, int curIndex, int totalCount, List<Well> wells, string errMsg)
         {
             if(state)
@@ -585,6 +588,7 @@ namespace GRCLNT
             {
                 case RES_STATE.OK:
                     curWells = wells;
+                    locLstText = "共查询到" +wells.Count+ "条记录";
                     break;
                 case RES_STATE.FAILED:
                     wndMainVM.mainMessageQueue.Enqueue("获取机井失败");
