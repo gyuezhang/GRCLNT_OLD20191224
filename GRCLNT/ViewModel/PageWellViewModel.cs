@@ -436,13 +436,11 @@ namespace GRCLNT
         {
             if(state)
             {
-                Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() =>
+                DispatchService.Invoke(() =>
                 {
+                    UpdateErrLog(totalCount, curIndex, iErrCount, "");
+                });
 
-                    txtReadAutoInputing = "共" + totalCount.ToString() + "条记录，读取完成(失败" + iErrCount.ToString() + "条）";
-
-                    valueInputing = Convert.ToInt32((float)curIndex / (float)totalCount * 100.0);
-                }), null);
 
                 if (errMsg == "Finished")
                 {
@@ -452,13 +450,12 @@ namespace GRCLNT
             }
             else
             {
-                if (errMsg == "Done")
                     iErrCount++;
                 //                Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() =>
                 //{
                 DispatchService.Invoke(() =>
                 {
-                    UpdateErrLog(totalCount, iErrCount, errMsg);
+                    UpdateErrLog(totalCount, curIndex,iErrCount, errMsg);
                 });
 
               //  }), null);
@@ -466,12 +463,15 @@ namespace GRCLNT
             }
         }
 
-        private void UpdateErrLog(int a,int ce,string em)
+        private void UpdateErrLog(int a,int c,int ce,string em)
         {
-            txtReadAutoInputing = "共" + a.ToString() + "条记录，读取完成(失败" + iErrCount.ToString() + "条）";
+            txtReadAutoInputing = "正在读取" + c.ToString() + "/" + a.ToString() + "(失败" + iErrCount.ToString() + "条）";
 
-            valueInputing = Convert.ToInt32((float)ce / (float)a * 100.0);
-            AutoLoadLog.Add(em);
+            valueInputing = Convert.ToInt32((float)c / (float)a * 100.0);
+
+            if (AutoLoadLog.Count<5000 && em!="")
+                AutoLoadLog.Add("第"+c.ToString()+"条读取失败，错误信息："+em);
+
         }
 
         public void OnStartUploadAutoWell()
@@ -581,6 +581,11 @@ namespace GRCLNT
                 default:
                     break;
             }
+
+        }
+
+        public void ErrlogSetChanged()
+        {
 
         }
 

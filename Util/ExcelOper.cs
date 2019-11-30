@@ -180,11 +180,10 @@ namespace Util
             ISheet sheet = wk.GetSheetAt(0);
             IRow row;
             List<Well> wells = new List<Well>();
-            Well tempWell = new Well();bool bFitRow;
+            Well tempWell = new Well();
             string tmp;
             for (int i = 2; i <= sheet.LastRowNum; i++)
             {
-                bFitRow = true;
                 row = sheet.GetRow(i);  //读取当前行数据
                 if (row != null)
                 {
@@ -201,12 +200,14 @@ namespace Util
                             }
                             else
                             {
-                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "数据库区划乡镇街道中不存在此项"); bFitRow = false;
+                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "数据库区划乡镇街道中不存在此项");
+                                continue;
                             }
                         }
                         else
                         {
-                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "乡镇街道为空"); bFitRow = false;
+                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "乡镇街道为空");
+                            continue;
                         }
 
                         //村
@@ -223,12 +224,14 @@ namespace Util
                             }
                             else
                             {
-                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "数据库区划所属村中不存在此项"); bFitRow = false;
+                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "数据库区划所属村中不存在此项");
+                                continue;
                             }
                         }
                         else
                         {
-                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "所属村为空"); bFitRow = false;
+                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "所属村为空"); 
+                            continue;
                         }
 
                         //位置
@@ -241,12 +244,14 @@ namespace Util
                             }
                             else
                             {
-                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "位置中不存在此项"); bFitRow = false;
+                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "位置中不存在此项");
+                                continue;
                             }
                         }
                         else
                         {
-                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "位置为空"); bFitRow = false;
+                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "位置为空");
+                            continue;
                         }
 
 
@@ -258,7 +263,8 @@ namespace Util
                             {
                                 if (double.Parse(tmp) < 117 || double.Parse(tmp) > 118)
                                 {
-                                    OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "经度值超出宝坻界"); bFitRow = false;
+                                    OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "经度值超出宝坻界");
+                                    continue;
                                 }
                                 else
                                 {
@@ -267,12 +273,14 @@ namespace Util
                             }
                             catch
                             {
-                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "经度值格式不正确"); bFitRow = false;
+                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "经度值格式不正确");
+                                continue;
                             }
                         }
                         else
                         {
-                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "经度值为空"); bFitRow = false;
+                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "经度值为空");
+                            continue;
                         }
 
                         //纬度
@@ -283,7 +291,8 @@ namespace Util
                             {
                                 if (double.Parse(tmp) < 39 || double.Parse(tmp) > 40)
                                 {
-                                    OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "纬度值超出宝坻界"); bFitRow = false;
+                                    OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "纬度值超出宝坻界");
+                                    continue;
                                 }
                                 else
                                 {
@@ -292,12 +301,14 @@ namespace Util
                             }
                             catch
                             {
-                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "纬度值格式不正确"); bFitRow = false;
+                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "纬度值格式不正确");
+                                continue;
                             }
                         }
                         else
                         {
-                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "纬度值为空"); bFitRow = false;
+                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "纬度值为空");
+                            continue;
                         }
 
                         //权属单位
@@ -310,12 +321,14 @@ namespace Util
                             }
                             else
                             {
-                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "权属单位中不存在此项"); bFitRow = false;
+                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "权属单位中不存在此项"); 
+                                continue;
                             }
                         }
                         else
                         {
-                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "权属单位为空"); bFitRow = false;
+                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "权属单位为空");
+                            continue;
                         }
 
                         //用途
@@ -334,17 +347,20 @@ namespace Util
                                 }
                                 else
                                 {
-                                    OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "成井时间超出适用范围"); bFitRow = false;
+                                    OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "成井时间超出适用范围");
+                                    continue;
                                 }
                             }
                             catch
                             {
-                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "成井时间格式错误"); bFitRow = false;
+                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "成井时间格式错误");
+                                continue;
                             }
                         }
                         else
                         {
-                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "成井时间为空"); bFitRow = false;
+                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "成井时间为空");
+                            continue;
                         }
 
                         //井深
@@ -356,12 +372,14 @@ namespace Util
                             }
                             catch
                             {
-                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "井深格式错误"); bFitRow = false;
+                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "井深格式错误");
+                                continue;
                             }
                         }
                         else
                         {
-                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "井深为空"); bFitRow = false;
+                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "井深为空"); 
+                            continue;
                         }
                         
                         
@@ -375,12 +393,14 @@ namespace Util
                             }
                             else
                             {
-                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "管材中不存在此项"); bFitRow = false;
+                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "管材中不存在此项"); 
+                                continue;
                             }
                         }
                         else
                         {
-                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "管材为空"); bFitRow = false;
+                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "管材为空");
+                            continue;
                         }
 
                         //井管内径
@@ -392,12 +412,14 @@ namespace Util
                             }
                             catch
                             {
-                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "井管内径格式错误"); bFitRow = false;
+                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "井管内径格式错误");
+                                continue;
                             }
                         }
                         else
                         {
-                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "井管内径为空"); bFitRow = false;
+                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "井管内径为空");
+                            continue;
                         }
 
                         //止水深度
@@ -437,12 +459,14 @@ namespace Util
                             }
                             else
                             {
-                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "水泵型号中不存在此项"); bFitRow = false;
+                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "水泵型号中不存在此项");
+                                continue;
                             }
                         }
                         else
                         {
-                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "水泵型号为空"); bFitRow = false;
+                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "水泵型号为空");
+                            continue;
                         }
 
                         //水泵功率
@@ -454,12 +478,14 @@ namespace Util
                             }
                             catch
                             {
-                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "水泵功率内径格式错误"); bFitRow = false;
+                                OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "水泵功率内径格式错误");
+                                continue;
                             }
                         }
                         else
                         {
-                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "水泵功率内径为空"); bFitRow = false;
+                            OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "水泵功率内径为空");
+                            continue;
                         }
 
 
@@ -525,18 +551,15 @@ namespace Util
                         if (row.GetCell(25) != null)
                             tempWell.Remark = row.GetCell(25).ToString();
 
-                        if(bFitRow)
-                        {
+                    
                             wells.Add(tempWell);
                             OnReadWell(true, i - 1, sheet.LastRowNum - 2, wells, "Done");
-                        }
-                        OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "Done");
+                    
 
                     }
                     catch (Exception e)
                     {
-                        OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "Done");
-
+                        OnReadWell(false, i - 1, sheet.LastRowNum - 2, wells, "未知错误");
                         continue;
                     }
                 }

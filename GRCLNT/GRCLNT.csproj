@@ -452,7 +452,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Resource\Image\BtnCard_EntWellAdd.png" />
-    <Resource Include="View\Resource\BtnCard_EntWellAddAuto.png" />
+    <Resource Include="View\Resource\Image\BtnCard_EntWellAddAuto.png" />
     <Resource Include="View\Resource\Image\BtnCard_EntWellAddHand.png" />
     <Resource Include="View\Resource\Image\BtnCard_EntWellEdit.png" />
     <Resource Include="View\Resource\Image\BtnCard_EntWellOutput.png" />
