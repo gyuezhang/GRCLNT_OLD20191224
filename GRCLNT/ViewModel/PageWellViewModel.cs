@@ -438,12 +438,27 @@ namespace GRCLNT
             {
                 DispatchService.Invoke(() =>
                 {
-                    UpdateErrLog(totalCount, curIndex, iErrCount, "");
+                    UpdateErrLog(totalCount, curIndex, iErrCount, "success");
                 });
 
 
                 if (errMsg == "Finished")
                 {
+                    if(iErrCount==0)
+                    {
+                        DispatchService.Invoke(() =>
+                        {
+                            AutoLoadLog.Add("共" + totalCount.ToString() + "条读取完毕，点击开始上传");
+                        });
+                    }
+                    else
+                    {
+                        DispatchService.Invoke(() =>
+                        {
+                            AutoLoadLog.Add("共" + totalCount.ToString() + "条读取完毕，请修改不适配项");
+                        });
+
+                    }
                     IsReadingFromExcel = false;
                     autoCreateWells = wells;
                     return;
@@ -454,7 +469,7 @@ namespace GRCLNT
                 if(errMsg == "FileNeedToBeClosed")
                 {
                     wndMainVM.mainMessageQueue.Enqueue("请先关闭文档后重试。");
-
+                    IsReadingFromExcel = false;
                     return;
                 }
 
@@ -478,8 +493,10 @@ namespace GRCLNT
 
             valueInputing = Convert.ToInt32((float)c / (float)a * 100.0);
 
-            if (AutoLoadLog.Count<5000 && em!="")
+            if (AutoLoadLog.Count<5000 && em!="" && em != "success")
                 AutoLoadLog.Add("第"+c.ToString()+"条读取失败，错误信息："+em);
+            //else if(AutoLoadLog.Count < 5000 && em =="success")
+            //    AutoLoadLog.Add("第" + c.ToString() + "条读取成功");
 
         }
 

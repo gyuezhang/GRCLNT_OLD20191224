@@ -202,7 +202,7 @@ namespace Util
                                 }
                                 else
                                 {
-                                    OnReadWell(false, i - 1, sheet.LastRowNum - 1, wells, "数据库区划乡镇街道中不存在此项");
+                                    OnReadWell(false, i - 1, sheet.LastRowNum - 1, wells, "数据库区划乡镇街道中不存在此项(" + tmp + ")");
                                     continue;
                                 }
                             }
@@ -226,7 +226,7 @@ namespace Util
                                 }
                                 else
                                 {
-                                    OnReadWell(false, i - 1, sheet.LastRowNum - 1, wells, "数据库区划所属村中不存在此项");
+                                    OnReadWell(false, i - 1, sheet.LastRowNum - 1, wells, "数据库区划所属村中不存在此项(" + tmp + ")");
                                     continue;
                                 }
                             }
@@ -240,13 +240,17 @@ namespace Util
                             if (row.GetCell(3) != null)
                             {
                                 tmp = row.GetCell(3).ToString();
-                                if (RTData.wellParas.Loc.Contains(new WellPara(WellParaType.Loc, tmp)))
+                                //if (RTData.wellParas.Loc.Contains(new WellPara(WellParaType.Loc, tmp)))
+                                //{
+                                //    tempWell.Loc = row.GetCell(3).ToString();
+                                //}
+                                if (RTData.wellParas.Loc.Any(WellPara=> WellPara.Value == tmp))
                                 {
                                     tempWell.Loc = row.GetCell(3).ToString();
                                 }
                                 else
                                 {
-                                    OnReadWell(false, i - 1, sheet.LastRowNum - 1, wells, "位置中不存在此项");
+                                    OnReadWell(false, i - 1, sheet.LastRowNum - 1, wells, "位置中不存在此项("+tmp+")");
                                     continue;
                                 }
                             }
@@ -317,13 +321,17 @@ namespace Util
                             if (row.GetCell(6) != null)
                             {
                                 tmp = row.GetCell(6).ToString();
-                                if (RTData.wellParas.UnitCat.Contains(new WellPara(WellParaType.UnitCat, tmp)))
+                                //if (RTData.wellParas.UnitCat.Contains(new WellPara(WellParaType.UnitCat, tmp)))
+                                //{
+                                //    tempWell.UnitCat = row.GetCell(6).ToString();
+                                //}
+                                if (RTData.wellParas.UnitCat.Any(WellPara => WellPara.Value == tmp))
                                 {
                                     tempWell.UnitCat = row.GetCell(6).ToString();
                                 }
                                 else
                                 {
-                                    OnReadWell(false, i - 1, sheet.LastRowNum - 1, wells, "权属单位中不存在此项");
+                                    OnReadWell(false, i - 1, sheet.LastRowNum - 1, wells, "权属单位中不存在此项(" + tmp + ")");
                                     continue;
                                 }
                             }
@@ -389,13 +397,17 @@ namespace Util
                             if (row.GetCell(10) != null)
                             {
                                 tmp = row.GetCell(10).ToString();
-                                if (RTData.wellParas.TubeMat.Contains(new WellPara(WellParaType.TubeMat, tmp)))
+                                //if (RTData.wellParas.TubeMat.Contains(new WellPara(WellParaType.TubeMat, tmp)))
+                                //{
+                                //    tempWell.TubeMat = row.GetCell(10).ToString();
+                                //}
+                                if (RTData.wellParas.TubeMat.Any(WellPara => WellPara.Value == tmp))
                                 {
                                     tempWell.TubeMat = row.GetCell(10).ToString();
                                 }
                                 else
                                 {
-                                    OnReadWell(false, i - 1, sheet.LastRowNum - 1, wells, "管材中不存在此项");
+                                    OnReadWell(false, i - 1, sheet.LastRowNum - 1, wells, "管材中不存在此项(" + tmp + ")");
                                     continue;
                                 }
                             }
@@ -455,13 +467,17 @@ namespace Util
                             if (row.GetCell(16) != null)
                             {
                                 tmp = row.GetCell(16).ToString();
-                                if (RTData.wellParas.PumpModel.Contains(new WellPara(WellParaType.PumpModel, tmp)))
+                                //if (RTData.wellParas.PumpModel.Contains(new WellPara(WellParaType.PumpModel, tmp)))
+                                //{
+                                //    tempWell.PumpMode = row.GetCell(16).ToString();
+                                //}
+                                if (RTData.wellParas.PumpModel.Any(WellPara => WellPara.Value == tmp))
                                 {
                                     tempWell.PumpMode = row.GetCell(16).ToString();
                                 }
                                 else
                                 {
-                                    OnReadWell(false, i - 1, sheet.LastRowNum - 1, wells, "水泵型号中不存在此项");
+                                    OnReadWell(false, i - 1, sheet.LastRowNum - 1, wells, "水泵型号中不存在此项(" + tmp + ")");
                                     continue;
                                 }
                             }
@@ -570,10 +586,13 @@ namespace Util
             }
             catch (Exception e)
             {
-                if(e.InnerException.ToString().IndexOf("正由另一进程使用，因此该进程无法访问此文件。") >0)
+                if(e.InnerException != null)
                 {
-                    OnReadWell(false, 0, 0, null, "FileNeedToBeClosed");
-                    return;
+                    if (e.InnerException.ToString().IndexOf("正由另一进程使用，因此该进程无法访问此文件。") > 0)
+                    {
+                        OnReadWell(false, 0, 0, null, "FileNeedToBeClosed");
+                        return;
+                    }
                 }
             }
         }
