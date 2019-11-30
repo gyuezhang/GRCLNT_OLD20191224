@@ -444,6 +444,7 @@ namespace GRCLNT
 
                 if (errMsg == "Finished")
                 {
+                    IsReadingFromExcel = false;
                     autoCreateWells = wells;
                     return;
                 }
@@ -465,6 +466,7 @@ namespace GRCLNT
 
         private void UpdateErrLog(int a,int c,int ce,string em)
         {
+            vErrLog = Visibility.Visible;
             txtReadAutoInputing = "正在读取" + c.ToString() + "/" + a.ToString() + "(失败" + iErrCount.ToString() + "条）";
 
             valueInputing = Convert.ToInt32((float)c / (float)a * 100.0);
@@ -478,14 +480,14 @@ namespace GRCLNT
         {
 
             CLNTAPI.CreateWell(autoCreateWells);
-            var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
+            //var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
 
-            timer.Start();
-            timer.Tick += (sender, args) =>
-            {
-                timer.Stop();
-                vInputing = Visibility.Collapsed;
-            };
+            //timer.Start();
+            //timer.Tick += (sender, args) =>
+            //{
+            //    timer.Stop();
+            //    vInputing = Visibility.Collapsed;
+            //};
         }
 
         public static List<Well> autoCreateWells { get; set; }
@@ -644,7 +646,7 @@ namespace GRCLNT
             }
         }
 
-        public string inputFilePath { get; set; }
+        public string inputFilePath { get; set; } = "";
 
         public void OnOpenDlgToAutoInput()
         {
@@ -659,14 +661,20 @@ namespace GRCLNT
 
         }
 
+        public Visibility vErrLog { get; set; } = Visibility.Collapsed;
+        public bool IsReadingFromExcel { get; set; } = false;
         public void OnStartAutoInput()
         {
+            IsReadingFromExcel = true;
             vInputing = Visibility.Visible;
             iErrCount = 0;
             AutoLoadLog = new ObservableCollection<string>();
+                vErrLog = Visibility.Collapsed;
             ExcelOper.ReadWellsFromFile(inputFilePath);
         }
 
+        public bool CanOnStartAutoInput => !string.IsNullOrEmpty(inputFilePath);
+        public bool CanOnStartUploadAutoWell => (!IsReadingFromExcel) && (iErrCount==0);
 
         public ObservableCollection<string> AutoLoadLog { get; set; } = new ObservableCollection<string>();
         public int iErrCount = 0;
