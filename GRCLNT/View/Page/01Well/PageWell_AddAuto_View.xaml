@@ -14,10 +14,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Margin="10">
+        <StackPanel Grid.Row="0" Margin="10,64,10,10">
             <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Foreground="White" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,20">机井信息导入</TextBlock>
         </StackPanel>
 

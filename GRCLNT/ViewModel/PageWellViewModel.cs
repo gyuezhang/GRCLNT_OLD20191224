@@ -451,6 +451,13 @@ namespace GRCLNT
             }
             else
             {
+                if(errMsg == "FileNeedToBeClosed")
+                {
+                    wndMainVM.mainMessageQueue.Enqueue("请先关闭文档后重试。");
+
+                    return;
+                }
+
                     iErrCount++;
                 //                Dispatcher.CurrentDispatcher.BeginInvoke(new Action(() =>
                 //{
@@ -660,6 +667,7 @@ namespace GRCLNT
             }
 
         }
+        public bool CanOnOpenDlgToAutoInput => !IsReadingFromExcel;
 
         public Visibility vErrLog { get; set; } = Visibility.Collapsed;
         public bool IsReadingFromExcel { get; set; } = false;
@@ -673,7 +681,7 @@ namespace GRCLNT
             ExcelOper.ReadWellsFromFile(inputFilePath);
         }
 
-        public bool CanOnStartAutoInput => !string.IsNullOrEmpty(inputFilePath);
+        public bool CanOnStartAutoInput => (!IsReadingFromExcel) && !string.IsNullOrEmpty(inputFilePath);
         public bool CanOnStartUploadAutoWell => (!IsReadingFromExcel) && (iErrCount==0);
 
         public ObservableCollection<string> AutoLoadLog { get; set; } = new ObservableCollection<string>();
