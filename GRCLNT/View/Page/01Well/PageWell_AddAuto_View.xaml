@@ -38,9 +38,9 @@
         </StackPanel>
         <materialDesign:ColorZone  Grid.Row="3" Mode="Standard" Padding="8 4 8 4" Background="#11000000" CornerRadius="2" Panel.ZIndex="1" Margin="0,0,0,32" materialDesign:ShadowAssist.ShadowDepth="Depth1" VerticalAlignment="Center">
 
-            <ScrollViewer HorizontalAlignment="Stretch"  SizeChanged="{s:Action ErrlogSetChanged}" VerticalScrollBarVisibility="Auto"  Background="Transparent" MinHeight="200" MaxHeight="300">
+            <ScrollViewer HorizontalAlignment="Stretch" x:Name="sv"  PreviewMouseWheel="sv_PreviewMouseWheel" VerticalScrollBarVisibility="Auto"  Background="Transparent" MinHeight="200" MaxHeight="300">
 
-                <ListView  ItemsSource="{Binding AutoLoadLog}"  />
+                <ListView  ItemsSource="{Binding AutoLoadLog}" x:Name="lv" SizeChanged="lv_SizeChanged"/>
             </ScrollViewer>
         </materialDesign:ColorZone>
     </Grid>

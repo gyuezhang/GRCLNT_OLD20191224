@@ -11,5 +11,20 @@ namespace GRCLNT
         {
             InitializeComponent();
         }
+
+
+        private void sv_PreviewMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
+        {
+            ScrollViewer scv = (ScrollViewer)sender;
+            scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
+            e.Handled = true;
+        }
+
+        private void lv_SizeChanged(object sender, System.Windows.SizeChangedEventArgs e)
+        {
+            double d = lv.ActualHeight;
+            sv.ScrollToVerticalOffset(d);
+
+        }
     }
 }
