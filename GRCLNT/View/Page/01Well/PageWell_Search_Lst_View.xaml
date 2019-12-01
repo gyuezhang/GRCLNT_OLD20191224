@@ -28,8 +28,12 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" Foreground="White" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,0,0" FontSize="18" materialDesign:HintAssist.Hint="搜索"/>
-                    <Button Foreground="White" Grid.Column="1" Margin="0,0,0,0" Command="{s:Action RefreshWells}" Background="Transparent" BorderThickness="0">
+                    <TextBox Grid.Column="0" Foreground="White" Text="{Binding searchContent,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,0,0" FontSize="18" materialDesign:HintAssist.Hint="搜索">
+                        <TextBox.InputBindings>
+                            <KeyBinding Command="{s:Action RefreshWells}" CommandParameter="{Binding searchContent}" Key="Enter" />
+                        </TextBox.InputBindings>
+                    </TextBox>
+                    <Button Foreground="White" Grid.Column="1" Margin="0,0,0,0" Command="{s:Action RefreshWells}" CommandParameter="{Binding searchContent}" Background="Transparent" BorderThickness="0">
                         <materialDesign:PackIcon Kind="Magnify" Width="24" Height="24"/>
                     </Button>
                 </Grid>

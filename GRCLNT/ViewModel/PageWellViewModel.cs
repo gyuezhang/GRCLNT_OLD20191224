@@ -541,13 +541,15 @@ namespace GRCLNT
             }
         }
 
+        public string searchContent { get; set; } = "";
+
         private void CLNTResHandler_deleteWell(RES_STATE state)
         {
             switch (state)
             {
                 case RES_STATE.OK:
                     wndMainVM.mainMessageQueue.Enqueue("删除机井成功");
-                    RefreshWells("");
+                    RefreshWells(searchContent);
                     break;
                 case RES_STATE.FAILED:
                     wndMainVM.mainMessageQueue.Enqueue("删除机井失败");
@@ -655,7 +657,7 @@ namespace GRCLNT
                     break;
                 case 6:
                     wndMainVM.UpdateAddr(EnumPage.Well_Search_Lst);
-                    RefreshWells("");
+                    RefreshWells(searchContent);
                     break;
                 case 7:
                     wndMainVM.UpdateAddr(EnumPage.Well_State);
