@@ -54,13 +54,7 @@
                 <DataGridTextColumn Header="北纬" Binding="{Binding Lat}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="权属单位" Binding="{Binding UnitCat}"  IsReadOnly="True"/>
                 <DataGridTextColumn Header="用途" Binding="{Binding Usefor}" IsReadOnly="True"/>
-                <DataGridTemplateColumn Header="成井时间">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <DatePicker SelectedDate="{Binding DigTime}" IsEnabled="False" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="成井时间" Binding="{Binding DigTime, StringFormat=d}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="井深（m）" Binding="{Binding WellDepth}"  IsReadOnly="True"/>
                 <DataGridTextColumn Header="管材" Binding="{Binding TubeMat}" IsReadOnly="True" />
                 <DataGridTextColumn Header="井管内径（mm）" Binding="{Binding TubeIr}"  IsReadOnly="True"/>
