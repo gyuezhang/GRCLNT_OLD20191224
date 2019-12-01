@@ -33,7 +33,8 @@ namespace GRCLNT
             wndMainVM = _wndMainVM;
             wndMainVM.UpdateAddr(EnumPage.Well);
             czoning = RTData.zoning;
-            if(czoning.allLevel4Nodes.Count>0)
+            ezoning = RTData.zoning;
+            if (czoning.allLevel4Nodes.Count>0)
                 czoning.curlevel4Node = czoning.allLevel4Nodes[0];
             CLNTResHandler.createWell += CLNTResHandler_createWell;
             CLNTResHandler.getWellByFilter += CLNTResHandler_getWellByFilter;
@@ -565,11 +566,15 @@ namespace GRCLNT
         public void OnEditWell()
         {
             OnShowPage("10");
+
+
             editWell = curSelectWell;
         }
 
         public void OnEditWellOK()
         {
+            editWell.TsOrSt = ezoning.curlevel4Node.name;
+            editWell.Village = ezoning.curlevel5Node.name;
             CLNTAPI.ChangeWell(editWell);
         }
 
@@ -625,6 +630,7 @@ namespace GRCLNT
         public int iPageIndex { get; set; } = 0;
 
         public BDZoning czoning { get; set; } 
+        public BDZoning ezoning { get; set; }
         public void Onlevel4Changed()
         {
 
