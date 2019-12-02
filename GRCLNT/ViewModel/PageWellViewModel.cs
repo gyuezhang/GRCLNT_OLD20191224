@@ -566,15 +566,41 @@ namespace GRCLNT
         public void OnEditWell()
         {
             OnShowPage("10");
-
-
             editWell = curSelectWell;
+
+            wellParas.CurUnitCat = wellParas.UnitCat.Find(
+            delegate (WellPara unit)
+            {
+                return unit.Value == editWell.UnitCat;
+            });
+
+            wellParas.CurPumpModel = wellParas.PumpModel.Find(
+            delegate (WellPara unit)
+            {
+                return unit.Value == editWell.PumpMode;
+            });
+
+            wellParas.CurLoc = wellParas.Loc.Find(
+            delegate (WellPara unit)
+            {
+                return unit.Value == editWell.Loc;
+            });
+
+            wellParas.CurTubeMat = wellParas.TubeMat.Find(
+            delegate (WellPara unit)
+            {
+                return unit.Value == editWell.TubeMat;
+            });
         }
 
         public void OnEditWellOK()
         {
             editWell.TsOrSt = ezoning.curlevel4Node.name;
             editWell.Village = ezoning.curlevel5Node.name;
+            editWell.UnitCat = wellParas.CurUnitCat.Value;
+            editWell.TubeMat = wellParas.CurTubeMat.Value;
+            editWell.Loc = wellParas.CurLoc.Value;
+            editWell.PumpMode = wellParas.CurPumpModel.Value;
             CLNTAPI.ChangeWell(editWell);
         }
 
