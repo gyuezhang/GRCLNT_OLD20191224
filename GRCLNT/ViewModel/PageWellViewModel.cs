@@ -213,7 +213,27 @@ namespace GRCLNT
 
         public void OnParaSettingAddLoc()
         {
+            try
+            {
+                WellPara tmp = wellParas.AllParas.Find(
+                    delegate (WellPara node)
+                    {
+                        return node.Value == strParaSettingLoc;
+                    });
+                if(tmp!=null)
+                {
+                    wndMainVM.mainMessageQueue.Enqueue("重复添加了位置");
+                    return;
+                }
+            }
+            catch
+            {
+
+            }
+
             isAddingSetting = true;
+
+
             wellParas.Loc.Add(new WellPara(WellParaType.Loc, strParaSettingLoc));
             wellParas.ResetAllPara();
             CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
@@ -236,6 +256,24 @@ namespace GRCLNT
 
         public void OnParaSettingAddUnitCat()
         {
+            try
+            {
+                WellPara tmp = wellParas.AllParas.Find(
+                    delegate (WellPara node)
+                    {
+                        return node.Value == strParaSettingUnitCat;
+                    });
+                if (tmp != null)
+                {
+                    wndMainVM.mainMessageQueue.Enqueue("重复添加了权属单位");
+                    return;
+                }
+            }
+            catch
+            {
+
+            }
+
             isAddingSetting = true;
             wellParas.Loc.Add(new WellPara(WellParaType.UnitCat, strParaSettingUnitCat));
             wellParas.ResetAllPara();
@@ -256,6 +294,24 @@ namespace GRCLNT
 
         public void OnParaSettingAddTubeMat()
         {
+            try
+            {
+                WellPara tmp = wellParas.AllParas.Find(
+                    delegate (WellPara node)
+                    {
+                        return node.Value == strParaSettingTubeMat;
+                    });
+                if (tmp != null)
+                {
+                    wndMainVM.mainMessageQueue.Enqueue("重复添加了管材");
+                    return;
+                }
+            }
+            catch
+            {
+
+            }
+
             isAddingSetting = true;
             wellParas.Loc.Add(new WellPara(WellParaType.TubeMat, strParaSettingTubeMat));
             wellParas.ResetAllPara();
@@ -274,6 +330,24 @@ namespace GRCLNT
 
         public void OnParaSettingAddPumpModel()
         {
+            try
+            {
+                WellPara tmp = wellParas.AllParas.Find(
+                    delegate (WellPara node)
+                    {
+                        return node.Value == strParaSettingPumpModel;
+                    });
+                if (tmp != null)
+                {
+                    wndMainVM.mainMessageQueue.Enqueue("重复添加了水泵型号");
+                    return;
+                }
+            }
+            catch
+            {
+
+            }
+
             isAddingSetting = true;
             wellParas.Loc.Add(new WellPara(WellParaType.PumpModel, strParaSettingPumpModel));
             wellParas.ResetAllPara();
@@ -783,6 +857,7 @@ namespace GRCLNT
                     break;
                 case 9:
                     wndMainVM.UpdateAddr(EnumPage.Well_Setting);
+                    CLNTAPI.GetWellParas();
                     break;
                 case 10:
                     wndMainVM.UpdateAddr(EnumPage.Well_Edit);
