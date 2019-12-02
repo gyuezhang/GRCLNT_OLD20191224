@@ -68,13 +68,25 @@ namespace GRCLNT
 
         private void CLNTResHandler_getWellParas(RES_STATE state, WellParas paras)
         {
-            if (paras == null)
-                wellParas = new WellParas();
-            else
+            switch (state)
             {
-                wellParas = new WellParas(paras.AllParas);
-                RTData.wellParas = wellParas;
+                case RES_STATE.OK:
+
+                    if (paras == null)
+                        wellParas = new WellParas();
+                    else
+                    {
+                        wellParas = new WellParas(paras.AllParas);
+                        RTData.wellParas = wellParas;
+                    }
+                    break;
+                case RES_STATE.FAILED:
+                    wndMainVM.mainMessageQueue.Enqueue("参数获取失败");
+                    break;
+                default:
+                    break;
             }
+
             isAddingSetting = false;
         }
 
@@ -205,6 +217,7 @@ namespace GRCLNT
             wellParas.Loc.Add(new WellPara(WellParaType.Loc, strParaSettingLoc));
             wellParas.ResetAllPara();
             CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
+            strParaSettingLoc = "";
         }
 
         public bool isAddingSetting { get; set; } = false;
@@ -217,7 +230,7 @@ namespace GRCLNT
             CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
         }
         public bool CanOnParaSettingAddLoc => (strParaSettingLoc != null);
-        public bool CanOnParaSettingRemoveLoc => (wellParas.CurLoc.Value != "" && !isAddingSetting);
+        public bool CanOnParaSettingRemoveLoc => (wellParas.CurLoc != null && wellParas.CurLoc.Value != "" && wellParas.CurLoc.Value != null);
 
 
 
@@ -227,6 +240,7 @@ namespace GRCLNT
             wellParas.Loc.Add(new WellPara(WellParaType.UnitCat, strParaSettingUnitCat));
             wellParas.ResetAllPara();
             CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
+            strParaSettingUnitCat = "";
         }
         public void OnParaSettingRemoveUnitCat()
         {
@@ -236,7 +250,7 @@ namespace GRCLNT
             CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
         }
         public bool CanOnParaSettingAddUnitCat => (strParaSettingUnitCat != null && !isAddingSetting);
-        public bool CanOnParaSettingRemoveUnitCat => (wellParas.CurUnitCat.Value != "");
+        public bool CanOnParaSettingRemoveUnitCat => (wellParas.CurUnitCat != null && wellParas.CurUnitCat.Value != "" && wellParas.CurUnitCat.Value != null);
 
 
 
@@ -246,6 +260,7 @@ namespace GRCLNT
             wellParas.Loc.Add(new WellPara(WellParaType.TubeMat, strParaSettingTubeMat));
             wellParas.ResetAllPara();
             CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
+            strParaSettingTubeMat = "";
         }
         public void OnParaSettingRemoveTubeMat()
         {
@@ -254,7 +269,7 @@ namespace GRCLNT
             CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
         }
         public bool CanOnParaSettingAddTubeMat => (strParaSettingTubeMat != null && !isAddingSetting);
-        public bool CanOnParaSettingRemoveTubeMat => (wellParas.CurTubeMat.Value != "");
+        public bool CanOnParaSettingRemoveTubeMat => ( wellParas.CurTubeMat !=null && wellParas.CurTubeMat.Value != "" && wellParas.CurTubeMat.Value != null);
 
 
         public void OnParaSettingAddPumpModel()
@@ -263,6 +278,7 @@ namespace GRCLNT
             wellParas.Loc.Add(new WellPara(WellParaType.PumpModel, strParaSettingPumpModel));
             wellParas.ResetAllPara();
             CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
+            strParaSettingPumpModel = "";
         }
         public void OnParaSettingRemovePumpModel()
         {
@@ -272,7 +288,7 @@ namespace GRCLNT
             CLNTAPI.SetWellParas(wellParas); CLNTAPI.GetWellParas();
         }
         public bool CanOnParaSettingAddPumpModel => (strParaSettingPumpModel != null && !isAddingSetting);
-        public bool CanOnParaSettingRemovePumpModel => (wellParas.CurPumpModel.Value != "");
+        public bool CanOnParaSettingRemovePumpModel => (wellParas.CurPumpModel != null && wellParas.CurPumpModel.Value != "" && wellParas.CurPumpModel.Value != null);
 
 
 
