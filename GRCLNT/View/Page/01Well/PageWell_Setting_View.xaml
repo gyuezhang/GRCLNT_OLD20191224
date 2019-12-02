@@ -42,8 +42,8 @@
                             <materialDesign:PackIcon Kind="Remove" Foreground="Red" Width="24" Height="24"/>
                         </Button>
                     </Grid>
-                    <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,0,0,32">
-                        <ListView  ItemsSource="{Binding wellParas.Loc}" DisplayMemberPath="Value" SelectedItem="{Binding wellParas.CurLoc}"/>
+                    <ScrollViewer x:Name="svLoc" Grid.Row="1" VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" Margin="0,0,0,32">
+                        <ListView  ItemsSource="{Binding wellParas.Loc}" DisplayMemberPath="Value" SizeChanged="ListViewLoc_SizeChanged" SelectedItem="{Binding wellParas.CurLoc}"/>
                     </ScrollViewer>
                 </Grid>
                 <Grid Grid.Column="1" MinWidth="300">
@@ -65,8 +65,8 @@
                             <materialDesign:PackIcon Kind="Remove" Foreground="Red" Width="24" Height="24"/>
                         </Button>
                     </Grid>
-                    <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,0,0,32">
-                        <ListView  ItemsSource="{Binding wellParas.UnitCat}" DisplayMemberPath="Value" SelectedItem="{Binding wellParas.CurUnitCat}"/>
+                    <ScrollViewer  x:Name="svUnitCat"  Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,0,0,32">
+                        <ListView  ItemsSource="{Binding wellParas.UnitCat}" DisplayMemberPath="Value"  SizeChanged="ListViewUnitCat_SizeChanged" SelectedItem="{Binding wellParas.CurUnitCat}"/>
                     </ScrollViewer>
                 </Grid>
 
@@ -89,8 +89,8 @@
                             <materialDesign:PackIcon Kind="Remove" Foreground="Red" Width="24" Height="24"/>
                         </Button>
                     </Grid>
-                    <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,0,0,32">
-                        <ListView  ItemsSource="{Binding wellParas.TubeMat}" DisplayMemberPath="Value" SelectedItem="{Binding wellParas.CurTubeMat}"/>
+                    <ScrollViewer  x:Name="svTubeMat"  Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,0,0,32">
+                        <ListView  ItemsSource="{Binding wellParas.TubeMat}" DisplayMemberPath="Value" SizeChanged="ListViewTubeMat_SizeChanged"  SelectedItem="{Binding wellParas.CurTubeMat}"/>
                     </ScrollViewer>
                 </Grid>
 
@@ -113,8 +113,8 @@
                             <materialDesign:PackIcon Kind="Remove" Foreground="Red" Width="24" Height="24"/>
                         </Button>
                     </Grid>
-                    <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,0,0,32">
-                        <ListView  ItemsSource="{Binding wellParas.PumpModel}" DisplayMemberPath="Value" SelectedItem="{Binding wellParas.CurPumpModel}"/>
+                    <ScrollViewer  x:Name="svPumpModel"  Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,0,0,32">
+                        <ListView  ItemsSource="{Binding wellParas.PumpModel}" DisplayMemberPath="Value"  SizeChanged="ListViewPumpModel_SizeChanged" SelectedItem="{Binding wellParas.CurPumpModel}"/>
                     </ScrollViewer>
                 </Grid>
 
