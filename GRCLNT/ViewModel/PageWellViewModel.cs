@@ -567,6 +567,17 @@ namespace GRCLNT
         {
             OnShowPage("10");
             editWell = curSelectWell;
+            ezoning.curlevel4Node = ezoning.allLevel4Nodes.Find(
+                delegate (ZoningNode node)
+                {
+                    return node.name == editWell.TsOrSt;
+                });
+            
+            ezoning.curlevel5Node = ezoning.allLevel5Nodes.Find(
+                delegate (ZoningNode node)
+                {
+                    return node.name == editWell.Village;
+                });
 
             wellParas.CurUnitCat = wellParas.UnitCat.Find(
             delegate (WellPara unit)
