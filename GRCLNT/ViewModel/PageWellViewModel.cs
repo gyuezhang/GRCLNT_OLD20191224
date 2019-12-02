@@ -616,10 +616,59 @@ namespace GRCLNT
         {
             editWell.TsOrSt = ezoning.curlevel4Node.name;
             editWell.Village = ezoning.curlevel5Node.name;
-            editWell.UnitCat = wellParas.CurUnitCat.Value;
-            editWell.TubeMat = wellParas.CurTubeMat.Value;
-            editWell.Loc = wellParas.CurLoc.Value;
-            editWell.PumpMode = wellParas.CurPumpModel.Value;
+            if(wellParas.CurUnitCat==null)
+            {
+                if (wellParas.UnitCat.Count == 0)
+                    wndMainVM.mainMessageQueue.Enqueue("请先到参数设置中添加权属单位");
+                else
+                    wndMainVM.mainMessageQueue.Enqueue("请选择权属单位");
+                return;
+            }
+            else
+            {
+                editWell.UnitCat = wellParas.CurUnitCat.Value;
+            }
+
+            if (wellParas.CurTubeMat == null)
+            {
+                if (wellParas.TubeMat.Count == 0)
+                    wndMainVM.mainMessageQueue.Enqueue("请先到参数设置中添加管材");
+                else
+                    wndMainVM.mainMessageQueue.Enqueue("请选择管材");
+                return;
+            }
+            else
+            {
+                editWell.TubeMat = wellParas.CurTubeMat.Value;
+            }
+
+
+            if (wellParas.CurLoc == null)
+            {
+                if (wellParas.Loc.Count == 0)
+                    wndMainVM.mainMessageQueue.Enqueue("请先到参数设置中添加位置");
+                else
+                    wndMainVM.mainMessageQueue.Enqueue("请选择位置");
+                return;
+            }
+            else
+            {
+                editWell.Loc = wellParas.CurLoc.Value;
+            }
+
+
+            if (wellParas.CurPumpModel == null)
+            {
+                if (wellParas.PumpModel.Count == 0)
+                    wndMainVM.mainMessageQueue.Enqueue("请先到参数设置中添加水泵型号");
+                else
+                    wndMainVM.mainMessageQueue.Enqueue("请选择水泵型号");
+                return;
+            }
+            else
+            {
+                editWell.PumpMode = wellParas.CurPumpModel.Value;
+            }
             CLNTAPI.ChangeWell(editWell);
         }
 
