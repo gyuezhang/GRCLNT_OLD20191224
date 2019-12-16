@@ -12,17 +12,54 @@ namespace Socket
     public enum API_ID
     {
         API_ConnState,
-        API_Login,
         API_ChangeUserInfo,
-        API_ResetPwd,
 
         API_GetLevelZoning,
 
         API_CreateWell, 
         API_GetWellByFilter,
-        API_DeleteWell,
-        API_ChangeWell,
         API_SetWellParas,
+
+        API_AddAreaCode,
+        API_DeleteAreaCode,
+        API_ChangeAreaCode,
+        API_GetAreaCodes,
+
+        API_AdminUserResetPwd,
+        API_AdminUserLogin,
+
+
+        API_AddDept,
+        API_DeleteDept,
+        API_ChangeDept,
+        API_GetDepts,
+
+
+        API_AddUser,
+        API_DeleteUser,
+        API_ChangeUser,
+        API_GetUsers,
+        API_Login,
+        API_ResetPwd,
+
+        API_AddEntWell,
+        API_ChangeEntWell,
+        API_DeleteEntWell,
+        API_GetEntWells,
+
+        API_AddEntWellPara,
+        API_ChangeEntWellPara,
+        API_DeleteEntWellPara,
+        API_GetEntWellParas,
+
+        API_AddWell,
+        API_ChangeWell,
+        API_DeleteWell,
+        API_GetWells,
+
+        API_AddWellPara,
+        API_ChangeWellPara,
+        API_DeleteWellPara,
         API_GetWellParas,
     }
 

@@ -63,7 +63,7 @@
     <Compile Include="CfgLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RTData.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="C_User.cs" />
     <Compile Include="Well.cs" />
     <Compile Include="WellOutPut.cs" />
     <Compile Include="WellParas.cs" />

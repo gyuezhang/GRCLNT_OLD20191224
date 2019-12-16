@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Windows;
 using System.Windows.Threading;
@@ -77,7 +78,7 @@ namespace GRCLNT
             }
         }
 
-        private void CLNTResHandler_login(RES_STATE state, User user)
+        private void CLNTResHandler_login(RES_STATE state, C_User user)
         {
             switch(state)
             {
@@ -116,7 +117,77 @@ namespace GRCLNT
 
         public void OnStartLogin()
         {
-            StartManualLogin();
+            //StartManualLogin();
+            //C_AreaCode ac = new C_AreaCode();
+            //ac.Id = 1;
+            //ac.Code = 123;
+            //ac.PCode = 123;
+            //ac.Name = "123";
+            //ac.Level = 45;
+            //CLNTAPI.AddAreaCode(ac);
+
+            //CLNTAPI.DeleteAreaCode(3);
+
+            //CLNTAPI.ChangeAreaCode(ac);
+            //CLNTAPI.GetAreaCodes();
+
+            //CLNTAPI.AdminUserLogin(Md5.GetHash("123"));
+            //CLNTAPI.AdminUserResetPwd(Md5.GetHash("123456"), Md5.GetHash("123"));
+
+            //CLNTAPI.AddDept("dept1");
+            // CLNTAPI.ChangeDept("dept1","dept2");
+            //CLNTAPI.AddDept("dept1");
+            //CLNTAPI.AddDept("dept2");
+            //CLNTAPI.AddDept("dept3");
+            //CLNTAPI.AddDept("dept4");
+
+            // CLNTAPI.GetDepts();
+            //C_User u = new C_User();
+            //u.Id = 14;
+            //u.Name = "ggg";
+            //u.Pwd = "456";
+            //u.DeptName = "dept2";
+            //u.Tel = "abc";
+            //u.Email = "def";
+            //CLNTAPI.ChangeUser(u);
+            //CLNTAPI.GetUsers();
+            //CLNTAPI.Login("ggg","456");
+            //CLNTAPI.ResetPwd(14,"456","aaa");
+            //C_WellPara wp = new C_WellPara(E_WellParaType.Loc, "1223");
+            //C_WellPara wp2 = new C_WellPara(E_WellParaType.PumpModel, "4256");
+            //CLNTAPI.AddWellPara(wp);
+            //CLNTAPI.AddWellPara(wp2);
+            //CLNTAPI.AddEntWellPara(wp);
+            //CLNTAPI.AddEntWellPara(wp2);
+            //CLNTAPI.AddEntWellPara(wp);
+            //CLNTAPI.DeleteEntWellPara(wp);
+
+            //CLNTAPI.GetWellParas();
+            //CLNTAPI.GetEntWellParas();
+
+
+            //C_Well well = new C_Well(); well.Id = 2;
+            //well.TsOrSt = "55555";
+            //CLNTAPI.ChangeWell(well);
+
+            //C_EntWell ewell = new C_EntWell(); ewell.Id = 2;
+            //ewell.TsOrSt = "55555";
+            //CLNTAPI.ChangeEntWell(ewell);
+
+            //List<C_EntWell> wells = new List<C_EntWell>();
+            //C_EntWell well = new C_EntWell();
+            //well.TsOrSt = "123123";
+            //wells.Add(well);
+            // CLNTAPI.AddEntWells(wells);
+
+            //C_Well well = new C_Well();well.Id = 1;
+            //C_EntWell entWell = new C_EntWell(); entWell.Id = 3;
+
+            //CLNTAPI.DeleteWell(well);
+            //CLNTAPI.DeleteEntWell(entWell);
+
+            CLNTAPI.GetWells();
+            CLNTAPI.GetEntWells();
         }
 
         public void OnSettingOK()
@@ -179,9 +250,9 @@ namespace GRCLNT
         {
             loginMessageQueue.Enqueue("正在登录");
             if(iPwdChangeCnt == 1)
-                CLNTAPI.Login(loginCfg.UsrName, loginCfg.UsrPwd);
+                CLNTAPI.Login2(loginCfg.UsrName, loginCfg.UsrPwd);
             else
-                CLNTAPI.Login(loginCfg.UsrName, Md5.GetHash(curPwd));
+                CLNTAPI.Login2(loginCfg.UsrName, Md5.GetHash(curPwd));
         }
 
         public void StartAutoLogin()
@@ -190,7 +261,7 @@ namespace GRCLNT
             loginMessageQueue.Enqueue("正在自动登录",
                 "取消",
                 CancelAutoLogin);
-            CLNTAPI.Login(Cfg.GetLogin().UsrName, Cfg.GetLogin().UsrPwd);
+            CLNTAPI.Login2(Cfg.GetLogin().UsrName, Cfg.GetLogin().UsrPwd);
         }
 
         public void CancelAutoLogin()

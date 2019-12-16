@@ -8,7 +8,7 @@ using System.Windows.Threading;
 
 namespace GRCLNT
 {
-    class WndMainViewModel : Screen
+    public class WndMainViewModel : Screen
     {
         private IWindowManager _windowManager;
 
@@ -20,7 +20,7 @@ namespace GRCLNT
             curPage = new PageHomeViewModel(this);
             ((PageHomeViewModel)curPage).OnShowDashboard();
 
-            addrsBar = new CtrlAddrBarViewModel(this);
+            //addrsBar = new CtrlAddrBarViewModel(this);
             UpdateAddr(EnumPage.Home_Dashboard);
 
             CLNTAPI.GetLevelZones(4);
@@ -69,7 +69,7 @@ namespace GRCLNT
             vImageDragVisible = (CurWindowState != WindowState.Maximized) ? Visibility.Visible : Visibility.Hidden;
         }
 
-        public string strAvaLetter { get; set; } = RTData.loginSuccessUserInfo.Name.Substring(0, 1).ToUpper();
+        public string strAvaLetter { get; set; } ="";// RTData.loginSuccessUserInfo.Name.Substring(0, 1).ToUpper();
         public void OnLogOut()
         {
             App.Current.Dispatcher.Invoke((Action)(() =>
@@ -141,7 +141,7 @@ namespace GRCLNT
 
         public Screen curPage { get; set; }
 
-        public CtrlAddrBarViewModel addrsBar { get; set; }
+        //public CtrlAddrBarViewModel addrsBar { get; set; }
 
         public void OnLogout()
         {
@@ -164,8 +164,8 @@ namespace GRCLNT
         {
             try
             {
-                addrsBar = new CtrlAddrBarViewModel(this);
-                addrsBar.UpdateList(id);
+                //addrsBar = new CtrlAddrBarViewModel(this);
+                //addrsBar.UpdateList(id);
             }
             catch
             {
