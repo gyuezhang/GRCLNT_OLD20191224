@@ -4,10 +4,10 @@ using Stylet;
 namespace Models
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class User : PropertyChangedBase
+    public class C_User : PropertyChangedBase
     {
 
-        private string _id;
+        private int _id;
 
         private string _name;
 
@@ -20,7 +20,7 @@ namespace Models
         private string _email;
 
         [JsonProperty]
-        public string Id
+        public int Id
         {
             get { return _id; }
             set
@@ -79,4 +79,5 @@ namespace Models
             }
         }
     }
+
 }

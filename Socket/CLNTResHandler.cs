@@ -17,25 +17,25 @@ namespace Socket
             ConnState(request.resState);
         }
 
-        public delegate void LoginEventHandler(RES_STATE state, User user);
+        public delegate void LoginEventHandler(RES_STATE state, C_User user);
         public static event LoginEventHandler login;
         public static void OnLogin(CLNTStringPackageInfo request)
         {
-            login(request.resState, JsonConvert.DeserializeObject<User>(string.Join("", request.Parameters)));
+            login(request.resState, JsonConvert.DeserializeObject<C_User>(string.Join("", request.Parameters)));
         }
 
-        public delegate void ChangeUserInfoEventHandler(RES_STATE state, User user);
+        public delegate void ChangeUserInfoEventHandler(RES_STATE state, C_User user);
         public static event ChangeUserInfoEventHandler changeUserInfo;
         public static void OnChangeUserInfo(CLNTStringPackageInfo request)
         {
-            changeUserInfo(request.resState, JsonConvert.DeserializeObject<User>(string.Join("", request.Parameters)));
+            changeUserInfo(request.resState, JsonConvert.DeserializeObject<C_User>(string.Join("", request.Parameters)));
         }
 
         public delegate void ResetPwdEventHandler(RES_STATE state);
         public static event ResetPwdEventHandler resetPwd;
         public static void OnResetPwd(CLNTStringPackageInfo request)
         {
-            resetPwd(request.resState);
+            //resetPwd(request.resState);
         }
 
         public delegate void GetLevelZonesEventHandler(RES_STATE state, List<ZoningNode> nodes);

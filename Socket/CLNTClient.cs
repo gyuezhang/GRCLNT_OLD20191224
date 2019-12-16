@@ -46,11 +46,25 @@ namespace Socket
                     case API_ID.API_ChangeWell:
                         CLNTResHandler.OnChangeWell(request);
                         break;
-                    case API_ID.API_GetWellParas:
-                        CLNTResHandler.OnGetWellParas(request);
-                        break;
+                    //case API_ID.API_GetWellParas:
+                    //    CLNTResHandler.OnGetWellParas(request);
+                    //    break;
                     case API_ID.API_SetWellParas:
                         CLNTResHandler.OnSetWellParas(request);
+                        break;
+                    case API_ID.API_GetAreaCodes:
+                        break;
+                    case API_ID.API_GetDepts:
+                        break;
+                    case API_ID.API_GetUsers:
+                        break;
+                    case API_ID.API_GetWellParas:
+                        break;
+                    case API_ID.API_GetEntWellParas:
+                        break;
+                    case API_ID.API_GetWells:
+                        break;
+                    case API_ID.API_GetEntWells:
                         break;
                     default:
                         break;
@@ -59,7 +73,7 @@ namespace Socket
             _ = SyncConn();
         }
 
-        public static bool IsConnected => ezClient.IsConnected;
+        public static bool IsConnected => true;// ezClient.IsConnected;
 
         private static async Task SyncConn()
         {

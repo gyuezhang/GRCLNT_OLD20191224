@@ -34,7 +34,7 @@ namespace GRCLNT
             }
         }
 
-        private void CLNTResHandler_changeUserInfo(RES_STATE state, User user)
+        private void CLNTResHandler_changeUserInfo(RES_STATE state, C_User user)
         {
             switch(state)
             {
@@ -52,7 +52,7 @@ namespace GRCLNT
             }
         }
 
-        public User _curUser { get; set; } = RTData.loginSuccessUserInfo;
+        public C_User _curUser { get; set; } = RTData.loginSuccessUserInfo;
         public int iPageIndex { get; set; } = 0;
 
         public void OnShowDashboard()
@@ -92,7 +92,7 @@ namespace GRCLNT
         {
             if(CheckChangeInfo())
             {
-                User tmpUser = new User();
+                C_User tmpUser = new C_User();
                 tmpUser.Id = _curUser.Id;
                 tmpUser.Name = _curUser.Name;
                 tmpUser.Pwd = _curUser.Pwd;
@@ -110,8 +110,8 @@ namespace GRCLNT
         public string changeUserEmail { get; set; } = RTData.loginSuccessUserInfo.Email;
         public void OnChangePwdOK()
         {
-            if(CheckResetPwd())
-                CLNTAPI.ResetPwd(_curUser.Id, Md5.GetHash(pwdOld), Md5.GetHash(pwdNew));
+            //if (CheckResetPwd())
+                ;// CLNTAPI.ResetPwd(_curUser.Id, Md5.GetHash(pwdOld), Md5.GetHash(pwdNew));
         }
 
         public  bool CheckResetPwd()
