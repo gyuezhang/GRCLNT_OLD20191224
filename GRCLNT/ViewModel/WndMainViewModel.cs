@@ -12,6 +12,5 @@ namespace GRCLNT
 {
     public class WndMainViewModel : Screen
     {
-
     }
 }

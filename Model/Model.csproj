@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AreaCode.cs" />
+    <Compile Include="CfgLogin.cs" />
     <Compile Include="CommonType.cs" />
     <Compile Include="EntWell.cs" />
     <Compile Include="Log.cs" />
