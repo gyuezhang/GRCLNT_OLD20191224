@@ -193,10 +193,14 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="ViewModel\WndLoginViewModel.cs" />
+    <Compile Include="ViewModel\WndMainViewModel.cs" />
     <Compile Include="View\Resource\Tool\PasswordHelper.cs" />
     <Compile Include="View\Resource\Tool\UI_Def.cs" />
     <Compile Include="View\Wnd\WndLoginView.xaml.cs">
       <DependentUpon>WndLoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Wnd\WndMainView.xaml.cs">
+      <DependentUpon>WndMainView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +251,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Wnd\WndLoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Wnd\WndMainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
