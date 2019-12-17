@@ -22,6 +22,9 @@ namespace Socket
                     case API_ID.API_ConnState:
                         CLNTResHandler.OnConnState(request);
                         break;
+                    case API_ID.API_Login:
+                        CLNTResHandler.OnLogin(request);
+                        break;
                     default:
                         break;
                 }

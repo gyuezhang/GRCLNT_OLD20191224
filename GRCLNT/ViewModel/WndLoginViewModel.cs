@@ -121,6 +121,10 @@ namespace GRCLNT
         {
             iTransitionerIndex = 0;
             CLNTClient.Conn(loginCfg.SvrIp);
+            string tmpIp = loginCfg.SvrIp;
+            loginCfg = new CfgLogin();
+            loginCfg.SvrIp = tmpIp;
+            Cfg.SetLogin(loginCfg);
         }
 
         public void OnTestServer()
