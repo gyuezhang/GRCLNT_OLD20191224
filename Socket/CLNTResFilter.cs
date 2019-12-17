@@ -1,4 +1,5 @@
-﻿using SuperSocket.ProtoBase;
+﻿using Model;
+using SuperSocket.ProtoBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;

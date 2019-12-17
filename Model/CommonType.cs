@@ -128,6 +128,7 @@ namespace Model
         FAILED,
         BAD_REQUEST,//请求参数（格式）错误
         INCORRECT,//请求参数（值）不正确
+        SVR_NOTFOUND_RECONN,
     }
 
 

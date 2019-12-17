@@ -1,5 +1,6 @@
 ﻿using Model;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace Socket
@@ -8,9 +9,10 @@ namespace Socket
     {
         public static void Login(string name, string pwd)
         {
+            Tuple<string, string> loginInputs = new Tuple<string, string>(name, pwd);
             if (CLNTClient.IsConnected)
             {
-                CLNTClient.Send(API_ID.API_Login, JsonConvert.SerializeObject(""));
+                CLNTClient.Send(API_ID.API_Login, JsonConvert.SerializeObject(loginInputs));
             }
             else
             {

@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API_Def.cs" />
+    <Compile Include="CLNTAPI.cs" />
     <Compile Include="CLNTClient.cs" />
     <Compile Include="CLNTResFilter.cs" />
     <Compile Include="CLNTResHandler.cs" />
@@ -152,8 +153,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Config\log4net.config" />
-    <None Include="Config\log4net.unix.config" />
     <None Include="packages.config" />
     <None Include="supersocket.cmd" />
     <None Include="supersocket.sh" />

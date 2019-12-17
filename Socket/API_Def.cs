@@ -62,23 +62,4 @@ namespace Socket
         API_DeleteWellPara,
         API_GetWellParas,
     }
-
-    /// <summary>
-    /// 服务器API返回状态
-    /// </summary>
-    public enum RES_STATE
-    {
-        /// <summary>
-        /// 服务器返回状态,此部分同服务器一致
-        /// </summary>
-        OK,
-        FAILED,
-        BAD_REQUEST,
-
-
-        /// <summary>
-        /// 客户端自身状态
-        /// </summary>
-        SVR_NOTFOUND_RECONN,
-    }
 }
