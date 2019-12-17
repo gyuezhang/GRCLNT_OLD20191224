@@ -82,6 +82,23 @@ namespace GRCLNT
             iPwdChangeCnt++;
         }
         #endregion Actions
-
+        private bool CheckIp()
+        {
+            if (loginCfg.SvrIp == "")
+            {
+                loginMessageQueue.Enqueue("IP地址不能为空");
+                return false;
+            }
+            try
+            {
+                IPAddress.Parse(loginCfg.SvrIp);
+            }
+            catch
+            {
+                loginMessageQueue.Enqueue("无效的IP地址");
+                return false;
+            }
+            return true;
+        }
     }
 }
